@@ -466,3 +466,40 @@
 [2025-10-29 19:17:50] Student SDOO2 logged out.
 [2025-10-29 19:17:50] Redirected to Student Portal.
 [2025-10-29 19:17:52] User selected Log Out. Application shutting down.
+[2025-10-29 23:42:22] Application started.
+[2025-10-29 23:42:25] User trying to login
+[2025-10-29 23:47:04] Application started.
+[2025-10-29 23:47:13] User trying to login
+[2025-10-29 23:47:24] Login failed, user information don't match for username: sd with password: sdad
+[2025-10-29 23:47:24] Login failed for username: sd
+[2025-10-29 23:47:46] Admin trying to login, registering data...
+[2025-10-29 23:47:46] Admin verification failed for username: kahsheng
+[2025-10-29 23:47:46] Admin log in failed for username: kahsheng
+[2025-10-29 23:48:03] Admin trying to login, registering data...
+[2025-10-29 23:48:03] Admin verification successful for username: kahsheng
+[2025-10-29 23:48:03] Admin log in successful for: kahsheng
+[2025-10-29 23:48:03] Current Admin editing: User{userId='SA001', username='kahsheng', password='kahsheng4', role='SystemAdmin'}
+[2025-10-29 23:56:47] Application started.
+[2025-10-29 23:57:30] User trying to login
+[2025-10-29 23:57:35] Login failed, user information don't match for username: f with password: ff
+[2025-10-29 23:57:35] Login failed for username: f
+[2025-10-29 23:57:48] Admin trying to login, registering data...
+[2025-10-29 23:57:48] Admin verification successful for username: kahsheng
+[2025-10-29 23:57:48] Admin log in successful for: kahsheng
+[2025-10-29 23:57:48] Current Admin editing: User{userId='SA001', username='kahsheng', password='kahsheng4', role='SystemAdmin'}
+[2025-10-30 00:00:05] Edited student list successfully saved to students.txt
+[2025-10-30 00:00:05] User list successfully saved to user.txt
+[2025-10-30 00:00:26] EDIT FAILED: User not found for username: solomun
+[2025-10-30 00:01:01] Application started.
+[2025-10-30 00:01:10] Admin trying to login, registering data...
+[2025-10-30 00:01:10] Admin verification successful for username: kahsheng
+[2025-10-30 00:01:10] Admin log in successful for: kahsheng
+[2025-10-30 00:01:10] Current Admin editing: User{userId='SA001', username='kahsheng', password='kahsheng4', role='SystemAdmin'}
+[2025-10-30 00:01:20] Starting edit for User ID: SD991, Username: salomun, Role: Student
+[2025-10-30 00:01:28] Edited student list successfully saved to students.txt
+[2025-10-30 00:01:28] Edited supervisor list successfully saved to supervisors.txt
+[2025-10-30 00:01:28] ROLE CHANGE: Student salomun changed to Supervisor.
+[2025-10-30 00:01:28] User list successfully saved to user.txt
+[2025-10-30 00:01:28] File Update: student.txt saved.
+[2025-10-30 00:01:28] Edited student list successfully saved to students.txt
+[2025-10-30 00:01:28] File Update: users.txt saved.

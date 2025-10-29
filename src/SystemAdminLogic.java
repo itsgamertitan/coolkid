@@ -494,20 +494,171 @@ public class SystemAdminLogic {
                     String newRole = newValue.replaceAll("\\s+", "");
                     newRole = newRole.substring(0, 1).toUpperCase() + newRole.substring(1).toLowerCase();
                     
-                    if (newRole.equals("Student") || newRole.equals("Supervisor") || newRole.equals("Facultyadmin") || newRole.equals("Systemadmin")) {
-                            userToModify.setRole(newRole);
-                            System.out.println("Role successfully updated to " + newRole + ".");
+                    switch(newRole){
+                        case "Student":
+                            switch(tempRole){
+                                case "Supervisor":
+                                    supervisorToModify.setRole("Student");
+                                    String studentID = supervisorToModify.getUserId();
+                                    String username = supervisorToModify.getUsername();
+                                    String password = supervisorToModify.getPassword();
+                                    String program = getNonBlankInput("Enter Program (e.g., IT-SE, CS): ", "Program");
+                                    String supervisor = getNonBlankInput("Enter Supervisor: ", "Supervisor Name");
+                                    Student newStudent = new Student(studentID, username, password, program, supervisor);
+                                    students.add(newStudent);
+                                    supervisors.remove(supervisorToModify);
+                                    FileHandling.saveAllSupervisors(supervisors, supervisorsFile);
+                                    FileHandling.saveAllStudents(students, studentsFile);
+                                    modified = true;
+                                    Log.writeLog("ROLE CHANGE: Supervisor " + username + " changed to Student.");
+                                    break;
+
+                                case "FacultyAdmin": 
+                                    facultyAdminToModify.setRole("Student");
+                                    String faStudentID = facultyAdminToModify.getUserId();
+                                    String faUsername = facultyAdminToModify.getUsername();
+                                    String faPassword = facultyAdminToModify.getPassword();
+                                    String faProgram = getNonBlankInput("Enter Program (e.g., IT-SE, CS): ", "Program");
+                                    String faSupervisor = getNonBlankInput("Enter Supervisor: ", "Supervisor Name");
+                                    Student faNewStudent = new Student(faStudentID, faUsername, faPassword, faProgram, faSupervisor);
+                                    students.add(faNewStudent);
+                                    facultyAdmins.remove(facultyAdminToModify);
+                                    FileHandling.saveAllFacultyAdmins(facultyAdmins, facultyAdminFile);
+                                    FileHandling.saveAllStudents(students, studentsFile);
+                                    modified = true;
+                                    Log.writeLog("ROLE CHANGE: Faculty Admin " + faUsername + " changed to Student.");
+                                    break;
+                                
+                                case "SystemAdmin":
+                                    systemAdminToModify.setRole("Student");
+                                    String saStudentID = systemAdminToModify.getUserId();
+                                    String saUsername = systemAdminToModify.getUsername();
+                                    String saPassword = systemAdminToModify.getPassword();
+                                    String saProgram = getNonBlankInput("Enter Program (e.g., IT-SE, CS): ", "Program");
+                                    String saSupervisor = getNonBlankInput("Enter Supervisor: ", "Supervisor Name");
+                                    Student saNewStudent = new Student(saStudentID, saUsername, saPassword, saProgram, saSupervisor);
+                                    students.add(saNewStudent);
+                                    systemAdmins.remove(systemAdminToModify);
+                                    FileHandling.saveAllSystemAdmins(systemAdmins, systemAdminFile);
+                                    FileHandling.saveAllStudents(students, studentsFile);
+                                    modified = true;
+                                    Log.writeLog("ROLE CHANGE: System Admin " + saUsername + " changed to Student.");
+                                    break;
+
+                                default:
+                                    System.out.println("Role change from " + tempRole + " to Student is not supported.");
+                                    Log.writeLog("CANNOT CHANGE ROLE: " + userToModify.getUsername());
+                            }
+                            break; 
                             
-                            System.out.println("\n*** NOTICE: Role change applied. Specific data for the OLD role will be DELETED from its file.");
-                            System.out.println("You MUST manually create a new entry via the 'Create New User' menu if you wish to define details for the new role (e.g., student program, supervisor list). ***");
-                            Log.writeLog("FIELD CHANGE: Role changed from " + originalRole + " to " + newRole);
-                            modified = true;
-                    } else {
-                            System.out.println("Invalid role entered. Role not changed.");
-                            Log.writeLog("FIELD CHANGE FAILED: Invalid role attempted: " + newValue);
-                    }
-                    break;
-                    
+                        case "Supervisor":
+                            switch(tempRole){
+                                case "Student":
+                                    studentToModify.setRole("Supervisor");
+                                    String supervisorID = studentToModify.getUserId();
+                                    String username = studentToModify.getUsername();
+                                    String password = studentToModify.getPassword();
+                                    List<String> assignedStudents = new ArrayList<>(); 
+                                    Supervisor newSupervisor = new Supervisor(supervisorID, username, password, assignedStudents);
+                                    supervisors.add(newSupervisor);
+                                    students.remove(studentToModify);
+                                    FileHandling.saveAllStudents(students, studentsFile);
+                                    FileHandling.saveAllSupervisors(supervisors, supervisorsFile);
+                                    modified = true;
+                                    Log.writeLog("ROLE CHANGE: Student " + username + " changed to Supervisor.");
+                                    break;
+
+                                case "FacultyAdmin":
+                                    facultyAdminToModify.setRole("Supervisor");
+                                    String faSupervisorID = facultyAdminToModify.getUserId();
+                                    String faUsername = facultyAdminToModify.getUsername();
+                                    String faPassword = facultyAdminToModify.getPassword();
+                                    List<String> faAssignedStudents = new ArrayList<>();
+                                    Supervisor faNewSupervisor = new Supervisor(faSupervisorID, faUsername, faPassword, faAssignedStudents);
+                                    supervisors.add(faNewSupervisor);
+                                    facultyAdmins.remove(facultyAdminToModify);
+                                    FileHandling.saveAllFacultyAdmins(facultyAdmins, facultyAdminFile);
+                                    FileHandling.saveAllSupervisors(supervisors, supervisorsFile);
+                                    Log.writeLog("ROLE CHANGE: Faculty Admin " + faUsername + " changed to Supervisor.");
+                                    modified = true;
+                                    break;
+
+                                case "SystemAdmin":
+                                    systemAdminToModify.setRole("Supervisor");
+                                    String saSupervisorID = systemAdminToModify.getUserId();
+                                    String saUsername = systemAdminToModify.getUsername();
+                                    String saPassword = systemAdminToModify.getPassword();
+                                    List<String> saAssignedStudents = new ArrayList<>();
+                                    Supervisor saNewSupervisor = new Supervisor(saSupervisorID, saUsername, saPassword, saAssignedStudents);
+                                    supervisors.add(saNewSupervisor);
+                                    systemAdmins.remove(systemAdminToModify);
+                                    FileHandling.saveAllSystemAdmins(systemAdmins, systemAdminFile);
+                                    FileHandling.saveAllSupervisors(supervisors, supervisorsFile);
+                                    Log.writeLog("ROLE CHANGE: System Admin " + saUsername + " changed to Supervisor.");
+                                    modified = true;
+                                    break;
+                                
+                                default:
+                                    System.out.println("Role change not applicable. No changes made.");
+                                    Log.writeLog("CANNOT CHANGE ROLE: " + userToModify.getUsername());
+                            }
+                            break; 
+
+                        case "FacultyAdmin":
+                            switch(tempRole){
+                                case "Student":
+                                    studentToModify.setRole("FacultyAdmin");
+                                    String facultyAdminID = studentToModify.getUserId();
+                                    String username = studentToModify.getUsername();
+                                    String password = studentToModify.getPassword();
+                                    FacultyAdmin newFacultyAdmin = new FacultyAdmin(facultyAdminID, username, password);
+                                    facultyAdmins.add(newFacultyAdmin);
+                                    students.remove(studentToModify);
+                                    FileHandling.saveAllStudents(students, studentsFile);
+                                    FileHandling.saveAllFacultyAdmins(facultyAdmins, facultyAdminFile);
+                                    modified = true;
+                                    Log.writeLog("ROLE CHANGE: Student " + username + " changed to Faculty Admin.");
+                                    break;
+
+                                case "Supervisor":
+                                    supervisorToModify.setRole("FacultyAdmin");
+                                    String faFacultyAdminID = supervisorToModify.getUserId();
+                                    String faUsername = supervisorToModify.getUsername();
+                                    String faPassword = supervisorToModify.getPassword();
+                                    FacultyAdmin faNewFacultyAdmin = new FacultyAdmin(faFacultyAdminID, faUsername, faPassword);
+                                    facultyAdmins.add(faNewFacultyAdmin);
+                                    supervisors.remove(supervisorToModify);
+                                    FileHandling.saveAllSupervisors(supervisors, supervisorsFile);
+                                    FileHandling.saveAllFacultyAdmins(facultyAdmins, facultyAdminFile);
+                                    Log.writeLog("ROLE CHANGE: Supervisor " + faUsername + " changed to Faculty Admin.");
+                                    modified = true;
+                                    break;
+
+                                case "SystemAdmin":
+                                    System.out.println("Role change to Faculty Admin from System Admin is not supported in this version.");
+                                    Log.writeLog("CANNOT CHANGE ROLE TO FacultyAdmin: " + userToModify.getUsername());
+                                    break;
+                                    
+                                default:
+                                    System.out.println("Role change not applicable. No changes made.");
+                                    Log.writeLog("CANNOT CHANGE ROLE: " + userToModify.getUsername());
+                            }
+                            break; 
+                            
+                        case "SystemAdmin":
+                            System.out.println("Role change to System Admin is not supported in this version.");
+                            Log.writeLog("CANNOT CHANGE ROLE TO SystemAdmin: " + userToModify.getUsername());
+                            break;
+                            
+                        default:
+                            System.out.println("Invalid role selected. Please enter Student, Supervisor, FacultyAdmin, or SystemAdmin.");
+                            Log.writeLog("INVALID NEW ROLE ATTEMPTED: " + newRole);
+
+                    } 
+                    break; 
+
+
+
                 case 4:
                     editing = false;
                     System.out.println("\nEdit session finalized. Returning to User Account Management.");

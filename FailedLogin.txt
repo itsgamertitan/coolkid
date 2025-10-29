@@ -8,3 +8,6 @@
 [2025-10-29 02:20:15] User: studuser tried to login with password of: stud123
 [2025-10-29 02:21:22] User: studuser tried to login with password of: stud123
 [2025-10-29 02:41:24] User: STU001 tried to login with password of: sds
+[2025-10-29 23:47:24] User: sd tried to login with password of: sdad
+[2025-10-29 23:47:46] User: kahsheng tried to login with password of: kahshegn4
+[2025-10-29 23:57:35] User: f tried to login with password of: ff
