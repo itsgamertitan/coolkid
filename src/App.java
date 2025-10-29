@@ -148,7 +148,7 @@ public class App {
             Log.writeLog("Redirected to Student Portal.");
             break;
             case "Supervisor":
-            supervisorPortal();
+            supervisorPortal(loggedInUser);
             Log.writeLog("Redirected to Supervisor Portal.");
             break;
             case "SystemAdmin":
@@ -165,11 +165,21 @@ public class App {
         }
     }
 
-    public static void supervisorPortal(){
-        System.out.println("Insert here");
+    public static void supervisorPortal(User loggedInUser){
+        Supervisor tempvisor = null;
+        for (Supervisor supervisor : supervisors) {
+            Log.writeLog("inside for loop");
+            if (supervisor.getUsername().equals(loggedInUser.getUsername())) {
+                Log.writeLog("inside if");
+                tempvisor = supervisor;
+            }
+        }
+        SupervisorLogic supervisorlogic = new SupervisorLogic();
+        supervisorlogic.supervisorPortal(tempvisor);
     }
     public static void facultyAdminPortal(){
-        System.out.println("Insert here");
+        FacultyAdminLogic facultyadminlogic = new FacultyAdminLogic(STUDENTS_FILE,SUPERVISORS_FILE,students,supervisors);
+        facultyadminlogic.runFacultyAdminPortal();
     }
     public static void systemAdminPortal(User loggedInUser){
         SystemAdminLogic adminLogic=new SystemAdminLogic(users,scanner,STUDENTS_FILE,SUPERVISORS_FILE,FACULTYADMIN_FILE,SYSTEMADMIN_FILE,USER_FILE,loggedInUser,systemAdmins,students,facultyAdmins,supervisors);

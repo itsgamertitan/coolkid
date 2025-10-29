@@ -503,3 +503,342 @@
 [2025-10-30 00:01:28] File Update: student.txt saved.
 [2025-10-30 00:01:28] Edited student list successfully saved to students.txt
 [2025-10-30 00:01:28] File Update: users.txt saved.
+[2025-10-30 04:14:51] Application started.
+[2025-10-30 04:16:59] Application started.
+[2025-10-30 04:17:02] User trying to login
+[2025-10-30 04:17:16] Login failed, user information don't match for username: packmon with password: packmon
+[2025-10-30 04:17:16] Login failed for username: packmon
+[2025-10-30 04:17:18] User trying to login
+[2025-10-30 04:17:23] Login successful for user: packmon
+[2025-10-30 04:17:23] Login successful for user: packmon
+[2025-10-30 04:17:23] Attempting to redirect user packmon to portal for role: Supervisor
+[2025-10-30 04:17:23] inside for loop
+[2025-10-30 04:21:05] Application started.
+[2025-10-30 04:31:19] Application started.
+[2025-10-30 04:31:51] User trying to login
+[2025-10-30 04:32:01] Login successful for user: jacob
+[2025-10-30 04:32:01] Login successful for user: jacob
+[2025-10-30 04:32:01] Attempting to redirect user jacob to portal for role: FacultyAdmin
+[2025-10-30 04:32:31] Before if
+[2025-10-30 04:32:31] Before if
+[2025-10-30 04:32:31] Before if
+[2025-10-30 04:32:31] Before if
+[2025-10-30 04:32:31] Student modified
+[2025-10-30 04:32:31] Student or Supervisor not found
+[2025-10-30 04:32:31] redirecting to reassign
+[2025-10-30 04:33:03] Application started.
+[2025-10-30 04:33:05] User trying to login
+[2025-10-30 04:33:13] Login successful for user: jacob
+[2025-10-30 04:33:13] Login successful for user: jacob
+[2025-10-30 04:33:13] Attempting to redirect user jacob to portal for role: FacultyAdmin
+[2025-10-30 04:33:35] Before if
+[2025-10-30 04:33:35] Before if
+[2025-10-30 04:33:35] Before if
+[2025-10-30 04:33:35] Student modified
+[2025-10-30 04:33:35] Student or Supervisor not found
+[2025-10-30 04:33:35] redirecting to reassign
+[2025-10-30 04:36:00] Application started.
+[2025-10-30 04:36:05] User trying to login
+[2025-10-30 04:36:11] Login successful for user: jacob
+[2025-10-30 04:36:11] Login successful for user: jacob
+[2025-10-30 04:36:11] Attempting to redirect user jacob to portal for role: FacultyAdmin
+[2025-10-30 04:36:23] Before if
+[2025-10-30 04:36:23] Before if
+[2025-10-30 04:36:23] Before if
+[2025-10-30 04:36:23] Student modified
+[2025-10-30 04:36:23] Student or Supervisor not found
+[2025-10-30 04:36:23] redirecting to reassign
+[2025-10-30 04:50:56] Application started.
+[2025-10-30 04:50:58] User trying to login
+[2025-10-30 04:51:09] Login successful for user: kahsheng
+[2025-10-30 04:51:09] Login successful for user: kahsheng
+[2025-10-30 04:51:09] Attempting to redirect user kahsheng to portal for role: SystemAdmin
+[2025-10-30 04:51:09] Current Admin editing: User{userId='SA001', username='kahsheng', password='kahsheng4', role='SystemAdmin'}
+[2025-10-30 04:51:58] Edited supervisor list successfully saved to supervisors.txt
+[2025-10-30 04:51:58] User list successfully saved to user.txt
+[2025-10-30 04:52:31] Application started.
+[2025-10-30 04:52:35] User trying to login
+[2025-10-30 04:52:46] Login successful for user: jacob
+[2025-10-30 04:52:46] Login successful for user: jacob
+[2025-10-30 04:52:46] Attempting to redirect user jacob to portal for role: FacultyAdmin
+[2025-10-30 04:53:17] Before if
+[2025-10-30 04:53:17] Before if
+[2025-10-30 04:53:17] Before if
+[2025-10-30 04:53:17] Before if
+[2025-10-30 04:53:17] Student modified
+[2025-10-30 04:53:17] New student assigned successfully: yaes
+[2025-10-30 04:53:17] Edited student list successfully saved to students.txt
+[2025-10-30 04:53:17] Edited supervisor list successfully saved to supervisors.txt
+[2025-10-30 04:53:17] Reassignment completed
+[2025-10-30 04:53:17] redirecting to reassign
+[2025-10-30 04:55:40] Application started.
+[2025-10-30 04:55:45] User trying to login
+[2025-10-30 04:55:50] Login successful for user: jacob
+[2025-10-30 04:55:50] Login successful for user: jacob
+[2025-10-30 04:55:50] Attempting to redirect user jacob to portal for role: FacultyAdmin
+[2025-10-30 04:56:13] Before if
+[2025-10-30 04:56:13] Before if
+[2025-10-30 04:56:13] Before if
+[2025-10-30 04:56:13] Before if
+[2025-10-30 04:56:13] Student or Supervisor not found
+[2025-10-30 04:56:13] redirecting to reassign
+[2025-10-30 04:56:42] Application started.
+[2025-10-30 04:56:44] User trying to login
+[2025-10-30 04:56:51] Login successful for user: kahsheng
+[2025-10-30 04:56:51] Login successful for user: kahsheng
+[2025-10-30 04:56:51] Attempting to redirect user kahsheng to portal for role: SystemAdmin
+[2025-10-30 04:56:51] Current Admin editing: User{userId='SA001', username='kahsheng', password='kahsheng4', role='SystemAdmin'}
+[2025-10-30 04:57:41] Edited supervisor list successfully saved to supervisors.txt
+[2025-10-30 04:57:41] User list successfully saved to user.txt
+[2025-10-30 04:58:01] Application started.
+[2025-10-30 04:58:02] User trying to login
+[2025-10-30 04:58:13] Login successful for user: jacob
+[2025-10-30 04:58:13] Login successful for user: jacob
+[2025-10-30 04:58:13] Attempting to redirect user jacob to portal for role: FacultyAdmin
+[2025-10-30 04:58:38] Before if
+[2025-10-30 04:58:38] Before if
+[2025-10-30 04:58:38] Before if
+[2025-10-30 04:58:38] Before if
+[2025-10-30 04:58:38] Student modified
+[2025-10-30 04:58:38] Student or Supervisor not found
+[2025-10-30 04:58:38] redirecting to reassign
+[2025-10-30 05:01:50] Application started.
+[2025-10-30 05:01:55] User trying to login
+[2025-10-30 05:02:01] Login successful for user: jacob
+[2025-10-30 05:02:01] Login successful for user: jacob
+[2025-10-30 05:02:01] Attempting to redirect user jacob to portal for role: FacultyAdmin
+[2025-10-30 05:02:10] Before if
+[2025-10-30 05:02:10] Before if
+[2025-10-30 05:02:10] Before if
+[2025-10-30 05:02:10] Before if
+[2025-10-30 05:02:10] Student modified
+[2025-10-30 05:02:10] Supervisor loaded
+[2025-10-30 05:02:10] Student or Supervisor not found
+[2025-10-30 05:02:10] redirecting to reassign
+[2025-10-30 05:07:58] Application started.
+[2025-10-30 05:08:02] User trying to login
+[2025-10-30 05:08:05] Login successful for user: jacob
+[2025-10-30 05:08:05] Login successful for user: jacob
+[2025-10-30 05:08:05] Attempting to redirect user jacob to portal for role: FacultyAdmin
+[2025-10-30 05:08:36] Application started.
+[2025-10-30 05:08:39] User trying to login
+[2025-10-30 05:08:43] Login successful for user: jacob
+[2025-10-30 05:08:43] Login successful for user: jacob
+[2025-10-30 05:08:43] Attempting to redirect user jacob to portal for role: FacultyAdmin
+[2025-10-30 05:08:58] Checking student: [poopa]
+[2025-10-30 05:08:58] Checking student: [babus]
+[2025-10-30 05:08:58] Checking student: [nicheal]
+[2025-10-30 05:08:58] Checking student: [yaes]
+[2025-10-30 05:08:58] Student found and modified: yaes
+[2025-10-30 05:08:58] Checking supervisor: [forken]
+[2025-10-30 05:08:58] Student or Supervisor not found
+[2025-10-30 05:08:58] redirecting to reassign
+[2025-10-30 05:10:18] Application started.
+[2025-10-30 05:10:20] User trying to login
+[2025-10-30 05:10:27] Login successful for user: kahsheng
+[2025-10-30 05:10:27] Login successful for user: kahsheng
+[2025-10-30 05:10:27] Attempting to redirect user kahsheng to portal for role: SystemAdmin
+[2025-10-30 05:10:27] Current Admin editing: User{userId='SA001', username='kahsheng', password='kahsheng4', role='SystemAdmin'}
+[2025-10-30 05:11:09] Edited supervisor list successfully saved to supervisors.txt
+[2025-10-30 05:11:09] User list successfully saved to user.txt
+[2025-10-30 05:11:15] System Admin kahsheng exited Admin Portal.
+[2025-10-30 05:11:15] Redirected to System Admin Portal.
+[2025-10-30 05:11:21] Application started.
+[2025-10-30 05:11:24] User trying to login
+[2025-10-30 05:11:43] Login successful for user: jacob
+[2025-10-30 05:11:43] Login successful for user: jacob
+[2025-10-30 05:11:43] Attempting to redirect user jacob to portal for role: FacultyAdmin
+[2025-10-30 05:11:54] Checking student: [poopa]
+[2025-10-30 05:11:54] Checking student: [babus]
+[2025-10-30 05:11:54] Checking student: [nicheal]
+[2025-10-30 05:11:54] Checking student: [yaes]
+[2025-10-30 05:11:54] Student found and modified: yaes
+[2025-10-30 05:11:54] Checking supervisor: [forken]
+[2025-10-30 05:11:54] Checking supervisor: [grock]
+[2025-10-30 05:11:54] Supervisor found: grock
+[2025-10-30 05:11:54] Removed student: yaes
+[2025-10-30 05:11:54] New student assigned successfully: yaes
+[2025-10-30 05:11:54] Edited student list successfully saved to students.txt
+[2025-10-30 05:11:54] Edited supervisor list successfully saved to supervisors.txt
+[2025-10-30 05:11:54] Reassignment completed
+[2025-10-30 05:11:54] redirecting to reassign
+[2025-10-30 05:12:23] Redirected to Faculty Admin Portal.
+[2025-10-30 05:12:41] User trying to login
+[2025-10-30 05:12:51] Login successful for user: kahsheng
+[2025-10-30 05:12:51] Login successful for user: kahsheng
+[2025-10-30 05:12:51] Attempting to redirect user kahsheng to portal for role: SystemAdmin
+[2025-10-30 05:12:51] Current Admin editing: User{userId='SA001', username='kahsheng', password='kahsheng4', role='SystemAdmin'}
+[2025-10-30 05:13:12] Edited supervisor list successfully saved to supervisors.txt
+[2025-10-30 05:13:12] User list successfully saved to user.txt
+[2025-10-30 05:13:25] Application started.
+[2025-10-30 05:13:27] User trying to login
+[2025-10-30 05:13:37] Login successful for user: jacob
+[2025-10-30 05:13:37] Login successful for user: jacob
+[2025-10-30 05:13:37] Attempting to redirect user jacob to portal for role: FacultyAdmin
+[2025-10-30 05:13:59] Checking student: [poopa]
+[2025-10-30 05:13:59] Checking student: [babus]
+[2025-10-30 05:13:59] Checking student: [nicheal]
+[2025-10-30 05:13:59] Checking student: [yaes]
+[2025-10-30 05:13:59] Checking supervisor: [forken]
+[2025-10-30 05:13:59] Checking supervisor: [grock]
+[2025-10-30 05:13:59] Student or Supervisor not found
+[2025-10-30 05:13:59] redirecting to reassign
+[2025-10-30 05:14:25] Application started.
+[2025-10-30 05:14:27] User trying to login
+[2025-10-30 05:14:37] Login successful for user: kahsheng
+[2025-10-30 05:14:37] Login successful for user: kahsheng
+[2025-10-30 05:14:37] Attempting to redirect user kahsheng to portal for role: SystemAdmin
+[2025-10-30 05:14:37] Current Admin editing: User{userId='SA001', username='kahsheng', password='kahsheng4', role='SystemAdmin'}
+[2025-10-30 05:14:47] DELETE: Attempting to delete user: jackson, ID: 76
+[2025-10-30 05:14:49] Edited supervisor list successfully saved to supervisors.txt
+[2025-10-30 05:14:49] DELETE SUCCESS: Removed from supervisors file.
+[2025-10-30 05:14:49] User list successfully saved to user.txt
+[2025-10-30 05:14:49] DELETE SUCCESS: Removed from users.txt.
+[2025-10-30 05:15:21] Edited supervisor list successfully saved to supervisors.txt
+[2025-10-30 05:15:21] User list successfully saved to user.txt
+[2025-10-30 05:15:25] System Admin kahsheng exited Admin Portal.
+[2025-10-30 05:15:25] Redirected to System Admin Portal.
+[2025-10-30 05:15:32] User trying to login
+[2025-10-30 05:15:36] Login successful for user: jacob
+[2025-10-30 05:15:36] Login successful for user: jacob
+[2025-10-30 05:15:36] Attempting to redirect user jacob to portal for role: FacultyAdmin
+[2025-10-30 05:15:50] Checking student: [poopa]
+[2025-10-30 05:15:50] Checking student: [babus]
+[2025-10-30 05:15:50] Checking student: [nicheal]
+[2025-10-30 05:15:50] Checking student: [yaes]
+[2025-10-30 05:15:50] Student found and modified: yaes
+[2025-10-30 05:15:50] Checking supervisor: [forken]
+[2025-10-30 05:15:50] Checking supervisor: [grock]
+[2025-10-30 05:15:50] Student or Supervisor not found
+[2025-10-30 05:15:50] redirecting to reassign
+[2025-10-30 05:16:20] Application started.
+[2025-10-30 05:16:24] User trying to login
+[2025-10-30 05:16:28] Login successful for user: jacob
+[2025-10-30 05:16:28] Login successful for user: jacob
+[2025-10-30 05:16:28] Attempting to redirect user jacob to portal for role: FacultyAdmin
+[2025-10-30 05:16:40] Checking student: [poopa]
+[2025-10-30 05:16:40] Checking student: [babus]
+[2025-10-30 05:16:40] Checking student: [nicheal]
+[2025-10-30 05:16:40] Checking student: [yaes]
+[2025-10-30 05:16:40] Student found and modified: yaes
+[2025-10-30 05:16:40] Checking supervisor: [forken]
+[2025-10-30 05:16:40] Checking supervisor: [grock]
+[2025-10-30 05:16:40] Checking supervisor: [gromp]
+[2025-10-30 05:16:40] Supervisor found: gromp
+[2025-10-30 05:16:40] Removed student: yaes
+[2025-10-30 05:16:40] New student assigned successfully: yaes
+[2025-10-30 05:16:40] Edited student list successfully saved to students.txt
+[2025-10-30 05:16:40] Edited supervisor list successfully saved to supervisors.txt
+[2025-10-30 05:16:40] Reassignment completed
+[2025-10-30 05:16:40] redirecting to reassign
+[2025-10-30 05:17:26] Checking student: [poopa]
+[2025-10-30 05:17:26] Checking student: [babus]
+[2025-10-30 05:17:26] Checking student: [nicheal]
+[2025-10-30 05:17:26] Checking student: [yaes]
+[2025-10-30 05:17:26] Checking supervisor: [forken]
+[2025-10-30 05:17:26] Supervisor found: forken
+[2025-10-30 05:17:26] Student or Supervisor not found
+[2025-10-30 05:17:26] redirecting to reassign
+[2025-10-30 05:17:40] Application started.
+[2025-10-30 05:17:45] User trying to login
+[2025-10-30 05:17:49] Login successful for user: jacob
+[2025-10-30 05:17:49] Login successful for user: jacob
+[2025-10-30 05:17:49] Attempting to redirect user jacob to portal for role: FacultyAdmin
+[2025-10-30 05:18:01] Checking student: [poopa]
+[2025-10-30 05:18:01] Checking student: [babus]
+[2025-10-30 05:18:01] Checking student: [nicheal]
+[2025-10-30 05:18:01] Checking student: [yaes]
+[2025-10-30 05:18:01] Checking supervisor: [forken]
+[2025-10-30 05:18:01] Supervisor found: forken
+[2025-10-30 05:18:01] Student or Supervisor not found
+[2025-10-30 05:18:01] redirecting to reassign
+[2025-10-30 05:18:19] Application started.
+[2025-10-30 05:18:24] User trying to login
+[2025-10-30 05:18:32] Login successful for user: jacob
+[2025-10-30 05:18:32] Login successful for user: jacob
+[2025-10-30 05:18:32] Attempting to redirect user jacob to portal for role: FacultyAdmin
+[2025-10-30 05:18:43] Checking student: [poopa]
+[2025-10-30 05:18:43] Checking student: [babus]
+[2025-10-30 05:18:43] Checking student: [nicheal]
+[2025-10-30 05:18:43] Checking student: [yaes]
+[2025-10-30 05:18:43] Student found and modified: yaes
+[2025-10-30 05:18:43] Checking supervisor: [forken]
+[2025-10-30 05:18:43] Supervisor found: forken
+[2025-10-30 05:18:43] Removed student: yaes
+[2025-10-30 05:18:43] New student assigned successfully: yaes
+[2025-10-30 05:18:43] Edited student list successfully saved to students.txt
+[2025-10-30 05:18:43] Edited supervisor list successfully saved to supervisors.txt
+[2025-10-30 05:18:43] Reassignment completed
+[2025-10-30 05:18:43] redirecting to reassign
+[2025-10-30 05:21:36] Application started.
+[2025-10-30 05:21:37] User trying to login
+[2025-10-30 05:21:44] Login successful for user: kahsheng
+[2025-10-30 05:21:44] Login successful for user: kahsheng
+[2025-10-30 05:21:44] Attempting to redirect user kahsheng to portal for role: SystemAdmin
+[2025-10-30 05:21:44] Current Admin editing: User{userId='SA001', username='kahsheng', password='kahsheng4', role='SystemAdmin'}
+[2025-10-30 05:22:10] Edited supervisor list successfully saved to supervisors.txt
+[2025-10-30 05:22:10] User list successfully saved to user.txt
+[2025-10-30 05:22:23] Application started.
+[2025-10-30 05:22:25] User trying to login
+[2025-10-30 05:22:31] Login successful for user: jacob
+[2025-10-30 05:22:31] Login successful for user: jacob
+[2025-10-30 05:22:31] Attempting to redirect user jacob to portal for role: FacultyAdmin
+[2025-10-30 05:22:39] Checking student: [poopa]
+[2025-10-30 05:22:39] Checking student: [babus]
+[2025-10-30 05:22:39] Checking student: [nicheal]
+[2025-10-30 05:22:39] Checking student: [yaes]
+[2025-10-30 05:22:39] Student found and modified: yaes
+[2025-10-30 05:22:39] Checking supervisor: [forken]
+[2025-10-30 05:22:39] Checking supervisor: [grock]
+[2025-10-30 05:22:39] Checking supervisor: [gromp]
+[2025-10-30 05:22:39] Student or Supervisor not found
+[2025-10-30 05:22:39] redirecting to reassign
+[2025-10-30 05:27:22] Supervisor initialized with students: [SD1123, yaes]
+[2025-10-30 05:27:22] Supervisor initialized with students: [prod]
+[2025-10-30 05:27:22] Supervisor initialized with students: [jayce]
+[2025-10-30 05:27:22] Application started.
+[2025-10-30 05:27:27] User trying to login
+[2025-10-30 05:27:44] Supervisor initialized with students: [SD1123, yaes]
+[2025-10-30 05:27:44] Supervisor initialized with students: [prod]
+[2025-10-30 05:27:44] Supervisor initialized with students: [jayce]
+[2025-10-30 05:27:44] Application started.
+[2025-10-30 05:27:48] User trying to login
+[2025-10-30 05:27:54] Login successful for user: jacob
+[2025-10-30 05:27:54] Login successful for user: jacob
+[2025-10-30 05:27:54] Attempting to redirect user jacob to portal for role: FacultyAdmin
+[2025-10-30 05:28:02] Checking student: [poopa]
+[2025-10-30 05:28:02] Checking student: [babus]
+[2025-10-30 05:28:02] Checking student: [nicheal]
+[2025-10-30 05:28:02] Checking student: [yaes]
+[2025-10-30 05:28:02] Student found and modified: yaes
+[2025-10-30 05:28:02] Checking supervisor: [forken]
+[2025-10-30 05:28:02] Checking supervisor: [grock]
+[2025-10-30 05:28:02] Checking supervisor: [gromp]
+[2025-10-30 05:28:02] Student or Supervisor not found
+[2025-10-30 05:28:02] redirecting to reassign
+[2025-10-30 05:28:42] program filtered
+[2025-10-30 05:29:07] Supervisor initialized with students: [SD1123, yaes]
+[2025-10-30 05:29:07] Supervisor initialized with students: [prod]
+[2025-10-30 05:29:07] Supervisor initialized with students: [jayce]
+[2025-10-30 05:29:07] Supervisor initialized with students: [nicheal]
+[2025-10-30 05:29:07] Application started.
+[2025-10-30 05:29:09] User trying to login
+[2025-10-30 05:29:14] Login successful for user: jacob
+[2025-10-30 05:29:14] Login successful for user: jacob
+[2025-10-30 05:29:14] Attempting to redirect user jacob to portal for role: FacultyAdmin
+[2025-10-30 05:29:20] Checking student: [poopa]
+[2025-10-30 05:29:20] Checking student: [babus]
+[2025-10-30 05:29:20] Checking student: [nicheal]
+[2025-10-30 05:29:20] Checking student: [yaes]
+[2025-10-30 05:29:20] Student found and modified: yaes
+[2025-10-30 05:29:20] Checking supervisor: [forken]
+[2025-10-30 05:29:20] Checking supervisor: [grock]
+[2025-10-30 05:29:20] Checking supervisor: [gromp]
+[2025-10-30 05:29:20] Checking supervisor: [nameless]
+[2025-10-30 05:29:20] Supervisor found: nameless
+[2025-10-30 05:29:20] Removed student: yaes
+[2025-10-30 05:29:20] New student assigned successfully: yaes
+[2025-10-30 05:29:20] Edited student list successfully saved to students.txt
+[2025-10-30 05:29:20] Edited supervisor list successfully saved to supervisors.txt
+[2025-10-30 05:29:20] Reassignment completed
+[2025-10-30 05:29:20] redirecting to reassign

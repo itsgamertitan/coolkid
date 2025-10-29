@@ -1,9 +1,5 @@
 import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-
 public class FacultyAdmin extends User {
-    private List<Map<String, String>> SupervisorXStudent;
     public FacultyAdmin(String adminID , String username, String password){
         super(adminID,username,password, "FacultyAdmin");
     }

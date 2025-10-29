@@ -44,8 +44,16 @@ public class Student extends User {
         this.program = program;
     }
     
-    public String getSupervisor() {
+    public String getStudentId() {
+        return getUserId();
+    }
+
+    public String getSupervisor(){
         return supervisor;
+    }
+
+    public void setSupervisor(String supervisor) {
+        this.supervisor = supervisor;
     }
 
 }

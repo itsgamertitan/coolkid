@@ -254,8 +254,18 @@ public static List<FacultyAdmin> loadFacultyAdmin(String filename) {
             writer.write(appointment.toFileString() + "\n");
         } catch (IOException e) {
             e.printStackTrace();    
+        }
     }
-}
+
+    public static void saveAllAppointments(List<Appointment> appointments, String filename) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter(filename, false))) {
+            for (Appointment appoint : appointments) {
+                pw.println(appoint.toFileString());
+            }
+        } catch (IOException e) {
+            System.err.println("Error saving appointment file: " + e.getMessage());
+        }
+    }
 }
 
     

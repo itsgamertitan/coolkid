@@ -1,16 +1,16 @@
 public class Appointment implements Serializable {
     private String appointmentId;
     private String studentId;
-    private String supervisorId;
+    private String supervisorName;
     private String dateTime;
     private String feedback;
     private String status; // e.g., "Pending", "Approved", "Rejected"
 
-    public Appointment(String appointmentId, String studentId, String supervisorId, String dateTime, String status,
+    public Appointment(String appointmentId, String studentId, String supervisorName, String dateTime, String status,
             String feedback) {
         this.appointmentId = appointmentId;
         this.studentId = studentId;
-        this.supervisorId = supervisorId;
+        this.supervisorName = supervisorName;
         this.dateTime = dateTime;
         this.status = status;
         this.feedback = feedback;
@@ -22,7 +22,7 @@ public class Appointment implements Serializable {
         }
         this.appointmentId = parts[0];
         this.studentId = parts[1];
-        this.supervisorId = parts[2];
+        this.supervisorName = parts[2];
         this.dateTime = parts[3];
         this.status = parts[4];
         this.feedback = (parts.length >= 6) ? parts[5] : ""; // aman meski feedback kosong
@@ -30,7 +30,7 @@ public class Appointment implements Serializable {
 
     @Override
     public String toFileString() {
-        return appointmentId + "|" + studentId + "|" + supervisorId + "|" + dateTime + "|" + status + "|" + feedback;
+        return appointmentId + "|" + studentId + "|" + supervisorName + "|" + dateTime + "|" + status + "|" + feedback;
     }
 
     @Override
@@ -38,7 +38,7 @@ public class Appointment implements Serializable {
         return "Appointment{" +
                 "appointmentId='" + appointmentId + '\'' +
                 ", studentId='" + studentId + '\'' +
-                ", supervisorId='" + supervisorId + '\'' +
+                ", supervisorName='" + supervisorName + '\'' +
                 ", dateTime='" + dateTime + '\'' +
                 ", status='" + status + '\'' +
                 ", feedback='" + feedback + '\'' +
@@ -62,13 +62,10 @@ public class Appointment implements Serializable {
         this.studentId = studentId;
     }
 
-    public String getSupervisorId() {
-        return supervisorId;
+    public String getSupervisorUsername() {
+        return supervisorName;
     }
 
-    // public void setSupervisorId(String supervisorId) {
-    // this.supervisorId = supervisorId;
-    // }
 
     public String getDateTime() {
         return dateTime;

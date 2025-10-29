@@ -1,2 +1,4 @@
-STU001|studuser|stud123|Student|IT-SE|SUP001
-SDOO2|aatrox|aa2|Student|cs|gracia
+SD1123|poopa|poophy|Student|cs|tonkatsu
+sd1123|babus|babus123|Student|itse|adad
+12|nicheal|jacker|Student|bussiness|pearson
+87|yaes|bomb|Student|cs|nameless
