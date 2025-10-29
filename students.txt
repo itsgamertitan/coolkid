@@ -1,0 +1,2 @@
+STU001|studuser|stud123|Student|IT-SE|SUP001
+SDOO2|aatrox|aa2|Student|cs|gracia

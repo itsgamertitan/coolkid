@@ -1,0 +1,468 @@
+[2025-10-19 01:39:08] User trying to login
+[2025-10-19 01:39:17] :Login failed, user information don't matchpoptried to login with password ofpoo2
+[2025-10-19 01:39:17] Login failed for username: pop
+[2025-10-19 01:44:22] User trying to login, registering data...
+[2025-10-19 01:44:22] Log in failed, user information incorrect
+[2025-10-19 01:52:05] Application started.
+[2025-10-19 01:52:09] User trying to login
+[2025-10-19 01:52:16] Login failed, user information don't match for username: ryantan with password: kingtan
+[2025-10-19 01:52:16] Login failed for username: ryantan
+[2025-10-19 01:52:19] User selected Log Out. Application shutting down.
+[2025-10-19 22:13:50] Application started.
+[2025-10-19 22:13:50] CRITICAL: Auto-created default Ultimate System Admin account.
+[2025-10-19 22:14:16] Admin trying to login, registering data...
+[2025-10-19 22:14:16] Admin verification failed for username: SA999
+[2025-10-19 22:14:16] Admin log in failed for username: SA999
+[2025-10-19 22:14:56] Admin trying to login, registering data...
+[2025-10-19 22:14:56] Admin verification failed for username: ultimate.admin
+[2025-10-19 22:14:56] Admin log in failed for username: ultimate.admin
+[2025-10-19 22:16:13] Application started.
+[2025-10-19 22:16:18] Application started.
+[2025-10-19 22:24:15] Application started.
+[2025-10-19 22:28:32] Application started.
+[2025-10-19 22:28:54] Application started.
+[2025-10-19 22:28:54] CRITICAL: Auto-created default Ultimate System Admin account.
+[2025-10-19 22:30:23] Admin trying to login, registering data...
+[2025-10-19 22:30:23] Admin verification failed for username: ultimate.admin
+[2025-10-19 22:30:23] Admin log in failed for username: ultimate.admin
+[2025-10-19 22:30:28] Application started.
+[2025-10-19 22:32:05] Application started.
+[2025-10-19 22:35:00] Application started.
+[2025-10-19 22:38:19] Application started.
+[2025-10-19 22:38:37] Admin trying to login, registering data...
+[2025-10-19 22:38:37] Admin verification failed for username: ultimate.admin
+[2025-10-19 22:38:37] Admin log in failed for username: ultimate.admin
+[2025-10-19 22:40:53] Application started.
+[2025-10-19 22:41:11] Admin trying to login, registering data...
+[2025-10-19 22:41:11] Admin verification successful for username: ultimate.admin
+[2025-10-19 22:41:11] Admin log in successful for: ultimate.admin
+[2025-10-19 22:41:11] System Admin entered User Creation Portal.
+[2025-10-19 22:41:23] Admin attempting to create user with role: Systemadmin
+[2025-10-19 22:41:23] Attempting to load existing System Admin data from: systemAdmin.txt
+[2025-10-19 22:41:45] System Admin object created in memory: pow
+[2025-10-19 22:41:45] New System Admin account successfully saved to files: pow
+[2025-10-19 22:42:04] Admin attempting to create user with role: Student
+[2025-10-19 22:42:04] Attempting to load existing student data from: students.txt
+[2025-10-19 22:42:15] Student object created in memory: kahsheng
+[2025-10-19 22:42:15] New Student account successfully saved to files: kahsheng
+[2025-10-19 22:50:59] Application started.
+[2025-10-19 22:51:19] Admin trying to login, registering data...
+[2025-10-19 22:51:19] Admin verification successful for username: ultimate.admin
+[2025-10-19 22:51:19] Admin log in successful for: ultimate.admin
+[2025-10-19 22:51:19] Current admin editing is User{userId='SA9999', username='ultimate.admin', password='SystemAdminPass123', role='SystemAdmin'}
+[2025-10-19 22:51:29] System Admin requested to view all users.
+[2025-10-19 22:51:29] Successfully displayed 8 users.
+[2025-10-19 22:51:38] System Admin entered user account management menu.
+[2025-10-19 22:51:44] Admin [ultimate.admin] initiated user editing process.
+[2025-10-19 22:51:49] Admin [ultimate.admin] editing user: pow
+[2025-10-19 22:51:57] Admin [ultimate.admin] updated User ID for user pow to: SA101
+[2025-10-19 22:51:57] User list successfully saved to user.txt
+[2025-10-19 22:52:06] Admin [ultimate.admin] updated username for ID SA101 to: powpow
+[2025-10-19 22:52:06] User list successfully saved to user.txt
+[2025-10-19 22:52:10] Admin [ultimate.admin] finished editing user: powpow
+[2025-10-19 22:52:41] System Admin returned to main Admin Portal menu.
+[2025-10-19 22:52:42] System Admin exiting portal and returning to main menu.
+[2025-10-19 22:52:42] Redirected to System Admin Portal.
+[2025-10-19 22:52:43] User selected Log Out. Application shutting down.
+[2025-10-19 22:56:53] Application started.
+[2025-10-19 22:57:15] Admin trying to login, registering data...
+[2025-10-19 22:57:15] Admin verification successful for username: ultimate.admin
+[2025-10-19 22:57:15] Admin log in successful for: ultimate.admin
+[2025-10-19 22:57:15] Current admin editing is User{userId='SA9999', username='ultimate.admin', password='SystemAdminPass123', role='SystemAdmin'}
+[2025-10-19 22:57:22] System Admin entered user account management menu.
+[2025-10-19 22:57:23] Admin [ultimate.admin] initiated user editing process.
+[2025-10-19 22:57:34] Admin [ultimate.admin] Edit attempt failed: User not found for username: pow
+[2025-10-19 22:57:45] Admin entered the centralized user creation portal.
+[2025-10-19 22:57:49] Initiating new System Admin creation.
+[2025-10-19 22:58:00] Edited system admins list successfully saved to systemAdmin.txt
+[2025-10-19 22:58:00] New System Admin account created and saved: ryaaa
+[2025-10-19 22:58:06] Admin [ultimate.admin] initiated user editing process.
+[2025-10-19 22:58:10] Admin [ultimate.admin] editing user: ryaaa
+[2025-10-19 22:58:18] Admin [ultimate.admin] updated username for ID SA9992 to: nyaaaa
+[2025-10-19 22:58:18] User list successfully saved to user.txt
+[2025-10-19 22:58:38] Admin [ultimate.admin] updated User ID for user nyaaaa to: SA9991
+[2025-10-19 22:58:38] User list successfully saved to user.txt
+[2025-10-19 23:08:36] Application started.
+[2025-10-19 23:08:56] Admin trying to login, registering data...
+[2025-10-19 23:08:56] Admin verification failed for username: system.admin
+[2025-10-19 23:08:56] Admin log in failed for username: system.admin
+[2025-10-19 23:09:06] Admin trying to login, registering data...
+[2025-10-19 23:09:06] Admin verification successful for username: ultimate.admin
+[2025-10-19 23:09:06] Admin log in successful for: ultimate.admin
+[2025-10-19 23:09:06] Current admin editing is User{userId='SA9999', username='ultimate.admin', password='SystemAdminPass123', role='SystemAdmin'}
+[2025-10-19 23:09:08] System Admin entered user account management menu.
+[2025-10-19 23:09:13] Admin entered the centralized user creation portal.
+[2025-10-19 23:09:17] Initiating new System Admin creation.
+[2025-10-19 23:09:26] New System Admin account created and saved: aare
+[2025-10-19 23:09:30] Admin [ultimate.admin] initiated user editing process.
+[2025-10-19 23:09:34] Admin [ultimate.admin] editing user: aare
+[2025-10-19 23:09:41] Admin [ultimate.admin] updated User ID for user aare to: SA111
+[2025-10-19 23:09:41] User list successfully saved to user.txt
+[2025-10-20 01:32:53] Application started.
+[2025-10-20 01:33:16] Admin trying to login, registering data...
+[2025-10-20 01:33:16] Admin verification successful for username: ultimate.admin
+[2025-10-20 01:33:16] Admin log in successful for: ultimate.admin
+[2025-10-20 01:33:16] Current admin editing is User{userId='SA9999', username='ultimate.admin', password='SystemAdminPass123', role='SystemAdmin'}
+[2025-10-20 01:33:23] System Admin entered user account management menu.
+[2025-10-20 01:33:24] Admin entered the centralized user creation portal.
+[2025-10-20 01:33:28] Initiating new System Admin creation.
+[2025-10-20 01:33:33] Edited system admins list successfully saved to systemAdmin.txt
+[2025-10-20 01:33:33] Global in-memory lists synchronized after file operation.
+[2025-10-20 01:33:33] New System Admin account created and saved: adaf
+[2025-10-20 01:33:38] Admin [ultimate.admin] initiated user editing process.
+[2025-10-20 01:33:41] Admin [ultimate.admin] editing user: adaf
+[2025-10-20 01:33:48] Admin [ultimate.admin] updated User ID for user adaf to: SA112
+[2025-10-20 01:33:48] User list successfully saved to user.txt
+[2025-10-20 01:33:48] Global in-memory lists synchronized after file operation.
+[2025-10-20 01:42:18] Application started.
+[2025-10-20 01:44:48] Application started.
+[2025-10-20 01:45:06] Admin trying to login, registering data...
+[2025-10-20 01:45:06] Admin verification successful for username: ultimate.admin
+[2025-10-20 01:45:06] Admin log in successful for: ultimate.admin
+[2025-10-20 01:45:06] Current admin editing is ultimate.admin
+[2025-10-20 01:45:11] System Admin entered user account management menu.
+[2025-10-20 01:45:12] Admin entered the centralized user creation portal.
+[2025-10-20 01:45:14] Initiating new System Admin creation.
+[2025-10-20 01:45:18] Global in-memory lists synchronized after file operation.
+[2025-10-20 01:45:18] New System Admin account created and saved (Append Mode): fdfsd
+[2025-10-20 01:45:23] Admin [ultimate.admin] initiated user editing process.
+[2025-10-20 01:45:27] Admin [ultimate.admin] editing user: fdfsd
+[2025-10-20 01:45:33] Admin [ultimate.admin] updated username for ID ryhaaa to: poopa
+[2025-10-20 01:45:33] User list successfully saved to user.txt
+[2025-10-20 01:45:33] Global in-memory lists synchronized after file operation.
+[2025-10-20 01:59:50] Application started.
+[2025-10-20 01:59:59] Admin trying to login, registering data...
+[2025-10-20 01:59:59] Admin verification failed for username: system.admin
+[2025-10-20 01:59:59] Admin log in failed for username: system.admin
+[2025-10-20 02:00:13] Admin trying to login, registering data...
+[2025-10-20 02:00:13] Admin verification successful for username: ultimate.admin
+[2025-10-20 02:00:13] Admin log in successful for: ultimate.admin
+[2025-10-20 02:00:13] Current admin editing is ultimate.admin
+[2025-10-20 02:00:16] System Admin entered user account management menu.
+[2025-10-20 02:00:17] Admin entered the centralized user creation portal.
+[2025-10-20 02:00:20] Initiating new System Admin creation.
+[2025-10-20 02:00:27] Edited system admins list successfully saved to systemAdmin.txt
+[2025-10-20 02:00:27] User list successfully saved to user.txt
+[2025-10-20 02:00:27] Global in-memory lists synchronized after file operation.
+[2025-10-20 02:00:27] New System Admin account created and saved (Overwrite Mode): raa
+[2025-10-20 02:00:31] Admin [ultimate.admin] initiated user editing process.
+[2025-10-20 02:00:34] Admin [ultimate.admin] editing user: raa
+[2025-10-20 02:00:41] Admin [ultimate.admin] updated username for ID raaah to: rah
+[2025-10-20 02:00:41] User list successfully saved to user.txt
+[2025-10-20 02:00:41] Global in-memory lists synchronized after file operation.
+[2025-10-20 02:09:27] Application started.
+[2025-10-20 02:09:42] Admin trying to login, registering data...
+[2025-10-20 02:09:42] Admin verification successful for username: ultimate.admin
+[2025-10-20 02:09:42] Admin log in successful for: ultimate.admin
+[2025-10-20 02:09:52] Edited system admins list successfully saved to systemAdmin.txt
+[2025-10-20 02:09:52] User list successfully saved to user.txt
+[2025-10-20 02:10:15] Edited system admins list successfully saved to systemAdmin.txt
+[2025-10-20 02:10:15] User list successfully saved to user.txt
+[2025-10-20 02:10:24] User list successfully saved to user.txt
+[2025-10-20 02:35:42] Application started.
+[2025-10-20 02:36:03] Admin trying to login, registering data...
+[2025-10-20 02:36:03] Admin verification successful for username: ultimate.admin
+[2025-10-20 02:36:03] Admin log in successful for: ultimate.admin
+[2025-10-20 02:36:20] Edited system admins list successfully saved to systemAdmin.txt
+[2025-10-20 02:36:20] User list successfully saved to user.txt
+[2025-10-20 02:36:31] Starting edit for User ID: peanut, Username: peanut, Role: SystemAdmin
+[2025-10-20 02:36:37] FIELD CHANGE: Username changed from peanut to poopnut
+[2025-10-20 02:36:37] User list successfully saved to user.txt
+[2025-10-20 02:36:37] New system admin data has been updated
+[2025-10-20 02:36:37] Edited system admins list successfully saved to systemAdmin.txt
+[2025-10-20 02:36:37] File Update: users.txt saved.
+[2025-10-20 02:36:37] STARTING updateSpecificRoleFile for User ID: peanut, Username: poopnut
+[2025-10-20 02:36:37] ID or Username change detected. Synchronizing specific file: SystemAdmin
+[2025-10-20 02:36:37] UPDATE WARNING: User with original ID peanut not found in specific list, skipping save.
+[2025-10-20 16:59:34] Application started.
+[2025-10-20 16:59:52] Admin trying to login, registering data...
+[2025-10-20 16:59:52] Admin verification successful for username: ultimate.admin
+[2025-10-20 16:59:52] Admin log in successful for: ultimate.admin
+[2025-10-20 16:59:52] Current Admin editing: User{userId='SA9999', username='ultimate.admin', password='SystemAdminPass123', role='SystemAdmin'}
+[2025-10-20 17:00:31] Edited faculty admin list successfully saved to facultyAdmin.txt
+[2025-10-20 17:00:31] User list successfully saved to user.txt
+[2025-10-20 17:09:03] Application started.
+[2025-10-20 17:09:18] Admin trying to login, registering data...
+[2025-10-20 17:09:18] Admin verification successful for username: ultimate.admin
+[2025-10-20 17:09:18] Admin log in successful for: ultimate.admin
+[2025-10-20 17:09:18] Current Admin editing: User{userId='SA9999', username='ultimate.admin', password='SystemAdminPass123', role='SystemAdmin'}
+[2025-10-20 17:09:35] Edited faculty admin list successfully saved to facultyAdmin.txt
+[2025-10-20 17:09:35] User list successfully saved to user.txt
+[2025-10-20 17:09:49] Starting edit for User ID: FA111, Username: aqr, Role: FacultyAdmin
+[2025-10-20 17:09:55] Faculty Admin new userID changed from FA111--> rya
+[2025-10-20 17:09:55] FIELD CHANGE: User ID changed from FA111 to rya
+[2025-10-20 17:09:55] User list successfully saved to user.txt
+[2025-10-20 17:09:55] File Update: facultyAdmin.txt saved.
+[2025-10-20 17:09:55] Edited faculty admin list successfully saved to facultyAdmin.txt
+[2025-10-20 17:09:55] File Update: users.txt saved.
+[2025-10-20 17:10:13] FIELD CHANGE: Username changed from aqr to peanutcracker
+[2025-10-20 17:10:13] FacultyAdmin's username changed aqr-->peanutcracker
+[2025-10-20 17:10:13] User list successfully saved to user.txt
+[2025-10-20 17:10:13] File Update: facultyAdmin.txt saved.
+[2025-10-20 17:10:13] Edited faculty admin list successfully saved to facultyAdmin.txt
+[2025-10-20 17:10:13] File Update: users.txt saved.
+[2025-10-20 17:10:16] EDIT SESSION END: Finalized changes for user peanutcracker
+[2025-10-20 17:10:21] Starting edit for User ID: FA123, Username: dada, Role: FacultyAdmin
+[2025-10-20 17:10:27] FIELD CHANGE: Username changed from dada to peanutcracker
+[2025-10-20 17:10:27] FacultyAdmin's username changed dada-->peanutcracker
+[2025-10-20 17:10:27] User list successfully saved to user.txt
+[2025-10-20 17:10:27] File Update: facultyAdmin.txt saved.
+[2025-10-20 17:10:27] Edited faculty admin list successfully saved to facultyAdmin.txt
+[2025-10-20 17:10:27] File Update: users.txt saved.
+[2025-10-20 17:10:34] FIELD CHANGE: Username changed from dada to dadad
+[2025-10-20 17:10:34] FacultyAdmin's username changed dada-->dadad
+[2025-10-20 17:10:34] User list successfully saved to user.txt
+[2025-10-20 17:10:34] File Update: facultyAdmin.txt saved.
+[2025-10-20 17:10:34] Edited faculty admin list successfully saved to facultyAdmin.txt
+[2025-10-20 17:10:34] File Update: users.txt saved.
+[2025-10-20 17:10:39] EDIT SESSION END: Finalized changes for user dadad
+[2025-10-20 17:12:21] EDIT FAILED: User not found for username: peanutecracker
+[2025-10-20 17:12:33] Starting edit for User ID: rya, Username: aqr, Role: FacultyAdmin
+[2025-10-20 17:12:39] FIELD CHANGE: Username changed from aqr to raaaa
+[2025-10-20 17:12:39] FacultyAdmin's username changed aqr-->raaaa
+[2025-10-20 17:12:39] User list successfully saved to user.txt
+[2025-10-20 17:12:39] File Update: facultyAdmin.txt saved.
+[2025-10-20 17:12:39] Edited faculty admin list successfully saved to facultyAdmin.txt
+[2025-10-20 17:12:39] File Update: users.txt saved.
+[2025-10-20 17:15:59] EDIT SESSION END: Finalized changes for user raaaa
+[2025-10-20 17:16:03] Redirected to System Admin Portal.
+[2025-10-20 17:16:04] User selected Log Out. Application shutting down.
+[2025-10-20 17:38:09] Application started.
+[2025-10-20 17:38:23] Admin trying to login, registering data...
+[2025-10-20 17:38:23] Admin verification successful for username: ultimate.admin
+[2025-10-20 17:38:23] Admin log in successful for: ultimate.admin
+[2025-10-20 17:38:23] Current Admin editing: User{userId='SA9999', username='ultimate.admin', password='SystemAdminPass123', role='SystemAdmin'}
+[2025-10-20 17:38:39] Edited system admins list successfully saved to systemAdmin.txt
+[2025-10-20 17:38:39] User list successfully saved to user.txt
+[2025-10-20 17:38:42] Starting edit for User ID: tp000, Username: kahsheng, Role: Student
+[2025-10-20 17:38:52] Student new userID changed from tp000--> sa992
+[2025-10-20 17:38:52] FIELD CHANGE: User ID changed from tp000 to sa992
+[2025-10-20 17:38:52] User list successfully saved to user.txt
+[2025-10-20 17:38:52] File Update: student.txt saved.
+[2025-10-20 17:38:52] Edited student list successfully saved to students.txt
+[2025-10-20 17:38:52] File Update: users.txt saved.
+[2025-10-20 17:44:10] EDIT SESSION END: Finalized changes for user kahsheng
+[2025-10-20 17:44:22] Edited system admins list successfully saved to systemAdmin.txt
+[2025-10-20 17:44:22] User list successfully saved to user.txt
+[2025-10-20 17:44:26] Starting edit for User ID: sa4324, Username: carson, Role: SystemAdmin
+[2025-10-20 17:44:31] System Admin new userID changed from sa4324--> sa331
+[2025-10-20 17:44:31] FIELD CHANGE: User ID changed from sa4324 to sa331
+[2025-10-20 17:44:31] User list successfully saved to user.txt
+[2025-10-20 17:44:31] File Update: systemAdmin.txt saved.
+[2025-10-20 17:44:31] Edited system admins list successfully saved to systemAdmin.txt
+[2025-10-20 17:44:31] File Update: users.txt saved.
+[2025-10-20 17:44:40] System Admin new userID changed from sa4324--> carson332
+[2025-10-20 17:44:40] FIELD CHANGE: User ID changed from sa4324 to carson332
+[2025-10-20 17:44:40] User list successfully saved to user.txt
+[2025-10-20 17:44:40] File Update: systemAdmin.txt saved.
+[2025-10-20 17:44:40] Edited system admins list successfully saved to systemAdmin.txt
+[2025-10-20 17:44:40] File Update: users.txt saved.
+[2025-10-20 17:45:34] EDIT SESSION END: Finalized changes for user carson
+[2025-10-20 17:45:39] Starting edit for User ID: sa331, Username: carson, Role: SystemAdmin
+[2025-10-20 17:45:46] FIELD CHANGE: Username changed from carson to daq
+[2025-10-20 17:45:46] SystemAdmin's username changed carson-->daq
+[2025-10-20 17:45:46] User list successfully saved to user.txt
+[2025-10-20 17:45:46] File Update: systemAdmin.txt saved.
+[2025-10-20 17:45:46] Edited system admins list successfully saved to systemAdmin.txt
+[2025-10-20 17:45:46] File Update: users.txt saved.
+[2025-10-20 17:45:48] EDIT SESSION END: Finalized changes for user daq
+[2025-10-20 17:45:51] Starting edit for User ID: sa331, Username: daq, Role: SystemAdmin
+[2025-10-20 17:46:06] System Admin new userID changed from sa331--> sa332
+[2025-10-20 17:46:06] FIELD CHANGE: User ID changed from sa331 to sa332
+[2025-10-20 17:46:06] User list successfully saved to user.txt
+[2025-10-20 17:46:06] File Update: systemAdmin.txt saved.
+[2025-10-20 17:46:06] Edited system admins list successfully saved to systemAdmin.txt
+[2025-10-20 17:46:06] File Update: users.txt saved.
+[2025-10-20 17:57:36] Application started.
+[2025-10-20 17:57:52] Admin trying to login, registering data...
+[2025-10-20 17:57:52] Admin verification successful for username: ultimate.admin
+[2025-10-20 17:57:52] Admin log in successful for: ultimate.admin
+[2025-10-20 17:57:52] Current Admin editing: User{userId='SA9999', username='ultimate.admin', password='SystemAdminPass123', role='SystemAdmin'}
+[2025-10-20 17:58:01] Edited student list successfully saved to students.txt
+[2025-10-20 17:58:01] WIPE SUCCESS: Cleared and saved students.txt.
+[2025-10-20 17:58:01] Edited supervisor list successfully saved to supervisors.txt
+[2025-10-20 17:58:01] WIPE SUCCESS: Cleared and saved supervisors.txt.
+[2025-10-20 17:58:01] Edited faculty admin list successfully saved to facultyAdmin.txt
+[2025-10-20 17:58:01] WIPE SUCCESS: Cleared and saved facultyAdmin.txt.
+[2025-10-20 17:58:01] Edited system admins list successfully saved to systemAdmin.txt
+[2025-10-20 17:58:01] All admins except ultimate admin are wiped
+[2025-10-20 18:04:39] Application started.
+[2025-10-20 18:05:34] Admin trying to login, registering data...
+[2025-10-20 18:05:34] Admin verification failed for username: ultimateAdmin
+[2025-10-20 18:05:34] Admin log in failed for username: ultimateAdmin
+[2025-10-20 18:05:52] Admin trying to login, registering data...
+[2025-10-20 18:05:52] Admin verification failed for username: ultimateAdmin
+[2025-10-20 18:05:52] Admin log in failed for username: ultimateAdmin
+[2025-10-20 18:06:28] Admin trying to login, registering data...
+[2025-10-20 18:06:28] Admin verification successful for username: ultimate.admin
+[2025-10-20 18:06:28] Admin log in successful for: ultimate.admin
+[2025-10-20 18:06:28] Current Admin editing: User{userId='SA9999', username='ultimate.admin', password='SystemAdminPass123', role='SystemAdmin'}
+[2025-10-20 18:06:33] WIPE CANCELLED: Confirmation failed.
+[2025-10-20 18:07:11] Edited student list successfully saved to students.txt
+[2025-10-20 18:07:11] WIPE SUCCESS: Cleared and saved students.txt.
+[2025-10-20 18:07:11] Edited supervisor list successfully saved to supervisors.txt
+[2025-10-20 18:07:11] WIPE SUCCESS: Cleared and saved supervisors.txt.
+[2025-10-20 18:07:11] Edited faculty admin list successfully saved to facultyAdmin.txt
+[2025-10-20 18:07:11] WIPE SUCCESS: Cleared and saved facultyAdmin.txt.
+[2025-10-20 18:07:11] Edited system admins list successfully saved to systemAdmin.txt
+[2025-10-20 18:07:11] All admins except ultimate admin are wiped
+[2025-10-20 18:07:11] User list successfully saved to user.txt
+[2025-10-20 18:07:11] All users has been wiped except ultimate admin
+[2025-10-20 19:06:48] Application started.
+[2025-10-20 22:05:14] Admin trying to login, registering data...
+[2025-10-20 22:05:14] Admin verification successful for username: ultimateAdmin
+[2025-10-20 22:05:14] Admin log in successful for: ultimateAdmin
+[2025-10-20 22:05:14] Current Admin editing: User{userId='SA9999', username='ultimateAdmin', password='SystemAdminPass123', role='SystemAdmin'}
+[2025-10-20 22:05:41] Edited student list successfully saved to students.txt
+[2025-10-20 22:05:41] User list successfully saved to user.txt
+[2025-10-20 22:06:04] Duplicate or User information found!!
+[2025-10-20 22:09:31] Edited student list successfully saved to students.txt
+[2025-10-20 22:09:31] User list successfully saved to user.txt
+[2025-10-20 22:09:47] Starting edit for User ID: SD323, Username: babus, Role: Student
+[2025-10-20 22:09:54] Can't create user!!! Username already exists
+[2025-10-20 22:10:06] Can't create user!!! Username already exists
+[2025-10-20 22:10:16] Student new userID changed from SD323--> sd1123
+[2025-10-20 22:10:16] FIELD CHANGE: User ID changed from SD323 to sd1123
+[2025-10-20 22:10:16] User list successfully saved to user.txt
+[2025-10-20 22:10:16] File Update: student.txt saved.
+[2025-10-20 22:10:16] Edited student list successfully saved to students.txt
+[2025-10-20 22:10:16] File Update: users.txt saved.
+[2025-10-20 22:10:21] EDIT SESSION END: Finalized changes for user babus
+[2025-10-20 22:10:45] Redirected to System Admin Portal.
+[2025-10-20 22:10:47] User selected Log Out. Application shutting down.
+[2025-10-20 22:35:40] Application started.
+[2025-10-20 22:35:43] User trying to login
+[2025-10-20 22:35:48] Login failed, user information don't match for username: carson with password: carsnut123
+[2025-10-20 22:35:48] Login failed for username: carson
+[2025-10-20 22:36:03] User trying to login
+[2025-10-20 22:36:07] Login failed, user information don't match for username: ccadfsaf with password: sdasf3
+[2025-10-20 22:36:07] Login failed for username: ccadfsaf
+[2025-10-20 22:36:20] Admin trying to login, registering data...
+[2025-10-20 22:36:20] Admin verification successful for username: ultimateAdmin
+[2025-10-20 22:36:20] Admin log in successful for: ultimateAdmin
+[2025-10-20 22:36:20] Current Admin editing: User{userId='SA9999', username='ultimateAdmin', password='SystemAdminPass123', role='SystemAdmin'}
+[2025-10-20 22:36:47] Edited system admins list successfully saved to systemAdmin.txt
+[2025-10-20 22:36:47] User list successfully saved to user.txt
+[2025-10-20 22:36:58] Redirected to System Admin Portal.
+[2025-10-20 22:38:46] Admin trying to login, registering data...
+[2025-10-20 22:38:46] Admin verification failed for username: kahsheng
+[2025-10-20 22:38:46] Admin log in failed for username: kahsheng
+[2025-10-20 22:39:11] Admin trying to login, registering data...
+[2025-10-20 22:39:11] Admin verification successful for username: kahsheng
+[2025-10-20 22:39:11] Admin log in successful for: kahsheng
+[2025-10-20 22:39:11] Current Admin editing: User{userId='SA001', username='kahsheng', password='kahsheng1', role='SystemAdmin'}
+[2025-10-20 22:39:25] PASSWORD RESET: Found user poopa
+[2025-10-20 22:39:29] User list successfully saved to user.txt
+[2025-10-20 22:39:29] PASSWORD RESET SUCCESS: Password saved to users.txt for user poopa
+[2025-10-20 23:54:38] Application started.
+[2025-10-20 23:54:59] Admin trying to login, registering data...
+[2025-10-20 23:54:59] Admin verification successful for username: kahsheng
+[2025-10-20 23:54:59] Admin log in successful for: kahsheng
+[2025-10-20 23:54:59] Current Admin editing: User{userId='SA001', username='kahsheng', password='kahsheng1', role='SystemAdmin'}
+[2025-10-20 23:55:03] ACTION: Monitor Failed Logins selected (Not implemented).
+[2025-10-20 23:55:30] PASSWORD RESET: Found user kahsheng
+[2025-10-20 23:55:35] Edited system admins list successfully saved to systemAdmin.txt
+[2025-10-20 23:55:35] kahsheng's password has been updated.
+[2025-10-20 23:58:47] Application started.
+[2025-10-20 23:58:55] Admin trying to login, registering data...
+[2025-10-20 23:58:55] Admin verification successful for username: kahsheng
+[2025-10-20 23:58:55] Admin log in successful for: kahsheng
+[2025-10-20 23:58:55] Current Admin editing: User{userId='SA001', username='kahsheng', password='kahsheng1', role='SystemAdmin'}
+[2025-10-20 23:59:00] PASSWORD RESET: Found user kahsheng
+[2025-10-20 23:59:02] Edited system admins list successfully saved to systemAdmin.txt
+[2025-10-20 23:59:02] kahsheng's password has been updated.
+[2025-10-20 23:59:02] User list successfully saved to user.txt
+[2025-10-20 23:59:02] PASSWORD RESET SUCCESS: Password saved to users.txt for user kahsheng
+[2025-10-22 10:57:29] Application started.
+[2025-10-22 10:57:40] Admin trying to login, registering data...
+[2025-10-22 10:57:40] Admin verification failed for username: kahsheng
+[2025-10-22 10:57:40] Admin log in failed for username: kahsheng
+[2025-10-22 10:57:49] Admin trying to login, registering data...
+[2025-10-22 10:57:49] Admin verification successful for username: kahsheng
+[2025-10-22 10:57:49] Admin log in successful for: kahsheng
+[2025-10-22 10:57:49] Current Admin editing: User{userId='SA001', username='kahsheng', password='kahsheng4', role='SystemAdmin'}
+[2025-10-22 11:03:29] Application started.
+[2025-10-22 11:03:31] User trying to login
+[2025-10-22 11:03:39] Login failed, user information don't match for username: ddd with password: dd
+[2025-10-22 11:03:39] Login failed for username: ddd
+[2025-10-22 11:04:13] User trying to login
+[2025-10-22 11:04:21] Login failed, user information don't match for username: kahsheng with password: adsad
+[2025-10-22 11:04:21] Login failed for username: kahsheng
+[2025-10-29 02:15:05] Application started.
+[2025-10-29 02:15:08] User trying to login
+[2025-10-29 02:15:23] Login failed, user information don't match for username: studuser with password: stud123
+[2025-10-29 02:15:23] Login failed for username: studuser
+[2025-10-29 02:19:45] Application started.
+[2025-10-29 02:19:47] User trying to login
+[2025-10-29 02:20:15] Login failed, user information don't match for username: studuser with password: stud123
+[2025-10-29 02:20:15] Login failed for username: studuser
+[2025-10-29 02:21:00] Application started.
+[2025-10-29 02:21:02] User trying to login
+[2025-10-29 02:21:22] Login failed, user information don't match for username: studuser with password: stud123
+[2025-10-29 02:21:22] Login failed for username: studuser
+[2025-10-29 02:25:50] Application started.
+[2025-10-29 02:26:02] Invalid non-numeric input on main menu.
+[2025-10-29 02:26:05] User trying to login
+[2025-10-29 02:26:10] Login successful for user: studuser
+[2025-10-29 02:26:10] Login successful for user: studuser
+[2025-10-29 02:26:10] Attempting to redirect user studuser to portal for role: Student
+[2025-10-29 02:26:10] Redirected to Student Portal.
+[2025-10-29 02:35:14] Application started.
+[2025-10-29 02:41:07] Application started.
+[2025-10-29 02:41:10] User trying to login
+[2025-10-29 02:41:24] Login failed, user information don't match for username: STU001 with password: sds
+[2025-10-29 02:41:24] Login failed for username: STU001
+[2025-10-29 02:41:28] Invalid non-numeric input on main menu.
+[2025-10-29 02:41:32] User trying to login
+[2025-10-29 02:41:44] Login successful for user: studuser
+[2025-10-29 02:41:44] Login successful for user: studuser
+[2025-10-29 02:41:44] Attempting to redirect user studuser to portal for role: Student
+[2025-10-29 02:41:44] Redirected to Student Portal.
+[2025-10-29 02:48:30] Application started.
+[2025-10-29 02:48:31] User trying to login
+[2025-10-29 02:48:44] Login successful for user: studuser
+[2025-10-29 02:48:44] Login successful for user: studuser
+[2025-10-29 02:48:44] Attempting to redirect user studuser to portal for role: Student
+[2025-10-29 02:48:44] Redirected to Student Portal.
+[2025-10-29 02:56:58] Application started.
+[2025-10-29 02:57:00] User trying to login
+[2025-10-29 02:57:17] Login successful for user: studuser
+[2025-10-29 02:57:17] Login successful for user: studuser
+[2025-10-29 02:57:17] Attempting to redirect user studuser to portal for role: Student
+[2025-10-29 02:58:18] Attempting to reschedule appointment for student ID: STU001
+[2025-10-29 02:58:34] Reschedule failed: Appointment ID apt-001 not found for student ID: STU001
+[2025-10-29 02:58:47] Attempting to reschedule appointment for student ID: STU001
+[2025-10-29 02:59:01] Reschedule failed: Appointment ID apt001 not found for student ID: STU001
+[2025-10-29 02:59:05] Attempting to reschedule appointment for student ID: STU001
+[2025-10-29 02:59:07] Reschedule failed: Appointment ID apt-001 not found for student ID: STU001
+[2025-10-29 02:59:14] Attempting to reschedule appointment for student ID: STU001
+[2025-10-29 02:59:43] Redirected to Student Portal.
+[2025-10-29 16:47:35] Application started.
+[2025-10-29 16:47:42] User trying to login
+[2025-10-29 16:47:54] Login successful for user: studuser
+[2025-10-29 16:47:54] Login successful for user: studuser
+[2025-10-29 16:47:54] Attempting to redirect user studuser to portal for role: Student
+[2025-10-29 16:48:15] Attempting to reschedule appointment for student ID: STU001
+[2025-10-29 16:48:38] Attempting to reschedule appointment for student ID: STU001
+[2025-10-29 16:48:50] Redirected to Student Portal.
+[2025-10-29 16:51:03] Application started.
+[2025-10-29 16:51:19] Admin trying to login, registering data...
+[2025-10-29 16:51:19] Admin verification successful for username: kahsheng
+[2025-10-29 16:51:19] Admin log in successful for: kahsheng
+[2025-10-29 16:51:19] Current Admin editing: User{userId='SA001', username='kahsheng', password='kahsheng4', role='SystemAdmin'}
+[2025-10-29 16:52:13] Edited student list successfully saved to students.txt
+[2025-10-29 16:52:13] User list successfully saved to user.txt
+[2025-10-29 19:17:03] Application started.
+[2025-10-29 19:17:05] User trying to login
+[2025-10-29 19:17:15] Login successful for user: aatrox
+[2025-10-29 19:17:15] Login successful for user: aatrox
+[2025-10-29 19:17:15] Attempting to redirect user aatrox to portal for role: Student
+[2025-10-29 19:17:15] Student portal access initiated for user: aatrox
+[2025-10-29 19:17:15] Student Portal entered for user: SDOO2
+[2025-10-29 19:17:33] Student SDOO2 initiated appointment creation.
+[2025-10-29 19:17:39] New appointment created: ID Apt-003 by student SDOO2 for time: kingkong123
+[2025-10-29 19:17:44] Student SDOO2 attempting to reschedule appointment.
+[2025-10-29 19:17:47] Reschedule failed: Appointment ID kingking124 not found for student ID: SDOO2
+[2025-10-29 19:17:50] Student SDOO2 logged out.
+[2025-10-29 19:17:50] Redirected to Student Portal.
+[2025-10-29 19:17:52] User selected Log Out. Application shutting down.
