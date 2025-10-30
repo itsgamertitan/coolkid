@@ -1,0 +1,16 @@
+# Build artifacts
+/bin/
+*.class
+
+# OS files
+.DS_Store
+
+# Logs
+*.log
+
+# Editor/project
+.idea/
+.vscode/
+
+# Assignment PDF (not included in repo)
+"Assignment (AAPP013-4-2-OOP).pdf"

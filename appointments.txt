@@ -1,2 +1,3 @@
-Apt-001|87|pearson|2025-11-99 10:00|Cancelled|
+Apt-001|87|pearson|2025-11-99 10:00|Rejected|very cool person
 Apt-002|87|pearson|1|Approved|very naisu
+A1761795779521|87|nameless|2025-10-30 11:42|Pending|

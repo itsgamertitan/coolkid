@@ -1,7 +1,7 @@
 SA9999|ultimateAdmin|SystemAdminPass123|SystemAdmin
-SD1123|poopa|1234|Supervisor
+SD1123|poopa|1234|Student
 sd1123|babus|babus123|Student
-SA001|kahsheng|kahsheng4|SystemAdmin
+SA001|kahsheng|kahsheng4|FacultyAdmin
 12|nicheal|jacker|Student
 45|pearson|bladder|Supervisor
 67|hellow|3456|FacultyAdmin
@@ -13,3 +13,4 @@ SA001|kahsheng|kahsheng4|SystemAdmin
 34|grock|tazed|Supervisor
 89|gromp|blue|Supervisor
 14|nameless|johnson|Supervisor
+1431|cool|12343|Student

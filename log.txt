@@ -842,3 +842,58 @@
 [2025-10-30 05:29:20] Edited supervisor list successfully saved to supervisors.txt
 [2025-10-30 05:29:20] Reassignment completed
 [2025-10-30 05:29:20] redirecting to reassign
+[2025-10-30 10:54:40] Supervisor initialized with students: [SD1123]
+[2025-10-30 10:54:40] Supervisor initialized with students: [prod]
+[2025-10-30 10:54:40] Supervisor initialized with students: [jayce]
+[2025-10-30 10:54:40] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-30 10:54:40] Application started.
+[2025-10-30 10:59:42] Supervisor initialized with students: [SD1123]
+[2025-10-30 10:59:42] Supervisor initialized with students: [prod]
+[2025-10-30 10:59:42] Supervisor initialized with students: [jayce]
+[2025-10-30 10:59:42] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-30 11:05:27] Supervisor initialized with students: [SD1123]
+[2025-10-30 11:05:27] Supervisor initialized with students: [prod]
+[2025-10-30 11:05:27] Supervisor initialized with students: [jayce]
+[2025-10-30 11:05:27] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-30 11:16:12] Supervisor initialized with students: [SD1123]
+[2025-10-30 11:16:12] Supervisor initialized with students: [prod]
+[2025-10-30 11:16:12] Supervisor initialized with students: [jayce]
+[2025-10-30 11:16:12] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-30 11:19:29] Edited student list successfully saved to students.txt
+[2025-10-30 11:22:58] Supervisor initialized with students: [SD1123]
+[2025-10-30 11:22:58] Supervisor initialized with students: [prod]
+[2025-10-30 11:22:58] Supervisor initialized with students: [jayce]
+[2025-10-30 11:22:58] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-30 11:28:51] Supervisor initialized with students: [SD1123]
+[2025-10-30 11:28:51] Supervisor initialized with students: [prod]
+[2025-10-30 11:28:51] Supervisor initialized with students: [jayce]
+[2025-10-30 11:28:51] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-30 11:30:49] Supervisor initialized with students: [SD1123]
+[2025-10-30 11:30:49] Supervisor initialized with students: [prod]
+[2025-10-30 11:30:49] Supervisor initialized with students: [jayce]
+[2025-10-30 11:30:49] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-30 11:39:09] Supervisor initialized with students: [SD1123]
+[2025-10-30 11:39:09] Supervisor initialized with students: [prod]
+[2025-10-30 11:39:09] Supervisor initialized with students: [jayce]
+[2025-10-30 11:39:09] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-30 11:42:08] User list successfully saved to user.txt
+[2025-10-30 11:42:15] User list successfully saved to user.txt
+[2025-10-30 11:42:18] User list successfully saved to user.txt
+[2025-10-30 11:42:20] User list successfully saved to user.txt
+[2025-10-30 11:42:22] User list successfully saved to user.txt
+[2025-10-30 11:42:39] User list successfully saved to user.txt
+[2025-10-30 19:38:27] Supervisor initialized with students: [SD1123]
+[2025-10-30 19:38:27] Supervisor initialized with students: [prod]
+[2025-10-30 19:38:27] Supervisor initialized with students: [jayce]
+[2025-10-30 19:38:27] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-30 19:53:59] Supervisor initialized with students: [SD1123]
+[2025-10-30 19:53:59] Supervisor initialized with students: [prod]
+[2025-10-30 19:53:59] Supervisor initialized with students: [jayce]
+[2025-10-30 19:53:59] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-30 19:59:13] Supervisor initialized with students: [SD1123]
+[2025-10-30 19:59:13] Supervisor initialized with students: [prod]
+[2025-10-30 19:59:13] Supervisor initialized with students: [jayce]
+[2025-10-30 19:59:13] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-30 19:59:35] User list successfully saved to user.txt
+[2025-10-30 19:59:38] User list successfully saved to user.txt
+[2025-10-30 19:59:39] User list successfully saved to user.txt
