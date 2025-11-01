@@ -57,9 +57,10 @@ public class FileHandling {
             while((line=reader.readLine())!=null){
                 if(line.trim().isEmpty()) continue;
                 String [] parts=line.split("\\|");
-                if(parts.length>=5){
-                Supervisor supervisor=new Supervisor(parts);
-                supervisors.add(supervisor);}
+                if(parts.length>=4){
+                    Supervisor supervisor=new Supervisor(parts);
+                    supervisors.add(supervisor);
+                }
             }
         }
         catch(IOException e){
@@ -240,8 +241,16 @@ public static List<FacultyAdmin> loadFacultyAdmin(String filename) {
             while ((line = reader.readLine()) != null) {
                 if (line.trim().isEmpty()) continue;
                 String[] parts = line.split("\\|");
-                Appointment appointment = new Appointment(parts);
-                appointments.add(appointment);
+                if (parts.length < 6) {
+                    Log.writeLog("Skipping invalid appointment line: " + line);
+                    continue;
+                }
+                try {
+                    Appointment appointment = new Appointment(parts);
+                    appointments.add(appointment);
+                } catch (Exception ex) {
+                    Log.writeLog("Error parsing appointment: " + line + " - " + ex.getMessage());
+                }
             }
         } catch (IOException e) {
             System.out.println("Error getting appointment info");
@@ -252,7 +261,9 @@ public static List<FacultyAdmin> loadFacultyAdmin(String filename) {
     public static void saveToAppointment(Appointment appointment, String filename) {
         try (FileWriter writer = new FileWriter(filename, true)) {
             writer.write(appointment.toFileString() + "\n");
+            Log.writeLog("Appointment saved to " + filename + ": " + appointment.toFileString());
         } catch (IOException e) {
+            Log.writeLog("Error saving appointment to " + filename + ": " + e.getMessage());
             e.printStackTrace();    
         }
     }
@@ -266,6 +277,25 @@ public static List<FacultyAdmin> loadFacultyAdmin(String filename) {
             System.err.println("Error saving appointment file: " + e.getMessage());
         }
     }
+
+    public Student findStudentById(String studentId) {
+        List<Student> students = loadStudents("students.txt");
+        for (Student student : students) {
+            if (student.getUserId().equals(studentId)) {
+                return student;
+            }
+        }
+        return null;
+    }
+
+    public Supervisor findSupervisorByUsername(String username) {
+        List<Supervisor> supervisors = loadSupervisors("supervisors.txt");
+        for (Supervisor supervisor : supervisors) {
+            if (supervisor.getUsername().equals(username)) {
+                return supervisor;
+            }
+        }
+        return null;
+    }
 }
 
-    

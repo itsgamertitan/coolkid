@@ -9,6 +9,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.DefaultCellEditor;
+import java.io.FileWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.awt.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -213,7 +217,6 @@ public class AppGUI extends JFrame {
 
     private JPanel buildLoginPanel() {
         JPanel panel = new JPanel(new GridBagLayout());
-        panel.setBorder(new EmptyBorder(20, 20, 20, 20));
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(8, 8, 8, 8);
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -231,7 +234,9 @@ public class AppGUI extends JFrame {
         JButton loginBtn = new JButton("Login");
         gbc.gridx = 1; gbc.gridy = 3; gbc.anchor = GridBagConstraints.EAST; panel.add(loginBtn, gbc);
 
-        loginBtn.addActionListener(e -> doLogin());
+    loginBtn.addActionListener(e -> doLogin());
+    usernameField.addActionListener(e -> doLogin());
+    passwordField.addActionListener(e -> doLogin());
 
         return panel;
     }
@@ -244,7 +249,7 @@ public class AppGUI extends JFrame {
             return;
         }
         for (User u : users) {
-            if (u.getUsername().equals(user) && u.getPassword().equals(pass)) {
+            if (u.getUsername().equalsIgnoreCase(user) && u.getPassword().equalsIgnoreCase(pass)) {
                 currentUser = u;
                 switch (u.getRole()) {
                     case "Student":
@@ -297,17 +302,9 @@ public class AppGUI extends JFrame {
     private void refreshStudentAppointments() {
         // clear table
         studentTableModel.setRowCount(0);
-        if (!(currentUser instanceof Student)) {
-            // try to find student by userId
-            for (Student s : students) {
-                if (s.getUserId().equals(currentUser.getUserId())) {
-                    currentUser = s;
-                    break;
-                }
-            }
-        }
+        String studentId = currentUser.getUserId();
         for (Appointment a : appointments) {
-            if (a.getStudentId().equals(currentUser.getUserId())) {
+            if (a.getStudentId().equals(studentId)) {
                 studentTableModel.addRow(new Object[]{a.getAppointmentId(), a.getSupervisorUsername(), a.getDateTime(), a.getStatus(), a.getFeedback()});
             }
         }
@@ -318,23 +315,27 @@ public class AppGUI extends JFrame {
         p.setBorder(new EmptyBorder(8,8,8,8));
         JComboBox<String> supBox = new JComboBox<>();
         for (Supervisor s : supervisors) supBox.addItem(s.getUsername());
-
-        // Date/time spinner
         SpinnerDateModel sdm = new SpinnerDateModel(new Date(), null, null, Calendar.MINUTE);
         JSpinner dateSpinner = new JSpinner(sdm);
         JSpinner.DateEditor editor = new JSpinner.DateEditor(dateSpinner, "yyyy-MM-dd HH:mm");
         dateSpinner.setEditor(editor);
-
         p.add(new JLabel("Choose Supervisor:")); p.add(supBox);
         p.add(new JLabel("Date & Time:")); p.add(dateSpinner);
         int res = JOptionPane.showConfirmDialog(this, p, "New Appointment", JOptionPane.OK_CANCEL_OPTION);
         if (res == JOptionPane.OK_OPTION) {
             String sup = (String) supBox.getSelectedItem();
             Date dtVal = (Date) dateSpinner.getValue();
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(dtVal);
+            int hour = cal.get(Calendar.HOUR_OF_DAY);
+            if (hour < 9 || hour >= 17) {
+                JOptionPane.showMessageDialog(this, "Outside of office hours isn't allowed (9:00-17:00)", "Invalid Time", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
             String dt = sdf.format(dtVal);
             String id = "A" + System.currentTimeMillis();
-            Appointment a = new Appointment(id, currentUser.getUserId(), sup, dt, "Pending", "");
+            Appointment a = new Appointment(id, currentUser.getUserId(), currentUser.getUsername(), sup, dt, "Pending", "");
             appointments.add(a);
             FileHandling.saveToAppointment(a, APPOINTMENTS_FILE);
             refreshStudentAppointments();
@@ -695,6 +696,7 @@ public class AppGUI extends JFrame {
                 }
             }
             FileHandling.saveAllUsers(users, USER_FILE);
+            users = FileHandling.loadUsers(USER_FILE); // Force reload after save
             usersTableModel.setEditable(false);
             enterEdit.setEnabled(true);
             apply.setEnabled(false);
@@ -780,8 +782,38 @@ public class AppGUI extends JFrame {
             }
             User created = new User(nid, nu, np, r);
             users.add(created);
-            FileHandling.saveAllUsers(users, USER_FILE);
+            // Always write only 4 fields to user.txt
+            try (FileWriter userWriter = new FileWriter(USER_FILE, true)) {
+                userWriter.write(nid + "|" + nu + "|" + np + "|" + r + "\n");
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(this, "Error writing to user.txt: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
             refreshUsersList();
+            if (r.equals("Student")) {
+                // Assign supervisor at random
+                String supervisor = "";
+                if (supervisors != null && !supervisors.isEmpty()) {
+                    int idx = (int) (Math.random() * supervisors.size());
+                    supervisor = supervisors.get(idx).getUsername();
+                }
+                // Try to infer course from students.txt format (default to empty if not found)
+                String course = "";
+                try (BufferedReader reader = new BufferedReader(new FileReader(STUDENTS_FILE))) {
+                    String firstLine = reader.readLine();
+                    if (firstLine != null) {
+                        String[] parts = firstLine.split("\\|");
+                        if (parts.length >= 5) course = parts[4];
+                    }
+                } catch (IOException e) { /* ignore, default to empty */ }
+                Student newStudent = new Student(nid, nu, np, course, supervisor);
+                students.add(newStudent);
+                // Always write 6 fields to students.txt
+                try (FileWriter studentWriter = new FileWriter(STUDENTS_FILE, true)) {
+                    studentWriter.write(nid + "|" + nu + "|" + np + "|Student|" + course + "|" + supervisor + "\n");
+                } catch (IOException e) {
+                    JOptionPane.showMessageDialog(this, "Error writing to students.txt: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
             JOptionPane.showMessageDialog(this, "User created and saved (ID: " + nid + ").");
         }
     }

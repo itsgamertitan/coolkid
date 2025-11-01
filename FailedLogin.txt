@@ -12,3 +12,13 @@
 [2025-10-29 23:47:46] User: kahsheng tried to login with password of: kahshegn4
 [2025-10-29 23:57:35] User: f tried to login with password of: ff
 [2025-10-30 04:17:16] User: packmon tried to login with password of: packmon
+[2025-10-31 08:58:16] User: ultimateAdmin   tried to login with password of: SystemAdminPass123
+[2025-10-31 09:05:08] User: ultimateAdmin   tried to login with password of: SystemAdminPass123
+[2025-10-31 15:36:11] User: kahsheng tried to login with password of: SA001|kahsheng|kahsheng4|SystemAdmin 
+[2025-10-31 16:50:33] User: nameless tried to login with password of: johnson
+[2025-10-31 16:50:40] User: nameless tried to login with password of: johnson
+[2025-10-31 16:50:49] User: nameless tried to login with password of: johnson
+[2025-10-31 20:06:48] User: cool tried to login with password of: 1234
+[2025-10-31 20:06:56] User: cool tried to login with password of: 12323
+[2025-10-31 20:07:09] User: cool tried to login with password of: 12343
+[2025-10-31 20:07:40] User: Surly tried to login with password of: sbd

@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.Arrays;
 
 public class User implements Serializable {
@@ -24,7 +25,6 @@ public class User implements Serializable {
         this.role = parts[3];
     }
 
-    @Override
     public String toFileString() {
         return userId + "|" + username + "|" + password + "|" + role;
     }

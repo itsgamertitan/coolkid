@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class SystemAdminLogic {
+    public List<User> getUsers() {
+        return users;
+    }
     
     private List<User> users;
     private final Scanner scanner;
@@ -54,7 +57,7 @@ public class SystemAdminLogic {
         }
     }
 
-    private void synchronizeGlobalLists() {
+    public void synchronizeGlobalLists() {
         this.students = FileHandling.loadStudents(studentsFile);
         this.supervisors = FileHandling.loadSupervisors(supervisorsFile);
         this.facultyAdmins = FileHandling.loadFacultyAdmin(facultyAdminFile);
@@ -209,13 +212,28 @@ public class SystemAdminLogic {
         Boolean control=true;
         List<Student> students = FileHandling.loadStudents(studentsFile);
         while(control){
-        
         System.out.println("\nPlease enter new student details:");
         String studentId = getNonBlankInput("Enter Student ID: ", "Student ID");
         String username = getNonBlankInput("Enter Username: ", "Username"); 
         String password = getNonBlankInput("Enter Password: ", "Password"); 
         String program = getNonBlankInput("Enter Program (e.g., IT-SE, CS): ", "Program"); 
-        String supervisor = getNonBlankInput("Enter Supervisor: ", "Supervisor Name"); 
+        // Automatically assign supervisor
+        String supervisor = "";
+        if (!supervisors.isEmpty()) {
+            Supervisor assigned = supervisors.get(0);
+            int minCount = assigned.getStudent() != null ? assigned.getStudent().size() : 0;
+            for (Supervisor sup : supervisors) {
+                int count = sup.getStudent() != null ? sup.getStudent().size() : 0;
+                if (count < minCount) {
+                    assigned = sup;
+                    minCount = count;
+                }
+            }
+            supervisor = assigned.getUsername();
+            // Add student to supervisor's assigned list
+            assigned.getStudent().add(studentId);
+            FileHandling.saveAllSupervisors(supervisors, supervisorsFile);
+        }
         if(checkDuplicate(username, studentId)){
             System.out.println("Duplicate or User information found!! Cannot create user, please try again.");
             Log.writeLog("Duplicate or User information found!!");
@@ -223,16 +241,17 @@ public class SystemAdminLogic {
         }
         Student newStudent = new Student(studentId, username, password, program, supervisor);
         User newUser = new User(studentId,username,password,"Student");
-        
         students.add(newStudent);
         users.add(newUser);
-
+        // Save to user.txt with only 4 fields
+        try (FileWriter userWriter = new FileWriter(userFile, true)) {
+            userWriter.write(studentId + "|" + username + "|" + password + "|Student\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         FileHandling.saveAllStudents(students, studentsFile);
-        FileHandling.saveAllUsers(users, userFile); 
-        
         synchronizeGlobalLists(); 
-
-        System.out.println("\nStudent account for " + username + " successfully created and saved.");
+        System.out.println("\nStudent account for " + username + " successfully created and saved. Assigned supervisor: " + supervisor);
         control=false;}
     }
     
@@ -785,8 +804,7 @@ public class SystemAdminLogic {
         System.out.println("\n==================================================");
         System.out.println("              RESET USER PASSWORD                  ");
         System.out.println("==================================================");
-        
-        String usernameToReset = getNonBlankInput("Enter the Username of the user to reset password for: ", "Username for Password Reset");
+        String usernameToReset = getNonBlankInput("Enter the Username of the user to reset password for: ", "Username for Password Reset").trim();
         String tempRole=null;
         Student studentToModify=null;
         SystemAdmin systemAdminToModify=null;
@@ -794,47 +812,11 @@ public class SystemAdminLogic {
         Supervisor supervisorToModify=null;
         User userToModify = null;
         for (User user : users) {
-            if (user.getUsername().equalsIgnoreCase(usernameToReset)) {
+            if (user.getUsername().trim().equalsIgnoreCase(usernameToReset)) {
                 userToModify = user;
                 tempRole=user.getRole();
                 break;
             }
-        }
-        switch(tempRole){
-            case "Student":
-            for(Student student:students){
-                if(student.getUsername().equals(userToModify.getUsername())){
-                    studentToModify=student;
-                    break;
-                }
-            }
-            break;
-            case "SystemAdmin":
-                for(SystemAdmin systemAdmin:systemAdmins){
-                if(systemAdmin.getUsername().equals(userToModify.getUsername())){
-                    systemAdminToModify=systemAdmin;
-                    break;
-                }
-                
-            }
-            break;
-            case "FacultyAdmin":
-                for(FacultyAdmin facultyAdmin:facultyAdmins){
-                if(facultyAdmin.getUsername().equals(userToModify.getUsername())){
-                    facultyAdminToModify=facultyAdmin;
-                    break;
-                }
-                
-            }
-            break;
-            case "Supervisor":
-                for(Supervisor supervisor:supervisors){
-                    if(supervisor.getUsername().equals(userToModify.getUsername())){
-                        supervisorToModify=supervisor;
-                        break;
-                    }
-                }
-                break;
         }
 
         if (userToModify != null) {
@@ -868,8 +850,8 @@ public class SystemAdminLogic {
             }
 
             FileHandling.saveAllUsers(users, userFile); 
+            users = FileHandling.loadUsers(userFile); // Force reload after save
             Log.writeLog("PASSWORD RESET SUCCESS: Password saved to users.txt for user " + usernameToReset);
-            
             System.out.printf("Password for user '%s' successfully reset and saved permanently to file.%n", userToModify.getUsername());
         } else {
             System.out.println("Error: User with that username was not found.");
@@ -971,4 +953,8 @@ public void wipeAllUsers() {
         System.out.println("==================================================");
     }
 }
+    public List<Student> getStudents() { return students; }
+    public List<Supervisor> getSupervisors() { return supervisors; }
+    public List<FacultyAdmin> getFacultyAdmins() { return facultyAdmins; }
+    public List<SystemAdmin> getSystemAdmins() { return systemAdmins; }
 }

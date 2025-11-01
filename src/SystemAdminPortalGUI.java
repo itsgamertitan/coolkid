@@ -1,0 +1,276 @@
+import javax.swing.*;
+import java.awt.*;
+import java.util.List;
+
+public class SystemAdminPortalGUI extends JFrame {
+    private final SystemAdminLogic logic;
+    private final User currentAdmin;
+
+    public SystemAdminPortalGUI(User user, List<User> users, List<SystemAdmin> systemAdmins, List<Student> students, List<FacultyAdmin> facultyAdmins, List<Supervisor> supervisors) {
+        this.currentAdmin = user;
+        this.logic = new SystemAdminLogic(users, new java.util.Scanner(System.in), "students.txt", "supervisors.txt", "facultyAdmin.txt", "systemAdmin.txt", "user.txt", user, systemAdmins, students, facultyAdmins, supervisors);
+    setTitle("System Admin Portal - " + user.getUsername());
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setSize(800, 600);
+    setMinimumSize(new Dimension(800, 600));
+    setMaximumSize(new Dimension(800, 600));
+    setPreferredSize(new Dimension(800, 600));
+    setLocationRelativeTo(null);
+        JPanel menuPanel = new JPanel(new GridBagLayout());
+        menuPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(10, 0, 10, 0);
+        JLabel titleLabel = new JLabel("System Admin Portal", JLabel.CENTER);
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
+        JButton viewUsersBtn = new JButton("View All Users and Roles");
+        JButton manageAccountsBtn = new JButton("Manage User Accounts");
+        JButton resetPasswordBtn = new JButton("Reset User Password");
+        JButton wipeDataBtn = new JButton("Wipe All User Role Data");
+        JButton logoutBtn = new JButton("Logout");
+        viewUsersBtn.addActionListener(_ -> showUsersTable());
+        manageAccountsBtn.addActionListener(e -> showManageUserDialog());
+        resetPasswordBtn.addActionListener(e -> showResetPasswordDialog());
+        wipeDataBtn.addActionListener(e -> logic.wipeAllUsers());
+        logoutBtn.addActionListener(e -> {
+            Log.writeLog("System Admin logged out: " + currentAdmin.getUserId());
+            SwingUtilities.invokeLater(() -> {
+                dispose();
+                LoginGUI loginGUI = new LoginGUI();
+                loginGUI.pack();
+                loginGUI.setLocationRelativeTo(null);
+                loginGUI.setVisible(true);
+            });
+        });
+        menuPanel.add(titleLabel, gbc);
+        menuPanel.add(Box.createVerticalStrut(30), gbc);
+        menuPanel.add(viewUsersBtn, gbc);
+        menuPanel.add(manageAccountsBtn, gbc);
+        menuPanel.add(resetPasswordBtn, gbc);
+        menuPanel.add(wipeDataBtn, gbc);
+        menuPanel.add(Box.createVerticalStrut(50), gbc);
+        menuPanel.add(logoutBtn, gbc);
+        add(menuPanel, BorderLayout.CENTER);
+        setVisible(true);
+    }
+
+    // --- Helper Methods for GUI Actions ---
+    private void showUsersTable() {
+        logic.synchronizeGlobalLists(); // Always reload from files
+        List<User> userList = logic.getUsers();
+        String[] columns = {"USER ID", "USERNAME", "ROLE"};
+        Object[][] data = new Object[userList.size()][3];
+        for (int i = 0; i < userList.size(); i++) {
+            User u = userList.get(i);
+            data[i][0] = u.getUserId();
+            data[i][1] = u.getUsername();
+            data[i][2] = u.getRole();
+        }
+        JTable table = new JTable(data, columns);
+        JScrollPane scrollPane = new JScrollPane(table);
+        JOptionPane.showMessageDialog(this, scrollPane, "All Users and Roles", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void showManageUserDialog() {
+        String[] options = {"Create New User", "Edit Existing User", "Delete User", "Cancel"};
+        int choice = JOptionPane.showOptionDialog(this, "Select an action:", "Manage User Accounts",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+        switch (choice) {
+            case 0 -> showCreateUserDialog();
+            case 1 -> showEditUserDialog();
+            case 2 -> showDeleteUserDialog();
+            default -> {}
+        }
+    }
+
+    private void showCreateUserDialog() {
+        String[] roles = {"Student", "Supervisor", "FacultyAdmin", "SystemAdmin"};
+        JPanel panel = new JPanel(new GridLayout(0, 2));
+        panel.add(new JLabel("Role:"));
+        JComboBox<String> roleBox = new JComboBox<>(roles);
+        panel.add(roleBox);
+        panel.add(new JLabel("User ID:"));
+        JTextField idField = new JTextField();
+        panel.add(idField);
+        panel.add(new JLabel("Username:"));
+        JTextField usernameField = new JTextField();
+        panel.add(usernameField);
+        panel.add(new JLabel("Password:"));
+        JTextField passwordField = new JTextField();
+        panel.add(passwordField);
+        int result = JOptionPane.showConfirmDialog(this, panel, "Create New User", JOptionPane.OK_CANCEL_OPTION);
+        if (result == JOptionPane.OK_OPTION) {
+            String role = (String) roleBox.getSelectedItem();
+            String userId = idField.getText().trim();
+            String username = usernameField.getText().trim();
+            String password = passwordField.getText().trim();
+            if (userId.isEmpty() || username.isEmpty() || password.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "All fields are required.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (logic.checkDuplicate(username, userId)) {
+                JOptionPane.showMessageDialog(this, "Duplicate username or user ID.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            switch (role) {
+                case "Student" -> {
+                    String program = JOptionPane.showInputDialog(this, "Enter Program (e.g., IT-SE, CS):");
+                    String supervisor = JOptionPane.showInputDialog(this, "Enter Supervisor Name:");
+                    Student newStudent = new Student(userId, username, password, program, supervisor);
+                    logic.getUsers().add(new User(userId, username, password, "Student"));
+                    FileHandling.saveToStudent(newStudent, "students.txt");
+                    FileHandling.saveToUser(newStudent, "user.txt");
+                }
+                case "Supervisor" -> {
+                    Supervisor newSupervisor = new Supervisor(userId, username, password, new java.util.ArrayList<>());
+                    logic.getUsers().add(new User(userId, username, password, "Supervisor"));
+                    FileHandling.saveToSupervisor(newSupervisor, "supervisors.txt");
+                    FileHandling.saveToUser(newSupervisor, "user.txt");
+                }
+                case "FacultyAdmin" -> {
+                    FacultyAdmin newAdmin = new FacultyAdmin(userId, username, password);
+                    logic.getUsers().add(new User(userId, username, password, "FacultyAdmin"));
+                    FileHandling.saveToFacultyAdmin(newAdmin, "facultyAdmin.txt");
+                    FileHandling.saveToUser(newAdmin, "user.txt");
+                }
+                case "SystemAdmin" -> {
+                    SystemAdmin newSysAdmin = new SystemAdmin(userId, username, password);
+                    logic.getUsers().add(new User(userId, username, password, "SystemAdmin"));
+                    FileHandling.saveToSystemAdmin(newSysAdmin, "systemAdmin.txt");
+                    FileHandling.saveToUser(newSysAdmin, "user.txt");
+                }
+            }
+            JOptionPane.showMessageDialog(this, "User created successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    private void showEditUserDialog() {
+        logic.synchronizeGlobalLists(); // Always reload from files
+        String username = JOptionPane.showInputDialog(this, "Enter the username of the user to edit:");
+        if (username == null || username.trim().isEmpty()) return;
+        User userToEdit = logic.getUsers().stream().filter(u -> u.getUsername().equalsIgnoreCase(username.trim())).findFirst().orElse(null);
+        if (userToEdit == null) {
+            JOptionPane.showMessageDialog(this, "User not found.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        JPanel panel = new JPanel(new GridLayout(0, 2));
+        panel.add(new JLabel("New Username:"));
+        JTextField usernameField = new JTextField(userToEdit.getUsername());
+        panel.add(usernameField);
+        panel.add(new JLabel("New User ID:"));
+        JTextField idField = new JTextField(userToEdit.getUserId());
+        panel.add(idField);
+        panel.add(new JLabel("New Role:"));
+        JComboBox<String> roleBox = new JComboBox<>(new String[]{"Student", "Supervisor", "FacultyAdmin", "SystemAdmin"});
+        roleBox.setSelectedItem(userToEdit.getRole());
+        panel.add(roleBox);
+        int result = JOptionPane.showConfirmDialog(this, panel, "Edit User", JOptionPane.OK_CANCEL_OPTION);
+        if (result == JOptionPane.OK_OPTION) {
+            String newUsername = usernameField.getText().trim();
+            String newUserId = idField.getText().trim();
+            String newRole = (String) roleBox.getSelectedItem();
+            if (newUsername.isEmpty() || newUserId.isEmpty() || newRole.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "All fields are required.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            userToEdit.setUsername(newUsername);
+            userToEdit.setUserID(newUserId);
+            userToEdit.setRole(newRole);
+            FileHandling.saveAllUsers(logic.getUsers(), "user.txt");
+            // Also update role file
+            switch (newRole) {
+                case "Student" -> {
+                    logic.synchronizeGlobalLists();
+                    logic.getStudents().stream().filter(s -> s.getUserId().equals(newUserId)).findFirst().ifPresent(s -> s.setUsername(newUsername));
+                    FileHandling.saveAllStudents(logic.getStudents(), "students.txt");
+                }
+                case "Supervisor" -> {
+                    logic.synchronizeGlobalLists();
+                    logic.getSupervisors().stream().filter(s -> s.getUserId().equals(newUserId)).findFirst().ifPresent(s -> s.setUsername(newUsername));
+                    FileHandling.saveAllSupervisors(logic.getSupervisors(), "supervisors.txt");
+                }
+                case "FacultyAdmin" -> {
+                    logic.synchronizeGlobalLists();
+                    logic.getFacultyAdmins().stream().filter(f -> f.getUserId().equals(newUserId)).findFirst().ifPresent(f -> f.setUsername(newUsername));
+                    FileHandling.saveAllFacultyAdmins(logic.getFacultyAdmins(), "facultyAdmin.txt");
+                }
+                case "SystemAdmin" -> {
+                    logic.synchronizeGlobalLists();
+                    logic.getSystemAdmins().stream().filter(s -> s.getUserId().equals(newUserId)).findFirst().ifPresent(s -> s.setUsername(newUsername));
+                    FileHandling.saveAllSystemAdmins(logic.getSystemAdmins(), "systemAdmin.txt");
+                }
+            }
+            JOptionPane.showMessageDialog(this, "User updated successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    private void showDeleteUserDialog() {
+        String username = JOptionPane.showInputDialog(this, "Enter the username of the user to delete:");
+        if (username == null || username.trim().isEmpty()) return;
+        User userToDelete = logic.getUsers().stream().filter(u -> u.getUsername().equalsIgnoreCase(username.trim())).findFirst().orElse(null);
+        if (userToDelete == null) {
+            JOptionPane.showMessageDialog(this, "User not found.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete user '" + userToDelete.getUsername() + "'?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
+        if (confirm == JOptionPane.YES_OPTION) {
+            logic.getUsers().remove(userToDelete);
+            // Remove from role file as well
+            switch (userToDelete.getRole()) {
+                case "Student" -> {
+                    logic.getStudents().removeIf(s -> s.getUserId().equals(userToDelete.getUserId()));
+                    FileHandling.saveAllStudents(logic.getStudents(), "students.txt");
+                }
+                case "Supervisor" -> {
+                    logic.getSupervisors().removeIf(s -> s.getUserId().equals(userToDelete.getUserId()));
+                    FileHandling.saveAllSupervisors(logic.getSupervisors(), "supervisors.txt");
+                }
+                case "FacultyAdmin" -> {
+                    logic.getFacultyAdmins().removeIf(f -> f.getUserId().equals(userToDelete.getUserId()));
+                    FileHandling.saveAllFacultyAdmins(logic.getFacultyAdmins(), "facultyAdmin.txt");
+                }
+                case "SystemAdmin" -> {
+                    logic.getSystemAdmins().removeIf(s -> s.getUserId().equals(userToDelete.getUserId()));
+                    FileHandling.saveAllSystemAdmins(logic.getSystemAdmins(), "systemAdmin.txt");
+                }
+            }
+            FileHandling.saveAllUsers(logic.getUsers(), "user.txt");
+            JOptionPane.showMessageDialog(this, "User deleted successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    private void showResetPasswordDialog() {
+        String username = JOptionPane.showInputDialog(this, "Enter the username of the user to reset password for:");
+        if (username == null || username.trim().isEmpty()) return;
+        User userToReset = logic.getUsers().stream().filter(u -> u.getUsername().equalsIgnoreCase(username.trim())).findFirst().orElse(null);
+        if (userToReset == null) {
+            JOptionPane.showMessageDialog(this, "User not found.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        String newPassword = JOptionPane.showInputDialog(this, "Enter the new password:");
+        if (newPassword == null || newPassword.trim().isEmpty()) return;
+        userToReset.setPassword(newPassword.trim());
+        // Also update role file
+        switch (userToReset.getRole()) {
+            case "Student" -> {
+                logic.getStudents().stream().filter(s -> s.getUserId().equals(userToReset.getUserId())).findFirst().ifPresent(s -> s.setPassword(newPassword.trim()));
+                FileHandling.saveAllStudents(logic.getStudents(), "students.txt");
+            }
+            case "Supervisor" -> {
+                logic.getSupervisors().stream().filter(s -> s.getUserId().equals(userToReset.getUserId())).findFirst().ifPresent(s -> s.setPassword(newPassword.trim()));
+                FileHandling.saveAllSupervisors(logic.getSupervisors(), "supervisors.txt");
+            }
+            case "FacultyAdmin" -> {
+                logic.getFacultyAdmins().stream().filter(f -> f.getUserId().equals(userToReset.getUserId())).findFirst().ifPresent(f -> f.setPassword(newPassword.trim()));
+                FileHandling.saveAllFacultyAdmins(logic.getFacultyAdmins(), "facultyAdmin.txt");
+            }
+            case "SystemAdmin" -> {
+                logic.getSystemAdmins().stream().filter(s -> s.getUserId().equals(userToReset.getUserId())).findFirst().ifPresent(s -> s.setPassword(newPassword.trim()));
+                FileHandling.saveAllSystemAdmins(logic.getSystemAdmins(), "systemAdmin.txt");
+            }
+        }
+        FileHandling.saveAllUsers(logic.getUsers(), "user.txt");
+        JOptionPane.showMessageDialog(this, "Password reset successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+    }
+}

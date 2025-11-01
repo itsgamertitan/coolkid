@@ -897,3 +897,562 @@
 [2025-10-30 19:59:35] User list successfully saved to user.txt
 [2025-10-30 19:59:38] User list successfully saved to user.txt
 [2025-10-30 19:59:39] User list successfully saved to user.txt
+[2025-10-31 08:52:32] Supervisor initialized with students: [SD1123]
+[2025-10-31 08:52:32] Supervisor initialized with students: [prod]
+[2025-10-31 08:52:32] Supervisor initialized with students: [jayce]
+[2025-10-31 08:52:32] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 08:52:32] System Admin ultimateAdmin logged in successfully
+[2025-10-31 08:53:03] Supervisor initialized with students: [SD1123]
+[2025-10-31 08:53:03] Supervisor initialized with students: [prod]
+[2025-10-31 08:53:03] Supervisor initialized with students: [jayce]
+[2025-10-31 08:53:03] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 08:56:48] Supervisor initialized with students: [SD1123]
+[2025-10-31 08:56:48] Supervisor initialized with students: [prod]
+[2025-10-31 08:56:48] Supervisor initialized with students: [jayce]
+[2025-10-31 08:56:48] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 08:57:29] Supervisor initialized with students: [SD1123]
+[2025-10-31 08:57:29] Supervisor initialized with students: [prod]
+[2025-10-31 08:57:29] Supervisor initialized with students: [jayce]
+[2025-10-31 08:57:29] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 08:57:29] Supervisor initialized with students: [SD1123]
+[2025-10-31 08:57:29] Supervisor initialized with students: [prod]
+[2025-10-31 08:57:29] Supervisor initialized with students: [jayce]
+[2025-10-31 08:57:29] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 08:57:44] Faculty Admin logged out: 67
+[2025-10-31 08:57:52] Supervisor initialized with students: [SD1123]
+[2025-10-31 08:57:52] Supervisor initialized with students: [prod]
+[2025-10-31 08:57:52] Supervisor initialized with students: [jayce]
+[2025-10-31 08:57:52] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 08:58:13] Supervisor initialized with students: [SD1123]
+[2025-10-31 08:58:13] Supervisor initialized with students: [prod]
+[2025-10-31 08:58:13] Supervisor initialized with students: [jayce]
+[2025-10-31 08:58:13] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 08:58:16] Failed login attempt for username: ultimateAdmin  
+[2025-10-31 09:03:19] Supervisor initialized with students: [SD1123]
+[2025-10-31 09:03:19] Supervisor initialized with students: [prod]
+[2025-10-31 09:03:19] Supervisor initialized with students: [jayce]
+[2025-10-31 09:03:19] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 09:05:05] Supervisor initialized with students: [SD1123]
+[2025-10-31 09:05:05] Supervisor initialized with students: [prod]
+[2025-10-31 09:05:05] Supervisor initialized with students: [jayce]
+[2025-10-31 09:05:05] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 09:05:08] Failed login attempt for username: ultimateAdmin  
+[2025-10-31 09:05:18] Supervisor initialized with students: [SD1123]
+[2025-10-31 09:05:18] Supervisor initialized with students: [prod]
+[2025-10-31 09:05:18] Supervisor initialized with students: [jayce]
+[2025-10-31 09:05:18] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 09:06:59] Supervisor initialized with students: [SD1123]
+[2025-10-31 09:06:59] Supervisor initialized with students: [prod]
+[2025-10-31 09:06:59] Supervisor initialized with students: [jayce]
+[2025-10-31 09:06:59] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 09:07:14] Supervisor initialized with students: [SD1123]
+[2025-10-31 09:07:14] Supervisor initialized with students: [prod]
+[2025-10-31 09:07:14] Supervisor initialized with students: [jayce]
+[2025-10-31 09:07:14] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 09:12:43] Supervisor initialized with students: [SD1123]
+[2025-10-31 09:12:43] Supervisor initialized with students: [prod]
+[2025-10-31 09:12:43] Supervisor initialized with students: [jayce]
+[2025-10-31 09:12:43] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 09:13:03] Supervisor initialized with students: [SD1123]
+[2025-10-31 09:13:03] Supervisor initialized with students: [prod]
+[2025-10-31 09:13:03] Supervisor initialized with students: [jayce]
+[2025-10-31 09:13:03] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 09:13:16] Supervisor initialized with students: [SD1123]
+[2025-10-31 09:13:16] Supervisor initialized with students: [prod]
+[2025-10-31 09:13:16] Supervisor initialized with students: [jayce]
+[2025-10-31 09:13:16] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 09:17:02] Supervisor initialized with students: [SD1123]
+[2025-10-31 09:17:02] Supervisor initialized with students: [prod]
+[2025-10-31 09:17:02] Supervisor initialized with students: [jayce]
+[2025-10-31 09:17:02] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 09:18:13] Supervisor initialized with students: [SD1123]
+[2025-10-31 09:18:13] Supervisor initialized with students: [prod]
+[2025-10-31 09:18:13] Supervisor initialized with students: [jayce]
+[2025-10-31 09:18:13] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 09:18:32] Supervisor 56 logged out
+[2025-10-31 09:18:47] Supervisor initialized with students: [SD1123]
+[2025-10-31 09:18:47] Supervisor initialized with students: [prod]
+[2025-10-31 09:18:47] Supervisor initialized with students: [jayce]
+[2025-10-31 09:18:47] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 09:18:55] ACTION: Monitor Failed Logins selected (Not implemented).
+[2025-10-31 10:24:54] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:24:54] Supervisor initialized with students: [prod]
+[2025-10-31 10:24:54] Supervisor initialized with students: [jayce]
+[2025-10-31 10:24:54] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:25:08] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:25:08] Supervisor initialized with students: [prod]
+[2025-10-31 10:25:08] Supervisor initialized with students: [jayce]
+[2025-10-31 10:25:08] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:25:21] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:25:21] Supervisor initialized with students: [prod]
+[2025-10-31 10:25:21] Supervisor initialized with students: [jayce]
+[2025-10-31 10:25:21] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:25:33] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:25:33] Supervisor initialized with students: [prod]
+[2025-10-31 10:25:33] Supervisor initialized with students: [jayce]
+[2025-10-31 10:25:33] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:25:34] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:25:34] Supervisor initialized with students: [prod]
+[2025-10-31 10:25:34] Supervisor initialized with students: [jayce]
+[2025-10-31 10:25:34] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:25:46] Faculty Admin logged out: 67
+[2025-10-31 10:27:34] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:27:34] Supervisor initialized with students: [prod]
+[2025-10-31 10:27:34] Supervisor initialized with students: [jayce]
+[2025-10-31 10:27:34] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:27:34] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:27:34] Supervisor initialized with students: [prod]
+[2025-10-31 10:27:34] Supervisor initialized with students: [jayce]
+[2025-10-31 10:27:34] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:27:53] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:27:53] Supervisor initialized with students: [prod]
+[2025-10-31 10:27:53] Supervisor initialized with students: [jayce]
+[2025-10-31 10:27:53] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:28:02] ACTION: Monitor Failed Logins selected (Not implemented).
+[2025-10-31 10:28:06] System Admin logged out: SA9999
+[2025-10-31 10:28:14] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:28:14] Supervisor initialized with students: [prod]
+[2025-10-31 10:28:14] Supervisor initialized with students: [jayce]
+[2025-10-31 10:28:14] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:28:15] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:28:15] Supervisor initialized with students: [prod]
+[2025-10-31 10:28:15] Supervisor initialized with students: [jayce]
+[2025-10-31 10:28:15] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:28:24] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:28:24] Supervisor initialized with students: [prod]
+[2025-10-31 10:28:24] Supervisor initialized with students: [jayce]
+[2025-10-31 10:28:24] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:28:51] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:28:51] Supervisor initialized with students: [prod]
+[2025-10-31 10:28:51] Supervisor initialized with students: [jayce]
+[2025-10-31 10:28:51] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:29:08] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:29:08] Supervisor initialized with students: [prod]
+[2025-10-31 10:29:08] Supervisor initialized with students: [jayce]
+[2025-10-31 10:29:08] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:29:51] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:29:51] Supervisor initialized with students: [prod]
+[2025-10-31 10:29:51] Supervisor initialized with students: [jayce]
+[2025-10-31 10:29:51] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:30:46] Supervisor with no assigned students initialized
+[2025-10-31 10:30:46] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:30:46] Supervisor initialized with students: [prod]
+[2025-10-31 10:30:46] Supervisor initialized with students: [jayce]
+[2025-10-31 10:30:46] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:30:47] Supervisor with no assigned students initialized
+[2025-10-31 10:30:47] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:30:47] Supervisor initialized with students: [prod]
+[2025-10-31 10:30:47] Supervisor initialized with students: [jayce]
+[2025-10-31 10:30:47] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:31:03] Supervisor with no assigned students initialized
+[2025-10-31 10:31:03] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:31:03] Supervisor initialized with students: [prod]
+[2025-10-31 10:31:03] Supervisor initialized with students: [jayce]
+[2025-10-31 10:31:03] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:31:05] Supervisor with no assigned students initialized
+[2025-10-31 10:31:05] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:31:05] Supervisor initialized with students: [prod]
+[2025-10-31 10:31:05] Supervisor initialized with students: [jayce]
+[2025-10-31 10:31:05] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:31:07] Supervisor with no assigned students initialized
+[2025-10-31 10:31:07] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:31:07] Supervisor initialized with students: [prod]
+[2025-10-31 10:31:07] Supervisor initialized with students: [jayce]
+[2025-10-31 10:31:07] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:31:08] Supervisor with no assigned students initialized
+[2025-10-31 10:31:08] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:31:08] Supervisor initialized with students: [prod]
+[2025-10-31 10:31:08] Supervisor initialized with students: [jayce]
+[2025-10-31 10:31:08] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:31:15] Supervisor with no assigned students initialized
+[2025-10-31 10:31:15] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:31:15] Supervisor initialized with students: [prod]
+[2025-10-31 10:31:15] Supervisor initialized with students: [jayce]
+[2025-10-31 10:31:15] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:31:16] Supervisor with no assigned students initialized
+[2025-10-31 10:31:16] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:31:16] Supervisor initialized with students: [prod]
+[2025-10-31 10:31:16] Supervisor initialized with students: [jayce]
+[2025-10-31 10:31:16] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:45:41] Supervisor with no assigned students initialized
+[2025-10-31 10:45:41] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:45:41] Supervisor initialized with students: [prod]
+[2025-10-31 10:45:41] Supervisor initialized with students: [jayce]
+[2025-10-31 10:45:41] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:47:55] Supervisor with no assigned students initialized
+[2025-10-31 10:47:55] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:47:55] Supervisor initialized with students: [prod]
+[2025-10-31 10:47:55] Supervisor initialized with students: [jayce]
+[2025-10-31 10:47:55] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:48:04] Student logged out: SD1123
+[2025-10-31 10:48:13] Supervisor with no assigned students initialized
+[2025-10-31 10:48:13] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:48:13] Supervisor initialized with students: [prod]
+[2025-10-31 10:48:13] Supervisor initialized with students: [jayce]
+[2025-10-31 10:48:13] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:48:21] ACTION: Monitor Failed Logins selected (Not implemented).
+[2025-10-31 10:48:30] System Admin logged out: SA9999
+[2025-10-31 10:48:39] Supervisor with no assigned students initialized
+[2025-10-31 10:48:39] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:48:39] Supervisor initialized with students: [prod]
+[2025-10-31 10:48:39] Supervisor initialized with students: [jayce]
+[2025-10-31 10:48:39] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:48:39] Supervisor with no assigned students initialized
+[2025-10-31 10:48:39] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:48:39] Supervisor initialized with students: [prod]
+[2025-10-31 10:48:39] Supervisor initialized with students: [jayce]
+[2025-10-31 10:48:39] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:48:52] Faculty Admin logged out: 67
+[2025-10-31 10:48:56] Supervisor with no assigned students initialized
+[2025-10-31 10:48:56] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:48:56] Supervisor initialized with students: [prod]
+[2025-10-31 10:48:56] Supervisor initialized with students: [jayce]
+[2025-10-31 10:48:56] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:52:45] Supervisor with no assigned students initialized
+[2025-10-31 10:52:45] Supervisor initialized with students: [SD1123]
+[2025-10-31 10:52:45] Supervisor initialized with students: [prod]
+[2025-10-31 10:52:45] Supervisor initialized with students: [jayce]
+[2025-10-31 10:52:45] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 10:52:52] ACTION: Monitor Failed Logins selected (Not implemented).
+[2025-10-31 14:28:40] Supervisor with no assigned students initialized
+[2025-10-31 14:28:40] Supervisor initialized with students: [SD1123]
+[2025-10-31 14:28:40] Supervisor initialized with students: [prod]
+[2025-10-31 14:28:40] Supervisor initialized with students: [jayce]
+[2025-10-31 14:28:40] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 14:31:23] Supervisor with no assigned students initialized
+[2025-10-31 14:31:23] Supervisor initialized with students: [SD1123]
+[2025-10-31 14:31:23] Supervisor initialized with students: [prod]
+[2025-10-31 14:31:23] Supervisor initialized with students: [jayce]
+[2025-10-31 14:31:23] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 14:31:46] User list successfully saved to user.txt
+[2025-10-31 14:35:05] Supervisor with no assigned students initialized
+[2025-10-31 14:35:05] Supervisor initialized with students: [SD1123]
+[2025-10-31 14:35:05] Supervisor initialized with students: [prod]
+[2025-10-31 14:35:05] Supervisor initialized with students: [jayce]
+[2025-10-31 14:35:05] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 14:36:01] Student 87 initiated appointment creation.
+[2025-10-31 14:36:01] New appointment created: ID Apt-003 by student 87 for time: 2026-10-31 14:35
+[2025-10-31 14:36:17] Student logged out: 87
+[2025-10-31 14:36:27] Supervisor with no assigned students initialized
+[2025-10-31 14:36:27] Supervisor initialized with students: [SD1123]
+[2025-10-31 14:36:27] Supervisor initialized with students: [prod]
+[2025-10-31 14:36:27] Supervisor initialized with students: [jayce]
+[2025-10-31 14:36:27] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 14:36:27] Supervisor with no assigned students initialized
+[2025-10-31 14:36:27] Supervisor initialized with students: [SD1123]
+[2025-10-31 14:36:27] Supervisor initialized with students: [prod]
+[2025-10-31 14:36:27] Supervisor initialized with students: [jayce]
+[2025-10-31 14:36:27] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 14:36:47] Faculty Admin logged out: 67
+[2025-10-31 14:37:00] Supervisor with no assigned students initialized
+[2025-10-31 14:37:00] Supervisor initialized with students: [SD1123]
+[2025-10-31 14:37:00] Supervisor initialized with students: [prod]
+[2025-10-31 14:37:00] Supervisor initialized with students: [jayce]
+[2025-10-31 14:37:00] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 14:37:46] Supervisor with no assigned students initialized
+[2025-10-31 14:37:46] Supervisor initialized with students: [SD1123]
+[2025-10-31 14:37:46] Supervisor initialized with students: [prod]
+[2025-10-31 14:37:46] Supervisor initialized with students: [jayce]
+[2025-10-31 14:37:46] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 15:16:41] Supervisor with no assigned students initialized
+[2025-10-31 15:16:41] Supervisor initialized with students: [SD1123]
+[2025-10-31 15:16:41] Supervisor initialized with students: [prod]
+[2025-10-31 15:16:41] Supervisor initialized with students: [jayce]
+[2025-10-31 15:16:41] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 15:16:47] Supervisor with no assigned students initialized
+[2025-10-31 15:16:47] Supervisor initialized with students: [SD1123]
+[2025-10-31 15:16:47] Supervisor initialized with students: [prod]
+[2025-10-31 15:16:47] Supervisor initialized with students: [jayce]
+[2025-10-31 15:16:47] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 15:17:03] Supervisor with no assigned students initialized
+[2025-10-31 15:17:03] Supervisor initialized with students: [SD1123]
+[2025-10-31 15:17:03] Supervisor initialized with students: [prod]
+[2025-10-31 15:17:03] Supervisor initialized with students: [jayce]
+[2025-10-31 15:17:03] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 15:17:44] Supervisor with no assigned students initialized
+[2025-10-31 15:17:44] Supervisor initialized with students: [SD1123]
+[2025-10-31 15:17:44] Supervisor initialized with students: [prod]
+[2025-10-31 15:17:44] Supervisor initialized with students: [jayce]
+[2025-10-31 15:17:44] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 15:18:35] Supervisor 45 logged out
+[2025-10-31 15:36:09] Supervisor with no assigned students initialized
+[2025-10-31 15:36:09] Supervisor initialized with students: [SD1123]
+[2025-10-31 15:36:09] Supervisor initialized with students: [prod]
+[2025-10-31 15:36:09] Supervisor initialized with students: [jayce]
+[2025-10-31 15:36:09] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 15:36:11] Failed login attempt for username: kahsheng
+[2025-10-31 15:36:19] Supervisor with no assigned students initialized
+[2025-10-31 15:36:19] Supervisor initialized with students: [SD1123]
+[2025-10-31 15:36:19] Supervisor initialized with students: [prod]
+[2025-10-31 15:36:19] Supervisor initialized with students: [jayce]
+[2025-10-31 15:36:19] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 16:00:59] Supervisor with no assigned students initialized
+[2025-10-31 16:00:59] Supervisor initialized with students: [SD1123]
+[2025-10-31 16:00:59] Supervisor initialized with students: [prod]
+[2025-10-31 16:00:59] Supervisor initialized with students: [jayce]
+[2025-10-31 16:00:59] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 16:06:11] Edited student list successfully saved to students.txt
+[2025-10-31 16:06:11] User list successfully saved to user.txt
+[2025-10-31 16:36:01] Supervisor with no assigned students initialized
+[2025-10-31 16:36:01] Supervisor initialized with students: [SD1123]
+[2025-10-31 16:36:01] Supervisor initialized with students: [prod]
+[2025-10-31 16:36:01] Supervisor initialized with students: [jayce]
+[2025-10-31 16:36:01] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 16:38:32] User list successfully saved to user.txt
+[2025-10-31 16:39:55] Edited faculty admin list successfully saved to facultyAdmin.txt
+[2025-10-31 16:39:55] User list successfully saved to user.txt
+[2025-10-31 16:40:07] Edited faculty admin list successfully saved to facultyAdmin.txt
+[2025-10-31 16:40:07] User list successfully saved to user.txt
+[2025-10-31 16:40:29] Edited supervisor list successfully saved to supervisors.txt
+[2025-10-31 16:40:29] User list successfully saved to user.txt
+[2025-10-31 16:40:46] System Admin logged out: SA001
+[2025-10-31 16:41:32] Supervisor with no assigned students initialized
+[2025-10-31 16:41:32] Supervisor initialized with students: [SD1123]
+[2025-10-31 16:41:32] Supervisor initialized with students: [prod]
+[2025-10-31 16:41:32] Supervisor initialized with students: [jayce]
+[2025-10-31 16:41:32] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 16:41:32] Supervisor with no assigned students initialized
+[2025-10-31 16:41:32] Supervisor initialized with students: [SD1123]
+[2025-10-31 16:41:32] Supervisor initialized with students: [prod]
+[2025-10-31 16:41:32] Supervisor initialized with students: [jayce]
+[2025-10-31 16:41:32] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 16:42:38] Faculty Admin logged out: 90
+[2025-10-31 16:42:55] Supervisor with no assigned students initialized
+[2025-10-31 16:42:55] Supervisor initialized with students: [SD1123]
+[2025-10-31 16:42:55] Supervisor initialized with students: [prod]
+[2025-10-31 16:42:55] Supervisor initialized with students: [jayce]
+[2025-10-31 16:42:55] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 16:45:30] Student 87 attempting to reschedule appointment.
+[2025-10-31 16:45:30] Reschedule: Appointment Apt-003 moved from 2026-10-31 14:35 to 2027-10-31 15:44. Status reset to Pending.
+[2025-10-31 16:45:30] Appointment rescheduling saved successfully for Apt-003
+[2025-10-31 16:45:41] Student 87 attempting to cancel appointment.
+[2025-10-31 16:45:41] Appointment Apt-003 cancelled by student 87
+[2025-10-31 16:45:41] Appointment cancellation saved successfully for Apt-003
+[2025-10-31 16:47:19] Student 87 initiated appointment creation.
+[2025-10-31 16:47:19] New appointment created: ID Apt-004 by student 87 for time: 2026-10-31 16:42
+[2025-10-31 16:47:42] Student logged out: 87
+[2025-10-31 16:48:47] Supervisor with no assigned students initialized
+[2025-10-31 16:48:47] Supervisor initialized with students: [SD1123]
+[2025-10-31 16:48:47] Supervisor initialized with students: [prod]
+[2025-10-31 16:48:47] Supervisor initialized with students: [jayce]
+[2025-10-31 16:48:47] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 16:49:47] Supervisor 45 logged out
+[2025-10-31 16:50:32] Supervisor with no assigned students initialized
+[2025-10-31 16:50:32] Supervisor initialized with students: [SD1123]
+[2025-10-31 16:50:32] Supervisor initialized with students: [prod]
+[2025-10-31 16:50:32] Supervisor initialized with students: [jayce]
+[2025-10-31 16:50:32] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 16:50:33] Failed login attempt for username: nameless
+[2025-10-31 16:50:36] Supervisor with no assigned students initialized
+[2025-10-31 16:50:36] Supervisor initialized with students: [SD1123]
+[2025-10-31 16:50:36] Supervisor initialized with students: [prod]
+[2025-10-31 16:50:36] Supervisor initialized with students: [jayce]
+[2025-10-31 16:50:36] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 16:50:40] Failed login attempt for username: nameless
+[2025-10-31 16:50:48] Supervisor with no assigned students initialized
+[2025-10-31 16:50:48] Supervisor initialized with students: [SD1123]
+[2025-10-31 16:50:48] Supervisor initialized with students: [prod]
+[2025-10-31 16:50:48] Supervisor initialized with students: [jayce]
+[2025-10-31 16:50:48] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 16:50:49] Failed login attempt for username: nameless
+[2025-10-31 16:51:24] Supervisor with no assigned students initialized
+[2025-10-31 16:51:24] Supervisor initialized with students: [SD1123]
+[2025-10-31 16:51:24] Supervisor initialized with students: [prod]
+[2025-10-31 16:51:24] Supervisor initialized with students: [jayce]
+[2025-10-31 16:51:24] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 16:51:33] Supervisor 89 logged out
+[2025-10-31 16:52:15] Supervisor with no assigned students initialized
+[2025-10-31 16:52:15] Supervisor initialized with students: [SD1123]
+[2025-10-31 16:52:15] Supervisor initialized with students: [prod]
+[2025-10-31 16:52:15] Supervisor initialized with students: [jayce]
+[2025-10-31 16:52:15] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 16:54:35] Supervisor 45 logged out
+[2025-10-31 16:54:52] Supervisor with no assigned students initialized
+[2025-10-31 16:54:52] Supervisor initialized with students: [SD1123]
+[2025-10-31 16:54:52] Supervisor initialized with students: [prod]
+[2025-10-31 16:54:52] Supervisor initialized with students: [jayce]
+[2025-10-31 16:54:52] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 16:54:52] Supervisor with no assigned students initialized
+[2025-10-31 16:54:52] Supervisor initialized with students: [SD1123]
+[2025-10-31 16:54:52] Supervisor initialized with students: [prod]
+[2025-10-31 16:54:52] Supervisor initialized with students: [jayce]
+[2025-10-31 16:54:52] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 16:55:45] Faculty Admin logged out: 90
+[2025-10-31 16:56:11] Supervisor with no assigned students initialized
+[2025-10-31 16:56:11] Supervisor initialized with students: [SD1123]
+[2025-10-31 16:56:11] Supervisor initialized with students: [prod]
+[2025-10-31 16:56:11] Supervisor initialized with students: [jayce]
+[2025-10-31 16:56:11] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 16:56:43] Student 87 initiated appointment creation.
+[2025-10-31 16:56:43] New appointment created: ID Apt-005 by student 87 for time: 2026-10-31 16:56
+[2025-10-31 16:56:56] Student 87 initiated appointment creation.
+[2025-10-31 16:56:56] New appointment created: ID Apt-006 by student 87 for time: 2026-10-31 16:56
+[2025-10-31 20:03:14] Supervisor with no assigned students initialized
+[2025-10-31 20:03:14] Supervisor initialized with students: [SD1123]
+[2025-10-31 20:03:14] Supervisor initialized with students: [prod]
+[2025-10-31 20:03:14] Supervisor initialized with students: [jayce]
+[2025-10-31 20:03:14] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 20:03:44] Edited faculty admin list successfully saved to facultyAdmin.txt
+[2025-10-31 20:03:44] User list successfully saved to user.txt
+[2025-10-31 20:05:49] Supervisor with no assigned students initialized
+[2025-10-31 20:05:49] Supervisor initialized with students: [SD1123]
+[2025-10-31 20:05:49] Supervisor initialized with students: [prod]
+[2025-10-31 20:05:49] Supervisor initialized with students: [jayce]
+[2025-10-31 20:05:49] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 20:05:53] Supervisor with no assigned students initialized
+[2025-10-31 20:05:53] Supervisor initialized with students: [SD1123]
+[2025-10-31 20:05:53] Supervisor initialized with students: [prod]
+[2025-10-31 20:05:53] Supervisor initialized with students: [jayce]
+[2025-10-31 20:05:53] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 20:06:06] User list successfully saved to user.txt
+[2025-10-31 20:06:06] Supervisor with no assigned students initialized
+[2025-10-31 20:06:06] Supervisor initialized with students: [SD1123]
+[2025-10-31 20:06:06] Supervisor initialized with students: [prod]
+[2025-10-31 20:06:06] Supervisor initialized with students: [jayce]
+[2025-10-31 20:06:06] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 20:06:06] Edited system admins list successfully saved to systemAdmin.txt
+[2025-10-31 20:06:12] Supervisor with no assigned students initialized
+[2025-10-31 20:06:12] Supervisor initialized with students: [SD1123]
+[2025-10-31 20:06:12] Supervisor initialized with students: [prod]
+[2025-10-31 20:06:12] Supervisor initialized with students: [jayce]
+[2025-10-31 20:06:12] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 20:06:17] Supervisor with no assigned students initialized
+[2025-10-31 20:06:17] Supervisor initialized with students: [SD1123]
+[2025-10-31 20:06:17] Supervisor initialized with students: [prod]
+[2025-10-31 20:06:17] Supervisor initialized with students: [jayce]
+[2025-10-31 20:06:17] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 20:06:37] System Admin logged out: SA001
+[2025-10-31 20:06:46] Supervisor with no assigned students initialized
+[2025-10-31 20:06:46] Supervisor initialized with students: [SD1123]
+[2025-10-31 20:06:46] Supervisor initialized with students: [prod]
+[2025-10-31 20:06:46] Supervisor initialized with students: [jayce]
+[2025-10-31 20:06:46] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 20:06:48] Failed login attempt for username: cool
+[2025-10-31 20:06:55] Supervisor with no assigned students initialized
+[2025-10-31 20:06:55] Supervisor initialized with students: [SD1123]
+[2025-10-31 20:06:55] Supervisor initialized with students: [prod]
+[2025-10-31 20:06:55] Supervisor initialized with students: [jayce]
+[2025-10-31 20:06:55] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 20:06:56] Failed login attempt for username: cool
+[2025-10-31 20:07:08] Supervisor with no assigned students initialized
+[2025-10-31 20:07:08] Supervisor initialized with students: [SD1123]
+[2025-10-31 20:07:08] Supervisor initialized with students: [prod]
+[2025-10-31 20:07:08] Supervisor initialized with students: [jayce]
+[2025-10-31 20:07:08] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 20:07:09] Failed login attempt for username: cool
+[2025-10-31 20:07:39] Supervisor with no assigned students initialized
+[2025-10-31 20:07:39] Supervisor initialized with students: [SD1123]
+[2025-10-31 20:07:39] Supervisor initialized with students: [prod]
+[2025-10-31 20:07:39] Supervisor initialized with students: [jayce]
+[2025-10-31 20:07:39] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 20:07:40] Failed login attempt for username: Surly
+[2025-10-31 20:09:39] Supervisor with no assigned students initialized
+[2025-10-31 20:09:39] Supervisor initialized with students: [SD1123]
+[2025-10-31 20:09:39] Supervisor initialized with students: [prod]
+[2025-10-31 20:09:39] Supervisor initialized with students: [jayce]
+[2025-10-31 20:09:39] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 20:10:16] Student 87 initiated appointment creation.
+[2025-10-31 20:10:16] Appointment saved to appointments.txt: Apt-007|87|nameless|2028-10-31 20:09|Pending|
+[2025-10-31 20:10:16] New appointment created: ID Apt-007 by student 87 for time: 2028-10-31 20:09
+[2025-10-31 20:10:38] Student 87 initiated appointment creation.
+[2025-10-31 20:10:38] Appointment saved to appointments.txt: Apt-008|87|nameless|2028-10-31 20:09|Pending|
+[2025-10-31 20:10:38] New appointment created: ID Apt-008 by student 87 for time: 2028-10-31 20:09
+[2025-10-31 20:10:47] Student 87 initiated appointment creation.
+[2025-10-31 20:10:47] Appointment saved to appointments.txt: Apt-009|87|nameless|2028-10-31 20:09|Pending|
+[2025-10-31 20:10:47] New appointment created: ID Apt-009 by student 87 for time: 2028-10-31 20:09
+[2025-10-31 20:12:19] Student logged out: 87
+[2025-10-31 20:12:34] Supervisor with no assigned students initialized
+[2025-10-31 20:12:34] Supervisor initialized with students: [SD1123]
+[2025-10-31 20:12:34] Supervisor initialized with students: [prod]
+[2025-10-31 20:12:34] Supervisor initialized with students: [jayce]
+[2025-10-31 20:12:34] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 20:14:53] Supervisor with no assigned students initialized
+[2025-10-31 20:14:53] Supervisor initialized with students: [SD1123]
+[2025-10-31 20:14:53] Supervisor initialized with students: [prod]
+[2025-10-31 20:14:53] Supervisor initialized with students: [jayce]
+[2025-10-31 20:14:53] Supervisor initialized with students: [nicheal, yaes]
+[2025-10-31 20:18:26] Supervisor with no assigned students initialized
+[2025-10-31 20:18:26] Supervisor initialized with students: [SD1123]
+[2025-10-31 20:18:26] Supervisor initialized with students: [prod]
+[2025-10-31 20:18:26] Supervisor initialized with students: [jayce]
+[2025-10-31 20:18:26] Supervisor initialized with students: [nicheal, yaes]
+[2025-11-01 08:30:31] Supervisor with no assigned students initialized
+[2025-11-01 08:30:31] Supervisor initialized with students: [SD1123]
+[2025-11-01 08:30:31] Supervisor initialized with students: [prod]
+[2025-11-01 08:30:31] Supervisor initialized with students: [jayce]
+[2025-11-01 08:30:31] Supervisor initialized with students: [nicheal, yaes]
+[2025-11-01 08:31:00] Supervisor with no assigned students initialized
+[2025-11-01 08:31:00] Supervisor initialized with students: [SD1123]
+[2025-11-01 08:31:00] Supervisor initialized with students: [prod]
+[2025-11-01 08:31:00] Supervisor initialized with students: [jayce]
+[2025-11-01 08:31:00] Supervisor initialized with students: [nicheal, yaes]
+[2025-11-01 08:31:00] Supervisor with no assigned students initialized
+[2025-11-01 08:31:00] Supervisor initialized with students: [SD1123]
+[2025-11-01 08:31:00] Supervisor initialized with students: [prod]
+[2025-11-01 08:31:00] Supervisor initialized with students: [jayce]
+[2025-11-01 08:31:00] Supervisor initialized with students: [nicheal, yaes]
+[2025-11-01 08:48:25] Supervisor with no assigned students initialized
+[2025-11-01 08:48:25] Supervisor initialized with students: [SD1123]
+[2025-11-01 08:48:25] Supervisor initialized with students: [prod]
+[2025-11-01 08:48:25] Supervisor initialized with students: [jayce]
+[2025-11-01 08:48:25] Supervisor initialized with students: [nicheal, yaes]
+[2025-11-01 08:48:38] Supervisor with no assigned students initialized
+[2025-11-01 08:48:38] Supervisor initialized with students: [SD1123]
+[2025-11-01 08:48:38] Supervisor initialized with students: [prod]
+[2025-11-01 08:48:38] Supervisor initialized with students: [jayce]
+[2025-11-01 08:48:38] Supervisor initialized with students: [nicheal, yaes]
+[2025-11-01 08:49:35] Supervisor with no assigned students initialized
+[2025-11-01 08:49:35] Supervisor initialized with students: [SD1123]
+[2025-11-01 08:49:35] Supervisor initialized with students: [prod]
+[2025-11-01 08:49:35] Supervisor initialized with students: [jayce]
+[2025-11-01 08:49:35] Supervisor initialized with students: [nicheal, yaes]
+[2025-11-01 08:49:35] Supervisor with no assigned students initialized
+[2025-11-01 08:49:35] Supervisor initialized with students: [SD1123]
+[2025-11-01 08:49:35] Supervisor initialized with students: [prod]
+[2025-11-01 08:49:35] Supervisor initialized with students: [jayce]
+[2025-11-01 08:49:35] Supervisor initialized with students: [nicheal, yaes]
+[2025-11-01 08:49:46] Faculty Admin logged out: 67
+[2025-11-01 08:51:40] Supervisor with no assigned students initialized
+[2025-11-01 08:51:40] Supervisor initialized with students: [SD1123]
+[2025-11-01 08:51:40] Supervisor initialized with students: [prod]
+[2025-11-01 08:51:40] Supervisor initialized with students: [jayce]
+[2025-11-01 08:51:40] Supervisor initialized with students: [nicheal, yaes]
+[2025-11-01 08:51:40] Supervisor with no assigned students initialized
+[2025-11-01 08:51:40] Supervisor initialized with students: [SD1123]
+[2025-11-01 08:51:40] Supervisor initialized with students: [prod]
+[2025-11-01 08:51:40] Supervisor initialized with students: [jayce]
+[2025-11-01 08:51:40] Supervisor initialized with students: [nicheal, yaes]
+[2025-11-01 08:52:45] Faculty Admin logged out: 67
+[2025-11-01 08:54:46] Supervisor with no assigned students initialized
+[2025-11-01 08:54:46] Supervisor initialized with students: [SD1123]
+[2025-11-01 08:54:46] Supervisor initialized with students: [prod]
+[2025-11-01 08:54:46] Supervisor initialized with students: [jayce]
+[2025-11-01 08:54:46] Supervisor initialized with students: [nicheal, yaes]
+[2025-11-01 08:54:47] Skipping invalid appointment line: A1761795779521|87|nameless|2025-10-30 11:42|Pending|
+[2025-11-01 08:54:47] Skipping invalid appointment line: Apt-003|87|nameless|2027-10-31 15:44|Cancelled|
+[2025-11-01 08:54:47] Skipping invalid appointment line: Apt-004|87|pearson|2026-10-31 16:42|Pending|
+[2025-11-01 08:55:08] Student 555 initiated appointment creation.
+[2025-11-01 08:55:08] Appointment saved to appointments.txt: Apt-003|555|ciman|poopa|2027-12-03 08:54|Pending|
+[2025-11-01 08:55:08] New appointment created: ID Apt-003 by student 555 for time: 2027-12-03 08:54
+[2025-11-01 08:55:37] Student 555 initiated appointment creation.
+[2025-11-01 08:55:37] Appointment saved to appointments.txt: Apt-004|555|ciman|poopa|2027-12-03 01:54|Pending|
+[2025-11-01 08:55:37] New appointment created: ID Apt-004 by student 555 for time: 2027-12-03 01:54
+[2025-11-01 08:56:59] Supervisor with no assigned students initialized
+[2025-11-01 08:56:59] Supervisor initialized with students: [SD1123]
+[2025-11-01 08:56:59] Supervisor initialized with students: [prod]
+[2025-11-01 08:56:59] Supervisor initialized with students: [jayce]
+[2025-11-01 08:56:59] Supervisor initialized with students: [nicheal, yaes]
+[2025-11-01 08:57:04] Supervisor with no assigned students initialized
+[2025-11-01 08:57:04] Supervisor initialized with students: [SD1123]
+[2025-11-01 08:57:04] Supervisor initialized with students: [prod]
+[2025-11-01 08:57:04] Supervisor initialized with students: [jayce]
+[2025-11-01 08:57:04] Supervisor initialized with students: [nicheal, yaes]
+[2025-11-01 08:57:22] User list successfully saved to user.txt
+[2025-11-01 08:57:22] Supervisor with no assigned students initialized
+[2025-11-01 08:57:22] Supervisor initialized with students: [SD1123]
+[2025-11-01 08:57:22] Supervisor initialized with students: [prod]
+[2025-11-01 08:57:22] Supervisor initialized with students: [jayce]
+[2025-11-01 08:57:22] Supervisor initialized with students: [nicheal, yaes]
+[2025-11-01 08:57:22] Edited supervisor list successfully saved to supervisors.txt
+[2025-11-01 08:57:42] Edited supervisor list successfully saved to supervisors.txt
+[2025-11-01 08:57:42] User list successfully saved to user.txt

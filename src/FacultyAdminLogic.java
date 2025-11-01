@@ -1,20 +1,57 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
 public class FacultyAdminLogic {
+    public List<Appointment> getAppointmentsForFaculty(String facultyUsername) {
+        List<Appointment> all = getAllAppointments();
+        List<Appointment> filtered = new java.util.ArrayList<>();
+        for (Appointment a : all) {
+            if (a.getSupervisorUsername().equalsIgnoreCase(facultyUsername)) {
+                filtered.add(a);
+            }
+        }
+        return filtered;
+    }
     private final String studentsFile;
     private final String supervisorsFile;
-    private List<Student> students;
-    private List<Supervisor> supervisors;
+    private final String appointmentsFile;
+    public String getAppointmentsFile() {
+        return appointmentsFile;
+    }
+    private final List<Student> students;
+    public List<Student> getStudents() {
+        return students;
+    }
+    private final List<Supervisor> supervisors;
     private static final Scanner scanner = new Scanner(System.in);
-    public FacultyAdminLogic(String studentsFile, String supervisorsFile, List<Student> students, List<Supervisor> supervisors) {
+
+    public FacultyAdminLogic(String appointmentsFile) {
+        this.appointmentsFile = appointmentsFile;
+        this.studentsFile = "students.txt";
+        this.supervisorsFile = "supervisors.txt";
+        this.students = FileHandling.loadStudents(studentsFile);
+        this.supervisors = FileHandling.loadSupervisors(supervisorsFile);
+    }
+    public FacultyAdminLogic(String studentsFile, String supervisorsFile, String appointmentsFile, List<Student> students, List<Supervisor> supervisors) {
         this.studentsFile = studentsFile;
         this.supervisorsFile = supervisorsFile;
-        this.students=students;
-        this.supervisors=supervisors;
+        this.appointmentsFile = appointmentsFile;
+        this.students = students;
+        this.supervisors = supervisors;
+    }
+
+    public FacultyAdminLogic(String studentsFile, String supervisorsFile, List<Student> students, List<Supervisor> supervisors) {
+        this(studentsFile, supervisorsFile, "appointments.txt", students, supervisors);
+    }
+
+    public FacultyAdminLogic() {
+        this("students.txt", "supervisors.txt", "appointments.txt", 
+             FileHandling.loadStudents("students.txt"), 
+             FileHandling.loadSupervisors("supervisors.txt"));
     }
 
     public void runFacultyAdminPortal() {
@@ -106,23 +143,36 @@ public class FacultyAdminLogic {
 
             if (!control || !confirm) {
                 Log.writeLog("Student or Supervisor not found");
-            } else {
-                String temp = StudentToModify.getSupervisor();
-                for (Supervisor supervisor:supervisors) {
+                return;
+            }
+
+            if (StudentToModify == null || SupervisorToModify == null) {
+                Log.writeLog("Error: StudentToModify or SupervisorToModify is null");
+                return;
+            }
+
+            String temp = StudentToModify.getSupervisor();
+            if (temp != null) {
+                for (Supervisor supervisor : supervisors) {
                     if (supervisor.getUsername().equals(temp)) {
                         originalSupervisor = supervisor;
+                        break;
                     }
                 }
+            }
+
+            if (originalSupervisor != null) {
                 originalSupervisor.removeStudent(studentName);
-                StudentToModify.setSupervisor(supervisorName);
-                SupervisorToModify.setStudent(studentName);
+            }
+
+            StudentToModify.setSupervisor(supervisorName);
+            SupervisorToModify.setStudent(studentName);
                 FileHandling.saveAllStudents(students, studentsFile);
                 FileHandling.saveAllSupervisors(supervisors, supervisorsFile);
                 Log.writeLog("Reassignment completed");
             }
 
-            ok = false; 
-        }
+            ok = false;
     }
 
     public void filterprogram() {
@@ -189,13 +239,35 @@ public class FacultyAdminLogic {
                             Log.writeLog("students view supervisor viewed");
                             control = false;
                         }
-                        default -> {
-                            System.out.println("Please choose between 1-2");
-                            continue;
-                        }
+                        default -> System.out.println("Please choose between 1-2");
                     }
                 }
             
         }
+    }
+
+    public List<Appointment> getAllAppointments() {
+        return FileHandling.loadAppointments(appointmentsFile);
+    }
+
+    public void exportToCSV(String outputFile) throws IOException {
+        List<Appointment> appointments = getAllAppointments();
+        try (FileWriter writer = new FileWriter(outputFile)) {
+            // Write header
+            writer.write("Appointment ID,Date/Time,Student,Supervisor,Status,Feedback\n");
+            
+            // Write data
+            for (Appointment appointment : appointments) {
+                writer.write(String.format("%s,%s,%s,%s,%s,\"%s\"\n",
+                    appointment.getAppointmentId(),
+                    appointment.getDateTime(),
+                    appointment.getStudentUsername(),
+                    appointment.getSupervisorUsername(),
+                    appointment.getStatus(),
+                    appointment.getFeedback().replace("\"", "\"\"") // Escape quotes in CSV
+                ));
+            }
+        }
+        Log.writeLog("Appointments exported to CSV: " + outputFile);
     }
 }
