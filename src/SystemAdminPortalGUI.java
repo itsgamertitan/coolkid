@@ -217,6 +217,21 @@ public class SystemAdminPortalGUI extends JFrame {
             // If role changed, remove from old role file and add to new role file
             if (!oldRole.equals(newRole)) {
                 String originalUserId = userToEdit.getUserId();
+                // Remove student from old supervisor if reassigned
+                if (oldRole.equals("Student")) {
+                    Student oldStudent = logic.getStudents().stream().filter(s -> s.getUserId().equals(originalUserId)).findFirst().orElse(null);
+                    if (oldStudent != null) {
+                        String oldSupervisorUsername = oldStudent.getSupervisor();
+                        List<Supervisor> supervisors = FileHandling.loadSupervisors("supervisors.txt");
+                        for (Supervisor sup : supervisors) {
+                            if (sup.getUsername().equals(oldSupervisorUsername)) {
+                                sup.removeStudent(oldStudent.getUsername());
+                                break;
+                            }
+                        }
+                        FileHandling.saveAllSupervisors(supervisors, "supervisors.txt");
+                    }
+                }
                 switch (oldRole) {
                     case "Student" -> {
                         logic.getStudents().removeIf(s -> s.getUserId().equals(originalUserId));

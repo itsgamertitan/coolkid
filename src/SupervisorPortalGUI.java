@@ -10,6 +10,7 @@ public class SupervisorPortalGUI extends JFrame {
     private final SupervisorLogic logic;
     private final JTable appointmentsTable;
     private final DefaultTableModel tableModel;
+    private JComboBox<String> appointmentIdDropdown;
     private final CardLayout cardLayout;
     private final JPanel mainPanel;
 
@@ -62,26 +63,46 @@ public class SupervisorPortalGUI extends JFrame {
         welcomeLabel.setFont(new Font("Arial", Font.BOLD, 24));
         
         JButton viewAppointmentsBtn = new JButton("View Appointments");
+        JButton viewAssignedStudentsBtn = new JButton("View Assigned Students");
         JButton logoutBtn = new JButton("Logout");
-        
+
         viewAppointmentsBtn.addActionListener(_ -> {
             refreshAppointmentTable();
             cardLayout.show(mainPanel, "viewAppointments");
         });
-        
+
+        viewAssignedStudentsBtn.addActionListener(_ -> showAssignedStudentsDialog());
+
         logoutBtn.addActionListener(_ -> {
             dispose();
             new LoginGUI().setVisible(true);
             Log.writeLog("Supervisor logged out: " + currentSupervisor.getUserId());
         });
-        
+
         menuPanel.add(welcomeLabel, gbc);
         menuPanel.add(Box.createVerticalStrut(30), gbc);
         menuPanel.add(viewAppointmentsBtn, gbc);
+        menuPanel.add(viewAssignedStudentsBtn, gbc);
         menuPanel.add(Box.createVerticalStrut(50), gbc);
         menuPanel.add(logoutBtn, gbc);
-        
+
         mainPanel.add(menuPanel, "menu");
+    private void showAssignedStudentsDialog() {
+        List<String> students = currentSupervisor.getStudent();
+        StringBuilder sb = new StringBuilder();
+        if (students.isEmpty()) {
+            sb.append("No students assigned.");
+        } else {
+            sb.append("Assigned Students:\n");
+            for (String s : students) {
+                sb.append("- ").append(s).append("\n");
+            }
+        }
+        JOptionPane.showMessageDialog(this,
+            sb.toString(),
+            "Assigned Students",
+            JOptionPane.INFORMATION_MESSAGE);
+    }
     }
 
     private void createViewAppointmentsPanel() {
@@ -91,30 +112,34 @@ public class SupervisorPortalGUI extends JFrame {
         appointmentsTable.setFillsViewportHeight(true);
         JScrollPane scrollPane = new JScrollPane(appointmentsTable);
         
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
-        JButton backBtn = new JButton("Back to Menu");
-        JButton approveBtn = new JButton("Approve Selected");
-        JButton rejectBtn = new JButton("Reject Selected");
-        JButton addFeedbackBtn = new JButton("Add Feedback");
-        
-        backBtn.addActionListener(_ -> cardLayout.show(mainPanel, "menu"));
-        approveBtn.addActionListener(_ -> handleAppointmentAction("Approved"));
-        rejectBtn.addActionListener(_ -> handleAppointmentAction("Rejected"));
-        addFeedbackBtn.addActionListener(_ -> handleAddFeedback());
-        
-        buttonPanel.add(backBtn);
-        buttonPanel.add(approveBtn);
-        buttonPanel.add(rejectBtn);
-        buttonPanel.add(addFeedbackBtn);
-        
-        viewPanel.add(scrollPane, BorderLayout.CENTER);
-        viewPanel.add(buttonPanel, BorderLayout.SOUTH);
-        
-        mainPanel.add(viewPanel, "viewAppointments");
+    JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
+    appointmentIdDropdown = new JComboBox<>();
+    buttonPanel.add(new JLabel("Select Appointment ID:"));
+    buttonPanel.add(appointmentIdDropdown);
+    JButton backBtn = new JButton("Back to Menu");
+    JButton approveBtn = new JButton("Approve Selected");
+    JButton rejectBtn = new JButton("Reject Selected");
+    JButton addFeedbackBtn = new JButton("Add Feedback");
+
+    backBtn.addActionListener(_ -> cardLayout.show(mainPanel, "menu"));
+    approveBtn.addActionListener(_ -> handleAppointmentActionDropdown("Approved"));
+    rejectBtn.addActionListener(_ -> handleAppointmentActionDropdown("Rejected"));
+    addFeedbackBtn.addActionListener(_ -> handleAddFeedbackDropdown());
+
+    buttonPanel.add(backBtn);
+    buttonPanel.add(approveBtn);
+    buttonPanel.add(rejectBtn);
+    buttonPanel.add(addFeedbackBtn);
+
+    viewPanel.add(scrollPane, BorderLayout.CENTER);
+    viewPanel.add(buttonPanel, BorderLayout.SOUTH);
+
+    mainPanel.add(viewPanel, "viewAppointments");
     }
 
     private void refreshAppointmentTable() {
         tableModel.setRowCount(0);
+        appointmentIdDropdown.removeAllItems();
         List<Appointment> appointments = logic.getAppointments();
         for (Appointment appointment : appointments) {
             if (appointment.getSupervisorUsername().equals(currentSupervisor.getUsername())) {
@@ -125,81 +150,101 @@ public class SupervisorPortalGUI extends JFrame {
                     appointment.getStatus(),
                     appointment.getFeedback()
                 });
+                appointmentIdDropdown.addItem(appointment.getAppointmentId());
             }
         }
     }
 
-    private void handleAppointmentAction(String action) {
-        int selectedRow = appointmentsTable.getSelectedRow();
-        if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(this,
-                "Please select an appointment",
+    private void handleAppointmentActionDropdown(String action) {
+        String appointmentId = (String) appointmentIdDropdown.getSelectedItem();
+        if (appointmentId == null) {
+            JOptionPane.showMessageDialog(this.getContentPane(),
+                "Please select an appointment ID",
                 "No Selection",
                 JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
-        String appointmentId = (String) appointmentsTable.getValueAt(selectedRow, 0);
-        String currentStatus = (String) appointmentsTable.getValueAt(selectedRow, 3);
-        
+        // Find status
+        int row = -1;
+        for (int i = 0; i < tableModel.getRowCount(); i++) {
+            if (appointmentId.equals(tableModel.getValueAt(i, 0))) {
+                row = i;
+                break;
+            }
+        }
+        if (row == -1) {
+            JOptionPane.showMessageDialog(this.getContentPane(),
+                "Appointment not found in table.",
+                "Error",
+                JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        String currentStatus = (String) tableModel.getValueAt(row, 3);
         if (!currentStatus.equalsIgnoreCase("Pending")) {
-            JOptionPane.showMessageDialog(this,
+            JOptionPane.showMessageDialog(this.getContentPane(),
                 "Can only modify pending appointments",
                 "Invalid Action",
                 JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
-        int confirm = JOptionPane.showConfirmDialog(this,
+        int confirm = JOptionPane.showConfirmDialog(this.getContentPane(),
             "Are you sure you want to " + action.toLowerCase() + " this appointment?",
             "Confirm " + action,
             JOptionPane.YES_NO_OPTION);
-        
         if (confirm == JOptionPane.YES_OPTION) {
             logic.updateAppointmentStatus(appointmentId, action);
             refreshAppointmentTable();
-            JOptionPane.showMessageDialog(this,
+            JOptionPane.showMessageDialog(this.getContentPane(),
                 "Appointment " + action.toLowerCase() + " successfully",
                 "Success",
                 JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
-    private void handleAddFeedback() {
-        int selectedRow = appointmentsTable.getSelectedRow();
-        if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(this,
-                "Please select an appointment",
+    private void handleAddFeedbackDropdown() {
+        String appointmentId = (String) appointmentIdDropdown.getSelectedItem();
+        if (appointmentId == null) {
+            JOptionPane.showMessageDialog(this.getContentPane(),
+                "Please select an appointment ID",
                 "No Selection",
                 JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
-        String appointmentId = (String) appointmentsTable.getValueAt(selectedRow, 0);
-        String currentFeedback = (String) appointmentsTable.getValueAt(selectedRow, 4);
-        
+        // Find feedback
+        int row = -1;
+        for (int i = 0; i < tableModel.getRowCount(); i++) {
+            if (appointmentId.equals(tableModel.getValueAt(i, 0))) {
+                row = i;
+                break;
+            }
+        }
+        if (row == -1) {
+            JOptionPane.showMessageDialog(this.getContentPane(),
+                "Appointment not found in table.",
+                "Error",
+                JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        String currentFeedback = (String) tableModel.getValueAt(row, 4);
         JTextArea feedbackArea = new JTextArea(currentFeedback, 5, 30);
         feedbackArea.setWrapStyleWord(true);
         feedbackArea.setLineWrap(true);
-        
         JScrollPane scrollPane = new JScrollPane(feedbackArea);
-        
-        int result = JOptionPane.showConfirmDialog(this,
+        int result = JOptionPane.showConfirmDialog(this.getContentPane(),
             scrollPane,
             "Add/Edit Feedback",
             JOptionPane.OK_CANCEL_OPTION,
             JOptionPane.PLAIN_MESSAGE);
-        
         if (result == JOptionPane.OK_OPTION) {
             String newFeedback = feedbackArea.getText().trim();
             if (!newFeedback.equals(currentFeedback)) {
                 logic.addFeedback(appointmentId, newFeedback);
                 refreshAppointmentTable();
-                JOptionPane.showMessageDialog(this,
+                JOptionPane.showMessageDialog(this.getContentPane(),
                     "Feedback updated successfully",
                     "Success",
                     JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }
-}
+    }
