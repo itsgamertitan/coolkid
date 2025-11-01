@@ -195,6 +195,7 @@ public class SystemAdminPortalGUI extends JFrame {
             String newUsername = usernameField.getText().trim();
             String newUserId = idField.getText().trim();
             String newRole = (String) roleBox.getSelectedItem();
+            String oldRole = userToEdit.getRole();
             if (newUsername.isEmpty() || newUserId.isEmpty() || newRole.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "All fields are required.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
@@ -203,27 +204,70 @@ public class SystemAdminPortalGUI extends JFrame {
             userToEdit.setUserID(newUserId);
             userToEdit.setRole(newRole);
             FileHandling.saveAllUsers(logic.getUsers(), "user.txt");
-            // Also update role file
-            switch (newRole) {
-                case "Student" -> {
-                    logic.synchronizeGlobalLists();
-                    logic.getStudents().stream().filter(s -> s.getUserId().equals(newUserId)).findFirst().ifPresent(s -> s.setUsername(newUsername));
-                    FileHandling.saveAllStudents(logic.getStudents(), "students.txt");
+            logic.synchronizeGlobalLists();
+            // If role changed, remove from old role file and add to new role file
+            if (!oldRole.equals(newRole)) {
+                switch (oldRole) {
+                    case "Student" -> {
+                        logic.getStudents().removeIf(s -> s.getUserId().equals(newUserId));
+                        FileHandling.saveAllStudents(logic.getStudents(), "students.txt");
+                    }
+                    case "Supervisor" -> {
+                        logic.getSupervisors().removeIf(s -> s.getUserId().equals(newUserId));
+                        FileHandling.saveAllSupervisors(logic.getSupervisors(), "supervisors.txt");
+                    }
+                    case "FacultyAdmin" -> {
+                        logic.getFacultyAdmins().removeIf(f -> f.getUserId().equals(newUserId));
+                        FileHandling.saveAllFacultyAdmins(logic.getFacultyAdmins(), "facultyAdmin.txt");
+                    }
+                    case "SystemAdmin" -> {
+                        logic.getSystemAdmins().removeIf(s -> s.getUserId().equals(newUserId));
+                        FileHandling.saveAllSystemAdmins(logic.getSystemAdmins(), "systemAdmin.txt");
+                    }
                 }
-                case "Supervisor" -> {
-                    logic.synchronizeGlobalLists();
-                    logic.getSupervisors().stream().filter(s -> s.getUserId().equals(newUserId)).findFirst().ifPresent(s -> s.setUsername(newUsername));
-                    FileHandling.saveAllSupervisors(logic.getSupervisors(), "supervisors.txt");
+                // Add to new role file
+                switch (newRole) {
+                    case "Student" -> {
+                        // Default program and supervisor
+                        Student newStudent = new Student(newUserId, newUsername, userToEdit.getPassword(), "", "");
+                        logic.getStudents().add(newStudent);
+                        FileHandling.saveAllStudents(logic.getStudents(), "students.txt");
+                    }
+                    case "Supervisor" -> {
+                        Supervisor newSupervisor = new Supervisor(newUserId, newUsername, userToEdit.getPassword(), new java.util.ArrayList<>());
+                        logic.getSupervisors().add(newSupervisor);
+                        FileHandling.saveAllSupervisors(logic.getSupervisors(), "supervisors.txt");
+                    }
+                    case "FacultyAdmin" -> {
+                        FacultyAdmin newAdmin = new FacultyAdmin(newUserId, newUsername, userToEdit.getPassword());
+                        logic.getFacultyAdmins().add(newAdmin);
+                        FileHandling.saveAllFacultyAdmins(logic.getFacultyAdmins(), "facultyAdmin.txt");
+                    }
+                    case "SystemAdmin" -> {
+                        SystemAdmin newSysAdmin = new SystemAdmin(newUserId, newUsername, userToEdit.getPassword());
+                        logic.getSystemAdmins().add(newSysAdmin);
+                        FileHandling.saveAllSystemAdmins(logic.getSystemAdmins(), "systemAdmin.txt");
+                    }
                 }
-                case "FacultyAdmin" -> {
-                    logic.synchronizeGlobalLists();
-                    logic.getFacultyAdmins().stream().filter(f -> f.getUserId().equals(newUserId)).findFirst().ifPresent(f -> f.setUsername(newUsername));
-                    FileHandling.saveAllFacultyAdmins(logic.getFacultyAdmins(), "facultyAdmin.txt");
-                }
-                case "SystemAdmin" -> {
-                    logic.synchronizeGlobalLists();
-                    logic.getSystemAdmins().stream().filter(s -> s.getUserId().equals(newUserId)).findFirst().ifPresent(s -> s.setUsername(newUsername));
-                    FileHandling.saveAllSystemAdmins(logic.getSystemAdmins(), "systemAdmin.txt");
+            } else {
+                // If role did not change, just update username in role file
+                switch (newRole) {
+                    case "Student" -> {
+                        logic.getStudents().stream().filter(s -> s.getUserId().equals(newUserId)).findFirst().ifPresent(s -> s.setUsername(newUsername));
+                        FileHandling.saveAllStudents(logic.getStudents(), "students.txt");
+                    }
+                    case "Supervisor" -> {
+                        logic.getSupervisors().stream().filter(s -> s.getUserId().equals(newUserId)).findFirst().ifPresent(s -> s.setUsername(newUsername));
+                        FileHandling.saveAllSupervisors(logic.getSupervisors(), "supervisors.txt");
+                    }
+                    case "FacultyAdmin" -> {
+                        logic.getFacultyAdmins().stream().filter(f -> f.getUserId().equals(newUserId)).findFirst().ifPresent(f -> f.setUsername(newUsername));
+                        FileHandling.saveAllFacultyAdmins(logic.getFacultyAdmins(), "facultyAdmin.txt");
+                    }
+                    case "SystemAdmin" -> {
+                        logic.getSystemAdmins().stream().filter(s -> s.getUserId().equals(newUserId)).findFirst().ifPresent(s -> s.setUsername(newUsername));
+                        FileHandling.saveAllSystemAdmins(logic.getSystemAdmins(), "systemAdmin.txt");
+                    }
                 }
             }
             JOptionPane.showMessageDialog(this, "User updated successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
