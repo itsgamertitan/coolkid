@@ -1,6 +1,9 @@
 import java.io.Serializable;
 
 public class Appointment implements Serializable {
+    public String getSupervisorName() {
+        return supervisorName;
+    }
     private String appointmentId;
     private String studentId;
     private String studentUsername;

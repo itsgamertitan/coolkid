@@ -12,6 +12,7 @@ public class StudentPortalGUI extends JFrame {
     private final studentLogic logic;
     private final JSpinner dateSpinner;
     private final JSpinner timeSpinner;
+    private JComboBox<String> supervisorDropdown;
     private final CardLayout cardLayout;
     private final JPanel mainPanel;
     
@@ -149,11 +150,17 @@ public class StudentPortalGUI extends JFrame {
         JLabel titleLabel = new JLabel("Schedule New Appointment", JLabel.CENTER);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
         
-        JPanel dateTimePanel = new JPanel(new GridLayout(2, 2, 10, 10));
+        JPanel dateTimePanel = new JPanel(new GridLayout(3, 2, 10, 10));
         dateTimePanel.add(new JLabel("Date:"));
         dateTimePanel.add(dateSpinner);
         dateTimePanel.add(new JLabel("Time:"));
         dateTimePanel.add(timeSpinner);
+        dateTimePanel.add(new JLabel("Supervisor:"));
+        supervisorDropdown = new JComboBox<>();
+        for (Supervisor s : FileHandling.loadSupervisors("supervisors.txt")) {
+            supervisorDropdown.addItem(s.getUsername());
+        }
+        dateTimePanel.add(supervisorDropdown);
         
         JButton submitBtn = new JButton("Submit");
         JButton backBtn = new JButton("Back to Menu");
@@ -192,7 +199,6 @@ public class StudentPortalGUI extends JFrame {
     private void handleNewAppointment() {
         Date date = (Date) dateSpinner.getValue();
         Date time = (Date) timeSpinner.getValue();
-        
         if (date.before(new Date())) {
             JOptionPane.showMessageDialog(this,
                 "Cannot schedule appointments in the past",
@@ -200,17 +206,15 @@ public class StudentPortalGUI extends JFrame {
                 JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
         String dateTime = dateFormat.format(date) + " " + timeFormat.format(time);
-        
-        logic.makeAppointment(currentStudent, dateTime);
+        String selectedSupervisor = (String) supervisorDropdown.getSelectedItem();
+        logic.makeAppointment(currentStudent, dateTime, selectedSupervisor);
         JOptionPane.showMessageDialog(this,
             "Appointment scheduled successfully",
             "Success",
             JOptionPane.INFORMATION_MESSAGE);
-        
         cardLayout.show(mainPanel, "menu");
     }
     

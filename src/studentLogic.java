@@ -30,7 +30,7 @@ public class studentLogic {
         }
     }
 
-    public void makeAppointment(Student student, String dateTime) {
+    public void makeAppointment(Student student, String dateTime, String supervisorUsername) {
         Log.writeLog("Student " + student.getUserId() + " initiated appointment creation.");
 
         int nextNum = 1;
@@ -64,22 +64,18 @@ public class studentLogic {
             } catch (IOException e) {
             }
         }
-
         String appointmentId = String.format("Apt-%03d", nextNum);
-
-    Appointment newAppointment = new Appointment(
-        appointmentId,
-        student.getUserId(),
-        student.getUsername(),
-        student.getSupervisor(),
-        dateTime,
-        "Pending",
-        "");
-
+        Appointment newAppointment = new Appointment(
+            appointmentId,
+            student.getUserId(),
+            student.getUsername(),
+            supervisorUsername,
+            dateTime,
+            "Pending",
+            "");
         FileHandling.saveToAppointment(newAppointment, appointmentFile);
         appointments.add(newAppointment); 
-        
-        Log.writeLog("New appointment created: ID " + appointmentId + " by student " + student.getUserId() + " for time: " + dateTime);
+        Log.writeLog("New appointment created: ID " + appointmentId + " by student " + student.getUserId() + " for time: " + dateTime + " with supervisor: " + supervisorUsername);
     }
 
     public void rescheduleAppointment(Student student, String appointmentId, String newDateTime) {

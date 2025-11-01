@@ -320,6 +320,7 @@ public class SystemAdminPortalGUI extends JFrame {
         String newPassword = JOptionPane.showInputDialog(this, "Enter the new password:");
         if (newPassword == null || newPassword.trim().isEmpty()) return;
         userToReset.setPassword(newPassword.trim());
+        logic.synchronizeGlobalLists();
         // Also update role file
         switch (userToReset.getRole()) {
             case "Student" -> {

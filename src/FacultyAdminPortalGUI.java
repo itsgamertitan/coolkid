@@ -24,7 +24,8 @@ public class FacultyAdminPortalGUI extends JFrame {
             String studentName = (String) studentBox.getSelectedItem();
             String supervisorName = (String) supervisorBox.getSelectedItem();
             Student student = null;
-            Supervisor supervisor = null;
+            Supervisor newSupervisor = null;
+            Supervisor oldSupervisor = null;
             for (Student s : logic.getStudents()) {
                 if (s.getUsername().equals(studentName)) {
                     student = s;
@@ -33,16 +34,23 @@ public class FacultyAdminPortalGUI extends JFrame {
             }
             for (Supervisor sup : logic.getSupervisors()) {
                 if (sup.getUsername().equals(supervisorName)) {
-                    supervisor = sup;
-                    break;
+                    newSupervisor = sup;
+                }
+                if (student != null && sup.getUsername().equals(student.getSupervisor())) {
+                    oldSupervisor = sup;
                 }
             }
-            if (student == null || supervisor == null) {
+            if (student == null || newSupervisor == null) {
                 resultLabel.setText("Invalid selection.");
                 return;
             }
+            // Remove from old supervisor
+            if (oldSupervisor != null && !oldSupervisor.getUsername().equals(newSupervisor.getUsername())) {
+                oldSupervisor.removeStudent(studentName);
+            }
+            // Assign to new supervisor
             student.setSupervisor(supervisorName);
-            supervisor.setStudent(studentName);
+            newSupervisor.setStudent(studentName);
             FileHandling.saveAllStudents(logic.getStudents(), logic.getStudentsFile());
             FileHandling.saveAllSupervisors(logic.getSupervisors(), logic.getSupervisorsFile());
             resultLabel.setText("Student " + studentName + " assigned to " + supervisorName);
@@ -328,13 +336,13 @@ public class FacultyAdminPortalGUI extends JFrame {
         List<Appointment> appointments = logic.getAllAppointments();
         for (Appointment appointment : appointments) {
             boolean statusMatch = statusFilter.equals("All") || appointment.getStatus().equals(statusFilter);
-            boolean supervisorMatch = supervisorFilter.equals("All Supervisors") || (appointment.getSupervisorUsername() != null && appointment.getSupervisorUsername().equals(supervisorFilter));
+            boolean supervisorMatch = supervisorFilter.equals("All Supervisors") || (appointment.getSupervisorName() != null && appointment.getSupervisorName().equals(supervisorFilter));
             if (statusMatch && supervisorMatch) {
                 tableModel.addRow(new Object[]{
                     appointment.getAppointmentId(),
                     appointment.getDateTime(),
                     appointment.getStudentUsername(),
-                    appointment.getSupervisorUsername(),
+                    appointment.getSupervisorName(),
                     appointment.getStatus(),
                     appointment.getFeedback()
                 });

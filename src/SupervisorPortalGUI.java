@@ -116,9 +116,8 @@ public class SupervisorPortalGUI extends JFrame {
     private void refreshAppointmentTable() {
         tableModel.setRowCount(0);
         List<Appointment> appointments = logic.getAppointments();
-        
         for (Appointment appointment : appointments) {
-            if (appointment.getSupervisorId().equals(currentSupervisor.getUserId())) {
+            if (appointment.getSupervisorUsername().equals(currentSupervisor.getUsername())) {
                 tableModel.addRow(new Object[]{
                     appointment.getAppointmentId(),
                     appointment.getDateTime(),
