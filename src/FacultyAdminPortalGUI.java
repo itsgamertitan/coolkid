@@ -7,9 +7,49 @@ public class FacultyAdminPortalGUI extends JFrame {
     private void createReassignPanel() {
         JPanel panel = new JPanel(new BorderLayout(10,10));
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-        panel.add(new JLabel("Assign or Reassign Students (GUI not yet implemented)"), BorderLayout.CENTER);
+        JPanel form = new JPanel(new GridLayout(0,1,8,8));
+    JComboBox<String> studentBox = new JComboBox<>();
+    for (Student s : logic.getStudents()) studentBox.addItem(s.getUsername());
+    JComboBox<String> supervisorBox = new JComboBox<>();
+    for (Supervisor sup : logic.getSupervisors()) supervisorBox.addItem(sup.getUsername());
+        form.add(new JLabel("Select Student:"));
+        form.add(studentBox);
+        form.add(new JLabel("Select Supervisor:"));
+        form.add(supervisorBox);
+        JButton assignBtn = new JButton("Assign/Reassign");
+        form.add(assignBtn);
+        JLabel resultLabel = new JLabel("");
+        form.add(resultLabel);
+        assignBtn.addActionListener(_ -> {
+            String studentName = (String) studentBox.getSelectedItem();
+            String supervisorName = (String) supervisorBox.getSelectedItem();
+            Student student = null;
+            Supervisor supervisor = null;
+            for (Student s : logic.getStudents()) {
+                if (s.getUsername().equals(studentName)) {
+                    student = s;
+                    break;
+                }
+            }
+            for (Supervisor sup : logic.getSupervisors()) {
+                if (sup.getUsername().equals(supervisorName)) {
+                    supervisor = sup;
+                    break;
+                }
+            }
+            if (student == null || supervisor == null) {
+                resultLabel.setText("Invalid selection.");
+                return;
+            }
+            student.setSupervisor(supervisorName);
+            supervisor.setStudent(studentName);
+            FileHandling.saveAllStudents(logic.getStudents(), logic.getStudentsFile());
+            FileHandling.saveAllSupervisors(logic.getSupervisors(), logic.getSupervisorsFile());
+            resultLabel.setText("Student " + studentName + " assigned to " + supervisorName);
+        });
         JButton backBtn = new JButton("Back to Menu");
         backBtn.addActionListener(_ -> cardLayout.show(mainPanel, "menu"));
+        panel.add(form, BorderLayout.CENTER);
         panel.add(backBtn, BorderLayout.SOUTH);
         mainPanel.add(panel, "reassign");
     }
@@ -189,7 +229,7 @@ public class FacultyAdminPortalGUI extends JFrame {
         JButton logoutBtn = new JButton("Logout");
 
         viewAppointmentsBtn.addActionListener(_ -> {
-            refreshAppointmentTable();
+            refreshAppointmentTable("All", "All Supervisors");
             cardLayout.show(mainPanel, "viewAppointments");
         });
 
@@ -243,21 +283,32 @@ public class FacultyAdminPortalGUI extends JFrame {
         });
         filterPanel.add(new JLabel("Filter by Status: "));
         filterPanel.add(statusFilter);
-        statusFilter.addActionListener(e -> refreshAppointmentTable(statusFilter.getSelectedItem().toString()));
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        JButton backBtn = new JButton("Back to Menu");
-        JButton exportBtn = new JButton("Export to CSV");
-        JButton editDateBtn = new JButton("Edit Selected Date");
-        backBtn.addActionListener(_ -> cardLayout.show(mainPanel, "menu"));
-        exportBtn.addActionListener(_ -> handleExport());
-        editDateBtn.addActionListener(_ -> showEditDateDialog());
-        buttonPanel.add(backBtn);
-        buttonPanel.add(exportBtn);
-        buttonPanel.add(editDateBtn);
-        viewPanel.add(filterPanel, BorderLayout.NORTH);
-        viewPanel.add(scrollPane, BorderLayout.CENTER);
-        viewPanel.add(buttonPanel, BorderLayout.SOUTH);
-        mainPanel.add(viewPanel, "viewAppointments");
+
+        // Dropdown to filter by supervisor
+        JComboBox<String> supervisorFilter = new JComboBox<>();
+        supervisorFilter.addItem("All Supervisors");
+        for (Supervisor sup : logic.getSupervisors()) supervisorFilter.addItem(sup.getUsername());
+        filterPanel.add(new JLabel("Filter by Supervisor: "));
+        filterPanel.add(supervisorFilter);
+
+        statusFilter.addActionListener(e -> refreshAppointmentTable(statusFilter.getSelectedItem().toString(), supervisorFilter.getSelectedItem().toString()));
+        supervisorFilter.addActionListener(e -> refreshAppointmentTable(statusFilter.getSelectedItem().toString(), supervisorFilter.getSelectedItem().toString()));
+
+                refreshAppointmentTable("All", "All Supervisors");
+    JButton backBtn = new JButton("Back to Menu");
+    JButton exportBtn = new JButton("Export to CSV");
+    JButton editDateBtn = new JButton("Edit Selected Date");
+    backBtn.addActionListener(_ -> cardLayout.show(mainPanel, "menu"));
+    exportBtn.addActionListener(_ -> handleExport());
+    editDateBtn.addActionListener(_ -> showEditDateDialog());
+    JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+    buttonPanel.add(backBtn);
+    buttonPanel.add(exportBtn);
+    buttonPanel.add(editDateBtn);
+    viewPanel.add(filterPanel, BorderLayout.NORTH);
+    viewPanel.add(scrollPane, BorderLayout.CENTER);
+    viewPanel.add(buttonPanel, BorderLayout.SOUTH);
+    mainPanel.add(viewPanel, "viewAppointments");
     }
 
     private void createAssignmentPanel() {
@@ -272,15 +323,13 @@ public class FacultyAdminPortalGUI extends JFrame {
         mainPanel.add(assignmentPanel, "viewAssignments");
     }
 
-    private void refreshAppointmentTable() {
-        refreshAppointmentTable("All");
-    }
-
-    private void refreshAppointmentTable(String statusFilter) {
+    private void refreshAppointmentTable(String statusFilter, String supervisorFilter) {
         tableModel.setRowCount(0);
-        List<Appointment> appointments = logic.getAppointmentsForFaculty(currentFacultyAdmin.getUsername());
+        List<Appointment> appointments = logic.getAllAppointments();
         for (Appointment appointment : appointments) {
-            if (statusFilter.equals("All") || appointment.getStatus().equals(statusFilter)) {
+            boolean statusMatch = statusFilter.equals("All") || appointment.getStatus().equals(statusFilter);
+            boolean supervisorMatch = supervisorFilter.equals("All Supervisors") || (appointment.getSupervisorUsername() != null && appointment.getSupervisorUsername().equals(supervisorFilter));
+            if (statusMatch && supervisorMatch) {
                 tableModel.addRow(new Object[]{
                     appointment.getAppointmentId(),
                     appointment.getDateTime(),
@@ -361,7 +410,7 @@ public class FacultyAdminPortalGUI extends JFrame {
             // Update in backend
             String appointmentId = (String) appointmentsTable.getValueAt(selectedRow, 0);
             updateAppointmentDateTime(appointmentId, newDateTime);
-            refreshAppointmentTable();
+            refreshAppointmentTable("All", "All Supervisors");
         }
     }
 

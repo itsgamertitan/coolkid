@@ -15,3 +15,5 @@ SA001|kahsheng|kahsheng4|FacultyAdmin
 sd991|curse|curse1|Supervisor
 5|tita|noob|Supervisor
 555|ciman|67|Student
+853|uouman|uu|Student|IT|poopa
+22|jka|RIJKA|Student

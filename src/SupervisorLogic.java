@@ -4,7 +4,6 @@ import java.util.List;
 
 public class SupervisorLogic {
     private static final String APPOINTMENTS_FILE = "appointments.txt";
-    private final List<Appointment> appointments;
     private final String appointmentsFile;
 
     public SupervisorLogic() {
@@ -12,23 +11,22 @@ public class SupervisorLogic {
     }
 
     public SupervisorLogic(String appointmentsFile) {
-        this.appointmentsFile = appointmentsFile;
-        this.appointments = FileHandling.loadAppointments(appointmentsFile);
+    this.appointmentsFile = appointmentsFile;
     }
     public void supervisorPortal(Supervisor supervisor) {
         new SupervisorPortalGUI(supervisor, this);
     }
 
     public List<Appointment> getAppointments() {
-        return FileHandling.loadAppointments(appointmentsFile);
+    return FileHandling.loadAppointments(appointmentsFile);
     }
 
     public void approveOrRejectAppointment(Supervisor supervisor, String appointmentId, String decision) {
+        List<Appointment> appointments = FileHandling.loadAppointments(appointmentsFile);
         boolean found = false;
         for (Appointment appointment : appointments) {
             if (appointment.getAppointmentId().equals(appointmentId)
                 && appointment.getSupervisorUsername().equals(supervisor.getUsername())) {
-
                 switch (decision.toUpperCase()) {
                     case "A" -> appointment.setStatus("Approved");
                     case "R" -> appointment.setStatus("Rejected");
@@ -37,7 +35,6 @@ public class SupervisorLogic {
                         return;
                     }
                 }
-
                 found = true;
                 Log.writeLog("Appointment " + appointmentId + " " + 
                     (decision.equalsIgnoreCase("A") ? "approved" : "rejected") + 
@@ -45,22 +42,16 @@ public class SupervisorLogic {
                 break;
             }
         }
-
         if (found) {
-            try (FileWriter writer = new FileWriter(APPOINTMENTS_FILE, false)) {
-                for (Appointment a : appointments) {
-                    writer.write(a.toFileString() + "\n");
-                }
-                Log.writeLog("Appointment status update saved successfully");
-            } catch (IOException e) {
-                Log.writeLog("Error updating appointment file: " + e.getMessage());
-            }
+            FileHandling.saveAllAppointments(appointments, appointmentsFile);
+            Log.writeLog("Appointment status update saved successfully");
         } else {
             Log.writeLog("Appointment not found or not authorized: " + appointmentId);
         }
     }
 
     public String getFeedback(String appointmentId) {
+        List<Appointment> appointments = FileHandling.loadAppointments(appointmentsFile);
         for (Appointment appointment : appointments) {
             if (appointment.getAppointmentId().equals(appointmentId)) {
                 return appointment.getFeedback();
@@ -70,6 +61,7 @@ public class SupervisorLogic {
     }
 
     public void updateFeedback(String appointmentId, String feedback) {
+        List<Appointment> appointments = FileHandling.loadAppointments(appointmentsFile);
         boolean found = false;
         for (Appointment appointment : appointments) {
             if (appointment.getAppointmentId().equals(appointmentId)) {
@@ -79,7 +71,6 @@ public class SupervisorLogic {
                 break;
             }
         }
-
         if (found) {
             FileHandling.saveAllAppointments(appointments, appointmentsFile);
             Log.writeLog("Feedback update saved successfully");
@@ -89,6 +80,7 @@ public class SupervisorLogic {
     }
 
     public void updateAppointmentStatus(String appointmentId, String status) {
+        List<Appointment> appointments = FileHandling.loadAppointments(appointmentsFile);
         boolean found = false;
         for (Appointment appointment : appointments) {
             if (appointment.getAppointmentId().equals(appointmentId)) {
@@ -98,7 +90,6 @@ public class SupervisorLogic {
                 break;
             }
         }
-
         if (found) {
             FileHandling.saveAllAppointments(appointments, appointmentsFile);
             Log.writeLog("Status update saved successfully");
@@ -108,6 +99,6 @@ public class SupervisorLogic {
     }
 
     public void addFeedback(String appointmentId, String feedback) {
-        updateFeedback(appointmentId, feedback);
+    updateFeedback(appointmentId, feedback);
     }
 }

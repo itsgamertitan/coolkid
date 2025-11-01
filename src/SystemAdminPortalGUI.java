@@ -99,6 +99,37 @@ public class SystemAdminPortalGUI extends JFrame {
         panel.add(new JLabel("Password:"));
         JTextField passwordField = new JTextField();
         panel.add(passwordField);
+
+        // Supervisor dropdown for Student creation
+        JComboBox<String> supervisorBox = new JComboBox<>();
+        for (Supervisor s : logic.getSupervisors()) supervisorBox.addItem(s.getUsername());
+        JTextField programField = new JTextField();
+
+        roleBox.addActionListener(e -> {
+            if (roleBox.getSelectedItem().equals("Student")) {
+                if (panel.getComponentCount() < 12) {
+                    panel.add(new JLabel("Program:"));
+                    panel.add(programField);
+                    panel.add(new JLabel("Supervisor:"));
+                    panel.add(supervisorBox);
+                    panel.revalidate();
+                    panel.repaint();
+                }
+            } else {
+                while (panel.getComponentCount() > 10) {
+                    panel.remove(panel.getComponentCount()-1);
+                }
+                panel.revalidate();
+                panel.repaint();
+            }
+        });
+        if (roleBox.getSelectedItem().equals("Student")) {
+            panel.add(new JLabel("Program:"));
+            panel.add(programField);
+            panel.add(new JLabel("Supervisor:"));
+            panel.add(supervisorBox);
+        }
+
         int result = JOptionPane.showConfirmDialog(this, panel, "Create New User", JOptionPane.OK_CANCEL_OPTION);
         if (result == JOptionPane.OK_OPTION) {
             String role = (String) roleBox.getSelectedItem();
@@ -113,33 +144,27 @@ public class SystemAdminPortalGUI extends JFrame {
                 JOptionPane.showMessageDialog(this, "Duplicate username or user ID.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            switch (role) {
-                case "Student" -> {
-                    String program = JOptionPane.showInputDialog(this, "Enter Program (e.g., IT-SE, CS):");
-                    String supervisor = JOptionPane.showInputDialog(this, "Enter Supervisor Name:");
-                    Student newStudent = new Student(userId, username, password, program, supervisor);
-                    logic.getUsers().add(new User(userId, username, password, "Student"));
-                    FileHandling.saveToStudent(newStudent, "students.txt");
-                    FileHandling.saveToUser(newStudent, "user.txt");
-                }
-                case "Supervisor" -> {
-                    Supervisor newSupervisor = new Supervisor(userId, username, password, new java.util.ArrayList<>());
-                    logic.getUsers().add(new User(userId, username, password, "Supervisor"));
-                    FileHandling.saveToSupervisor(newSupervisor, "supervisors.txt");
-                    FileHandling.saveToUser(newSupervisor, "user.txt");
-                }
-                case "FacultyAdmin" -> {
-                    FacultyAdmin newAdmin = new FacultyAdmin(userId, username, password);
-                    logic.getUsers().add(new User(userId, username, password, "FacultyAdmin"));
-                    FileHandling.saveToFacultyAdmin(newAdmin, "facultyAdmin.txt");
-                    FileHandling.saveToUser(newAdmin, "user.txt");
-                }
-                case "SystemAdmin" -> {
-                    SystemAdmin newSysAdmin = new SystemAdmin(userId, username, password);
-                    logic.getUsers().add(new User(userId, username, password, "SystemAdmin"));
-                    FileHandling.saveToSystemAdmin(newSysAdmin, "systemAdmin.txt");
-                    FileHandling.saveToUser(newSysAdmin, "user.txt");
-                }
+            // Always write exactly 4 fields to user.txt
+            try (java.io.FileWriter userWriter = new java.io.FileWriter("user.txt", true)) {
+                userWriter.write(userId + "|" + username + "|" + password + "|" + role + "\n");
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "Error writing to user.txt: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            logic.getUsers().add(new User(userId, username, password, role));
+            if (role.equals("Student")) {
+                String supervisor = (String) supervisorBox.getSelectedItem();
+                String program = programField.getText().trim();
+                Student newStudent = new Student(userId, username, password, program, supervisor);
+                FileHandling.saveToStudent(newStudent, "students.txt");
+            } else if (role.equals("Supervisor")) {
+                Supervisor newSupervisor = new Supervisor(userId, username, password, new java.util.ArrayList<>());
+                FileHandling.saveToSupervisor(newSupervisor, "supervisors.txt");
+            } else if (role.equals("FacultyAdmin")) {
+                FacultyAdmin newAdmin = new FacultyAdmin(userId, username, password);
+                FileHandling.saveToFacultyAdmin(newAdmin, "facultyAdmin.txt");
+            } else if (role.equals("SystemAdmin")) {
+                SystemAdmin newSysAdmin = new SystemAdmin(userId, username, password);
+                FileHandling.saveToSystemAdmin(newSysAdmin, "systemAdmin.txt");
             }
             JOptionPane.showMessageDialog(this, "User created successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
         }

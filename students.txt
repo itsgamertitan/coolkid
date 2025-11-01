@@ -4,3 +4,7 @@ sd1123|babus|babus123|Student|itse|adad
 87|yaes|bomb|Student|cs|nameless
 133|tita|tita11|Student|it|poopa
 555|ciman|67|Student|it|poopa
+6767|newman|dudeman|Student|CS|poopa
+8854|ljalfjaflk|ojr3oi|Student|se|poopa
+853|uouman|uu|Student|IT|poopa
+22|jka|RIJKA|Student|IT|pearson

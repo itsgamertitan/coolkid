@@ -22,3 +22,5 @@
 [2025-10-31 20:06:56] User: cool tried to login with password of: 12323
 [2025-10-31 20:07:09] User: cool tried to login with password of: 12343
 [2025-10-31 20:07:40] User: Surly tried to login with password of: sbd
+[2025-11-01 19:24:26] User: ultimateAdmin tried to login with password of: SA9999|ultimateAdmin|SystemAdminPass123|SystemAdmin 
+[2025-11-01 19:28:51] User: SystemAdminPass123 tried to login with password of: SystemAdmin

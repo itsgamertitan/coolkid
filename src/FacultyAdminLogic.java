@@ -6,6 +6,16 @@ import java.util.List;
 import java.util.Scanner;
 
 public class FacultyAdminLogic {
+    public String getSupervisorsFile() {
+        return supervisorsFile;
+    }
+    public List<Supervisor> getSupervisors() {
+        return supervisors;
+    }
+
+    public String getStudentsFile() {
+        return studentsFile;
+    }
     public List<Appointment> getAppointmentsForFaculty(String facultyUsername) {
         List<Appointment> all = getAllAppointments();
         List<Appointment> filtered = new java.util.ArrayList<>();
