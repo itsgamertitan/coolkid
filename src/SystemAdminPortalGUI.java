@@ -156,6 +156,15 @@ public class SystemAdminPortalGUI extends JFrame {
                 String program = programField.getText().trim();
                 Student newStudent = new Student(userId, username, password, program, supervisor);
                 FileHandling.saveToStudent(newStudent, "students.txt");
+                // Update supervisor's assignedStudent list
+                List<Supervisor> supervisors = FileHandling.loadSupervisors("supervisors.txt");
+                for (Supervisor sup : supervisors) {
+                    if (sup.getUsername().equals(supervisor)) {
+                        sup.setStudent(username); // or userId if you want to use ID
+                        break;
+                    }
+                }
+                FileHandling.saveAllSupervisors(supervisors, "supervisors.txt");
             } else if (role.equals("Supervisor")) {
                 Supervisor newSupervisor = new Supervisor(userId, username, password, new java.util.ArrayList<>());
                 FileHandling.saveToSupervisor(newSupervisor, "supervisors.txt");
@@ -207,21 +216,22 @@ public class SystemAdminPortalGUI extends JFrame {
             logic.synchronizeGlobalLists();
             // If role changed, remove from old role file and add to new role file
             if (!oldRole.equals(newRole)) {
+                String originalUserId = userToEdit.getUserId();
                 switch (oldRole) {
                     case "Student" -> {
-                        logic.getStudents().removeIf(s -> s.getUserId().equals(newUserId));
+                        logic.getStudents().removeIf(s -> s.getUserId().equals(originalUserId));
                         FileHandling.saveAllStudents(logic.getStudents(), "students.txt");
                     }
                     case "Supervisor" -> {
-                        logic.getSupervisors().removeIf(s -> s.getUserId().equals(newUserId));
+                        logic.getSupervisors().removeIf(s -> s.getUserId().equals(originalUserId));
                         FileHandling.saveAllSupervisors(logic.getSupervisors(), "supervisors.txt");
                     }
                     case "FacultyAdmin" -> {
-                        logic.getFacultyAdmins().removeIf(f -> f.getUserId().equals(newUserId));
+                        logic.getFacultyAdmins().removeIf(f -> f.getUserId().equals(originalUserId));
                         FileHandling.saveAllFacultyAdmins(logic.getFacultyAdmins(), "facultyAdmin.txt");
                     }
                     case "SystemAdmin" -> {
-                        logic.getSystemAdmins().removeIf(s -> s.getUserId().equals(newUserId));
+                        logic.getSystemAdmins().removeIf(s -> s.getUserId().equals(originalUserId));
                         FileHandling.saveAllSystemAdmins(logic.getSystemAdmins(), "systemAdmin.txt");
                     }
                 }
