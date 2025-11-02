@@ -64,6 +64,8 @@ public class SupervisorPortalGUI extends JFrame {
         
         JButton viewAppointmentsBtn = new JButton("View Appointments");
         JButton viewAssignedStudentsBtn = new JButton("View Assigned Students");
+        JButton uploadTimeslotBtn = new JButton("Upload Timeslot");
+        JButton viewTimeslotsBtn = new JButton("View/Remove Timeslots");
         JButton logoutBtn = new JButton("Logout");
 
         viewAppointmentsBtn.addActionListener(_ -> {
@@ -72,6 +74,8 @@ public class SupervisorPortalGUI extends JFrame {
         });
 
         viewAssignedStudentsBtn.addActionListener(_ -> showAssignedStudentsDialog());
+        uploadTimeslotBtn.addActionListener(_ -> showUploadTimeslotDialog());
+        viewTimeslotsBtn.addActionListener(_ -> showViewTimeslotsDialog());
 
         logoutBtn.addActionListener(_ -> {
             dispose();
@@ -83,10 +87,88 @@ public class SupervisorPortalGUI extends JFrame {
         menuPanel.add(Box.createVerticalStrut(30), gbc);
         menuPanel.add(viewAppointmentsBtn, gbc);
         menuPanel.add(viewAssignedStudentsBtn, gbc);
+        menuPanel.add(uploadTimeslotBtn, gbc);
+        menuPanel.add(viewTimeslotsBtn, gbc);
         menuPanel.add(Box.createVerticalStrut(50), gbc);
         menuPanel.add(logoutBtn, gbc);
 
         mainPanel.add(menuPanel, "menu");
+    private void showUploadTimeslotDialog() {
+        JPanel panel = new JPanel(new GridLayout(0, 2));
+        panel.add(new JLabel("Date (yyyy-MM-dd):"));
+        JTextField dateField = new JTextField();
+        panel.add(dateField);
+        panel.add(new JLabel("Time (HH:mm):"));
+        JTextField timeField = new JTextField();
+        panel.add(timeField);
+
+        int result = JOptionPane.showConfirmDialog(this, panel, "Upload Timeslot", JOptionPane.OK_CANCEL_OPTION);
+        if (result == JOptionPane.OK_OPTION) {
+            String date = dateField.getText().trim();
+            String time = timeField.getText().trim();
+            if (date.isEmpty() || time.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Both date and time are required.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            String timeslot = currentSupervisor.getUsername() + "|" + date + " " + time;
+            try (java.io.FileWriter writer = new java.io.FileWriter("timeslots.txt", true)) {
+                writer.write(timeslot + "\n");
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "Error saving timeslot: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            JOptionPane.showMessageDialog(this, "Timeslot uploaded successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    private void showViewTimeslotsDialog() {
+        java.util.List<String> timeslots = new java.util.ArrayList<>();
+        try (java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.FileReader("timeslots.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.startsWith(currentSupervisor.getUsername() + "|")) {
+                    timeslots.add(line.substring(line.indexOf("|") + 1));
+                }
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error reading timeslots: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (timeslots.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No timeslots uploaded.", "Timeslots", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        JList<String> timeslotList = new JList<>(timeslots.toArray(new String[0]));
+        timeslotList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        JScrollPane scrollPane = new JScrollPane(timeslotList);
+        int result = JOptionPane.showConfirmDialog(this, scrollPane, "Your Timeslots (Select to Remove)", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        if (result == JOptionPane.OK_OPTION) {
+            int selected = timeslotList.getSelectedIndex();
+            if (selected >= 0) {
+                String toRemove = currentSupervisor.getUsername() + "|" + timeslots.get(selected);
+                // Remove from file
+                java.util.List<String> allLines = new java.util.ArrayList<>();
+                try (java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.FileReader("timeslots.txt"))) {
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        if (!line.equals(toRemove)) {
+                            allLines.add(line);
+                        }
+                    }
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(this, "Error updating timeslots: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                try (java.io.FileWriter writer = new java.io.FileWriter("timeslots.txt", false)) {
+                    for (String l : allLines) writer.write(l + "\n");
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(this, "Error updating timeslots: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                JOptionPane.showMessageDialog(this, "Timeslot removed successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+    }
     private void showAssignedStudentsDialog() {
         List<String> students = currentSupervisor.getStudent();
         StringBuilder sb = new StringBuilder();
